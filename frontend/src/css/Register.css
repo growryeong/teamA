@@ -1,0 +1,155 @@
+.top-line {
+    margin: 15px;
+    background-color: #6ad16f;
+    height: 1px;
+    border: 0px;
+}
+
+.register hr {
+    margin: 1px;
+    height: 1.5px;
+    border: 0;
+    background-color: rgb(183, 183, 183);
+}
+
+.register-container {
+    position: relative;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register {
+    width: 400px;
+    /* 가로 크기 고정 */
+    height: 600px;
+    /* 세로 크기 고정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 40px;
+    background-color: #FBFFEE;
+    border: 2px solid #00dc3e;
+}
+
+.register h2 {
+    font-size: 35px;
+    color: #015719;
+    margin-top: -10px;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.register form p {
+    margin-top: 0;
+}
+
+.register form input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid #00dc3e;
+}
+
+.register-submit {
+    padding: 5px;
+    width: 40%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.register-submit:hover {
+    background-color: #45a049;
+}
+
+.form-field {
+    width: 100%;
+    margin-bottom: 20px;
+    /* 입력 필드 간 간격 */
+}
+
+.form-field p {
+    margin: 0;
+    padding: 0;
+    padding-left: 7px;
+    /* 왼쪽에 약간의 여백 추가 */
+    font-size: 20px;
+    font-weight: bolder;
+    color: #00a52f;
+    line-height: 1.2;
+    text-align: left;
+    /* 왼쪽 정렬 */
+}
+
+.form-field input {
+    width: 100%;
+    padding: 10px;
+    /* 입력 필드 내부 여백 */
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.already-container {
+    position: relative;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 15px 15px;
+    /* 상단 패딩을 더 추가 */
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+}
+
+.already {
+    width: 400px;
+    /* 가로 크기 고정 */
+    height: 40px;
+    /* 세로 크기 고정 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding-top: 25px;
+    padding-bottom: 83px;
+    background-color: #FBFFEE;
+    border: 2px solid #00dc3e;
+    margin-top: 20px;
+
+}
+
+.text {
+    display: inline;
+    font-size: 25px;
+    color: #018527;
+
+}
+
+.mainmove {
+    display: inline;
+    font-size: 20px;
+    color: rgb(114, 114, 250);
+    margin-left: 15px;
+}
+
+.mainmove:hover {
+    color: rgb(80, 80, 250);
+    text-decoration: underline;
+}

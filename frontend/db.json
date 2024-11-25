@@ -1,0 +1,91 @@
+{
+    "challenges": [
+        {
+            "type": "exercise",
+            "title": "운동 챌린지",
+            "icon": "Dumbbell",
+            "tasks": [
+                "30분 달리기",
+                "50개 스쿼트",
+                "30개 푸시업",
+                "15분 플랭크",
+                "1시간 걷기"
+            ],
+            "id": "0acd"
+        },
+        {
+            "type": "hobby",
+            "title": "취미 챌린지",
+            "icon": "Timer",
+            "tasks": [
+                "그림 그리기",
+                "악기 연습",
+                "사진 촬영",
+                "요리하기",
+                "정원 가꾸기"
+            ],
+            "id": "54e6"
+        },
+        {
+            "type": "study",
+            "title": "공부 챌린지",
+            "icon": "Book",
+            "tasks": [
+                "영어 단어 50개",
+                "책 30페이지 읽기",
+                "코딩 1시간",
+                "수학 문제 10개",
+                "새로운 언어 공부"
+            ],
+            "id": "67af"
+        }
+    ],
+    "durations": [
+        {
+            "id": "1",
+            "value": 30
+        },
+        {
+            "id": "2",
+            "value": 66
+        },
+        {
+            "id": "3",
+            "value": 100
+        }
+    ],
+    "userChallenges": [
+        {
+            "id": "26c2",
+            "challengeType": "exercise",
+            "challengeTitle": "운동 챌린지",
+            "duration": 30,
+            "startDate": "2024-11-25",
+            "status": "in_progress"
+        },
+        {
+            "id": "f89e",
+            "challengeType": "hobby",
+            "challengeTitle": "취미 챌린지",
+            "duration": 30,
+            "startDate": "2024-11-25",
+            "status": "in_progress"
+        }
+    ],
+    "notices": [
+        {
+            "id": "1",
+            "title": "서비스 이용약관 변경",
+            "content": "새로운 서비스 이용약관이 적용됩니다.",
+            "author": "관리자",
+            "date": "2024-02-19"
+        },
+        {
+            "id": "2",
+            "title": "서버 점검 안내",
+            "content": "서버 점검이 2024년 2월 20일 진행됩니다.",
+            "author": "관리자",
+            "date": "2024-02-18"
+        }
+    ]
+}
