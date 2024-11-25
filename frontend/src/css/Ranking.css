@@ -1,0 +1,42 @@
+.ranking-container {
+    position: absolute;
+    background-color: #FBFFEE;
+    right: 0;
+    border: 2px solid #00B031;
+    border-radius: 6px;
+    z-index: 1000;
+    /* padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;*/
+    margin-top: 442px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* 그림자 추가 */
+    width: 272px;
+    height: 150px;
+}
+
+.ranking-container h3 {
+    color: #267004;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.rankbox {
+    border: 2px solid #00B031;
+    border-radius: 5px;
+    background-color: #fdfefa;
+    margin: 10px 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.rankbox p {
+    color: #277005;
+    text-align: center;
+}
+
+.rank {
+    font-weight: bolder;
+    color: #205407;
+}

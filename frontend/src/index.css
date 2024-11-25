@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Gaegu:wght@300;400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Quicksand", sans-serif;
+  line-height: 1.5;
+}
+
+/* 커스텀 CSS */
+.challenge-card {
+  background-color: rgb(220 252 231);
+  /* bg-green-100 */
+  padding: 1.5rem;
+  /* p-6 */
+  border-radius: 0.75rem;
+  /* rounded-xl */
+  text-align: center;
+  transition-property: transform;
+  transition-duration: 200ms;
+}
+
+.challenge-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.btn-primary {
+  background-color: rgb(74 222 128);
+  /* bg-green-400 */
+  color: white;
+  padding: 0.5rem 1.5rem;
+  /* px-6 py-2 */
+  border-radius: 9999px;
+  /* rounded-full */
+  transition-property: background-color;
+  transition-duration: 200ms;
+}
+
+.btn-primary:hover {
+  background-color: rgb(34 197 94);
+  /* bg-green-500 */
+}
+
+.btn-secondary {
+  background-color: white;
+  color: rgb(22 163 74);
+  /* text-green-600 */
+  padding: 0.5rem 1rem;
+  /* px-4 py-2 */
+  border-radius: 9999px;
+  transition-property: background-color;
+  transition-duration: 200ms;
+}
+
+.btn-secondary:hover {
+  background-color: rgb(240 253 244);
+  /* bg-green-50 */
+}
+
+body {
+  background-color: rgb(240 253 244);
+  /* bg-green-50 */
+}
+
+.logo-text {
+  background: linear-gradient(45deg, #4CAF50, #81C784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.community-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition-property: box-shadow;
+  transition-duration: 200ms;
+}
+
+.community-card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
