@@ -33,6 +33,7 @@
 }
 
 .dropdown-content {
+    width: 273px;
     position: absolute;
     background-color: #FBFFEE;
     right: 0;

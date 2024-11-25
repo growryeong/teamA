@@ -5,9 +5,9 @@ const Ranking = ({ username }) => {
 
     return (
         <div className='ranking-container'>
-            <h3>진행중인 챌린지 랭킹</h3>
+            <h3>챌린지 진행률</h3>
             <div className='rankbox'>
-                <p>{username}님은 현재 <span className='rank'>3위</span>입니다!</p>
+                <p>현재 <span className='rank'>80%</span>입니다!</p>{/* score */}
             </div>
         </div>
     );

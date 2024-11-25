@@ -8,10 +8,10 @@
     /* padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 50px;*/
-    margin-top: 442px;
+    margin-top: 350px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     /* 그림자 추가 */
-    width: 272px;
+    width: 273px;
     height: 150px;
 }
 
@@ -26,7 +26,7 @@
     border: 2px solid #00B031;
     border-radius: 5px;
     background-color: #fdfefa;
-    margin: 10px 10px;
+    margin: 17px 17px;
     padding-top: 10px;
     padding-bottom: 10px;
 }

@@ -13,7 +13,7 @@ import Community from './components/Community.jsx';
 import Mgmt from './components/Mgmt.jsx';
 import Header from './components/Header.jsx'
 import NoticeDetail from './components/NoticeDetail.jsx';
-
+import DetailPage from './components/DetailPage.jsx';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/mgmt" element={<Mgmt />} />
           <Route path="/notices/:id" element={<NoticeDetail />} />
+          <Route path="/detailpage" element={<DetailPage />} />
         </Routes>
       </main>
     </Router>

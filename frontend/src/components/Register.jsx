@@ -12,11 +12,19 @@ const Register = () => {
                 <div className='register'>
                     <h2>회원가입</h2>
                     <form>
+                        {/* 아이디 입력 */}
                         <div className="form-field">
                             <p>아이디</p>
-                            <input type='text' id='id' />
+                            <input type='text' id='user_id' />
                             <hr />
                         </div>
+                        {/* 이메일 입력 */}
+                        <div className="form-field">
+                            <p>이메일</p>
+                            <input type='email' id='email' />
+                            <hr />
+                        </div>
+                        {/* 비밀번호 입력 */}
                         <div className="form-field">
                             <p>비밀번호</p>
                             <input type='password' id='password' />
@@ -24,10 +32,12 @@ const Register = () => {
                             <input type='password' id='password_check' />
                             <hr />
                         </div>
+                        {/* 유저이름 입력 */}
                         <div className="form-field">
                             <p>이름</p>
                             <input type='text' id='username' />
                         </div>
+                        {/* 가입버튼 */}
                         <button type="submit" className='register-submit'>가입하기</button>
                     </form>
                 </div>
@@ -35,7 +45,6 @@ const Register = () => {
             <div className='already-container'>
                 <div className='already'>
                     <h2 className='text'>계정이 있으신가요?</h2>
-                    <p></p>
                     <h2 onClick={() => navigate('/')} className='mainmove'>메인으로</h2>
                 </div>
             </div>

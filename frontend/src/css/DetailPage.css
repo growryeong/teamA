@@ -1,0 +1,90 @@
+.dp-hr {
+    border: 0;
+    height: 3px;
+    background-color: #00a930;
+    margin-bottom: 30px;
+}
+
+.dp-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #00561a;
+    text-align: center;
+}
+
+.dp-created {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.dp-content {
+    border: 2px solid #00561a;
+    border-radius: 7px;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    height: 150px;
+}
+
+.join {
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 6px;
+    color: white;
+    background-color: #00C236;
+    border: 0;
+    border-radius: 6px;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.comment {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.create-comment input {
+    width: 100%;
+    border: 2px solid #00561a;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.create-comment button {
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 6px;
+    color: white;
+    background-color: #00C236;
+    border: 0;
+    border-radius: 6px;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.create-comment {
+    margin-bottom: 30px;
+}
+
+.comment-table {
+    border: 2px solid #00561a;
+    border-radius: 7px;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.comment-list h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
