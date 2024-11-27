@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 공지사항 목록은 notices 상태에 저장, 화면에 표시
 사용자가 특정 공지사항 클릭하면 해당 ID를 기반으로 /api/notices/{id} API 호출해 상세 정보 가져옴
 상세정보는 selectedNotice 상태에 저장, 화면에 표시
+ww
 */
 const NoticeBoard = () => {
     const [notices, setNotices] = useState([]); // 공지사항 목록
