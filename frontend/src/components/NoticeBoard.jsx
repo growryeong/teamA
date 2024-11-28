@@ -53,7 +53,7 @@ const NoticeBoard = () => {
                         <span>{notice.id}</span>
                         <span>{notice.title}</span>
                         <span>{notice.author}</span>
-                        <span>{notice.date}</span>
+                        <span>{notice.timestamp}</span>
                     </div>
                 ))}
             </div>
