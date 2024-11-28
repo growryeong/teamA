@@ -87,5 +87,15 @@
             "author": "관리자",
             "date": "2024-02-18"
         }
+    ],
+    "userChallenges": [
+        {
+            "username": "user1",
+            "progress": 80
+        },
+        {
+            "username": "user2",
+            "progress": 60
+        }
     ]
 }
