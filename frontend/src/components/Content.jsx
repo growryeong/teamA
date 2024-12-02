@@ -12,7 +12,7 @@ function Content({ selectedCategory }) {
   // Spring Boot에서 데이터 가져오기
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/posts")
+      .get("http://localhost:3001/communityPosts")
       .then((response) => {
         setPosts(response.data); // 전체 게시글 데이터 저장
         setFilteredPosts(response.data); // 초기값으로 전체 데이터 표시

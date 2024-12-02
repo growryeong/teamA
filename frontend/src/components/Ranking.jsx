@@ -1,43 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext, useEffect } from 'react';
+import { AuthContext } from './AuthContext';
 import '../css/Ranking.css';
 
-const Ranking = ({ username }) => {
-    const [progress, setProgress] = useState(null); // 진행률
-    const [error, setError] = useState(null); // 에러 처리
+const Ranking = () => {
+    const { auth, startChallenge } = useContext(AuthContext); // AuthContext에서 로그인 정보와 상태 관리 함수 가져오기
 
-    // Spring Boot API 호출
     useEffect(() => {
-        const fetchRanking = async () => {
-            try {
-                const response = await axios.get(`http://localhost:3001/userChallenges?username=${username}`);
-                if (response.data.length > 0) {
-                    const userData = response.data[0];
-                    setProgress(userData.progress); // 진행률 저장
-                } else {
-                    setError("사용자 데이터를 찾을 수 없습니다.");
-                }
-            } catch (err) {
-                console.error("데이터를 가져오는 중 오류 발생:", err);
-            }
-        };
+        if (!auth.startedChallenge) {
+            console.warn("진행 중인 챌린지가 없습니다.");
+            return;
+        }
 
-        fetchRanking();
-    }, [username]);
-
-    // 에러 처리
-    if (error) return <div className="error">{error}</div>;
+        // 여기서 서버에서 추가 데이터를 가져오거나, 로직을 확장할 수 있습니다.
+        console.log("현재 진행 중인 챌린지:", auth.startedChallenge);
+    }, [auth.startedChallenge]);
 
     return (
         <div className='ranking-container'>
             <h3>챌린지 진행률</h3>
             <div className='rankbox'>
-                {progress !== null ? (
+                {auth.startedChallenge ? (
                     <p>
-                        현재 진행률은 <span className='rank'>{progress}%</span>입니다!
+                        현재 진행 중인 챌린지는 <br /> <span className='rank'>{auth.startedChallenge.challengeTitle}</span>입니다<br />
+                        기간: {auth.startedChallenge.duration}일<br />
+                        시작일: {auth.startedChallenge.startDate}<br />
+                        진행률: <span className='rank'>{auth.startedChallenge.progress || 0}%</span>
                     </p>
                 ) : (
-                    <p>로딩 중...</p>
+                    <p>진행 중인 챌린지가 없습니다.</p>
                 )}
             </div>
         </div>

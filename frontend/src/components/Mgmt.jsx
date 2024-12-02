@@ -14,22 +14,29 @@ const Mgmt = () => {
 
   // 사용자 정보와 진행 중인 챌린지 목록 가져오기
   useEffect(() => {
-    // 진행 중인 챌린지 목록 가져오기
-    axios
-      .get(`http://localhost:8080/api/user/${auth.user_id}/challenges`)
-      .then((response) => {
-        setChallenges(response.data); // 진행 중인 챌린지 목록 업데이트
-      })
-      .catch((error) => {
+    // 진행 중 챌린지 가져오기
+    const fetchChallenges = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/userChallenges?user_id=${auth.user_id}`);
+        setChallenges(response.data);
+      } catch (error) {
         console.error("챌린지 목록 로드 중 오류:", error);
-      });
+      }
+    };
+  
+    fetchChallenges();
   }, [auth.user_id]);
+
+  // 진행 중 챌린지 표시
+  const displayedChallenges = auth.startedChallenge
+  ? [auth.startedChallenge, ...challenges]
+  : challenges;
 
   // 비밀번호 변경 요청
   const handlePasswordChange = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:8080/api/user/${auth.user_id}/change-password`, { password })
+      .post(`http://localhost:3001/${auth.user_id}/change-password`, { password })
       .then(() => {
         alert("비밀번호가 성공적으로 변경되었습니다.");
         setPassword(''); // 입력 필드 초기화
@@ -44,7 +51,7 @@ const Mgmt = () => {
   const handleEmailChange = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:8080/api/user/${auth.user_id}/change-email`, { email: newEmail })
+      .post(`http://localhost:3001/${auth.user_id}/change-email`, { email: newEmail })
       .then(() => {
         alert("이메일이 성공적으로 변경되었습니다.");
         setNewEmail(''); // 입력 필드 초기화
@@ -107,15 +114,15 @@ const Mgmt = () => {
       {/* 진행 중인 챌린지 목록 */}
       <div className='mychallenge'>
         <div className='mychallenge-list'>
-          <h3>진행중인 챌린지 목록</h3>
-          {challenges.length > 0 ? (
-            challenges.map((challenge) => (
-              <p key={challenge.challenge_id}>
-                {challenge.title} ({challenge.progress}%)
-              </p>
-            ))
-          ) : (
-            <p>진행 중인 챌린지가 없습니다.</p>
+        <h3>진행 중인 챌린지 목록</h3>
+    {displayedChallenges.length > 0 ? (
+      displayedChallenges.map((challenge, index) => (
+        <p key={challenge.id || index}>
+          {challenge.challengeTitle} ({challenge.duration}일) - 시작일: {challenge.startDate}
+        </p>
+      ))
+    ) : (
+      <p>진행 중인 챌린지가 없습니다.</p>
           )}
         </div>
       </div>

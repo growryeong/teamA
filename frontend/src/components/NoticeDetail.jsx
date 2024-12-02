@@ -38,7 +38,7 @@ const NoticeDetail = () => {
                         <strong>작성자:</strong> {notice.author}
                     </p>
                     <p className="text-gray-600 mb-4">
-                        <strong>작성일:</strong> {notice.date}
+                        <strong>작성일:</strong> {notice.timestamp}
                     </p>
                     <hr className="my-4" />
                     <p>{notice.content}</p>

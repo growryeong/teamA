@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios'
 import { Card, CardContent, CardHeader, CardTitle, Button, Badge } from './ui';
 import { Timer, Book, Dumbbell } from 'lucide-react';
+import { AuthContext } from './AuthContext.jsx'; // AuthContext 가져오기
+
 
 /**
+ 챌린지를 선택하고 '시작하기' 버튼을 누르면 선택된 챌린지를 전역 상태로 저장
  -----------------------------
  컴포넌트가 렌더링되면 useEffect를 통해 서버에서 챌린지 데이터 가져옴
  데이터 받아서 challenges 상태에 저장하고 로딩 상태 해제 
@@ -29,7 +32,8 @@ const ChallengeDetail = () => {
   const [duration, setDuration] = useState(null); // 랜덤 기간 설정
   const [loading, setLoading] = useState(true); // 로딩 상태
   const [error, setError] = useState(null); // 에러 상태
-
+  const { startChallenge } = useContext(AuthContext); // AuthContext에서 전역 상태 관리 함수 가져오기
+  const { auth } = useContext(AuthContext); // 로그인 정보 가져오기
 
 
   // 아이콘 맵핑
@@ -83,24 +87,33 @@ const ChallengeDetail = () => {
     return tasks[Math.floor(Math.random() * tasks.length)];
   };
 
-  // 시작하기 버튼 클릭 시 데이터 저장
+  // 시작하기 버튼 클릭 시 전역 상태에 저장
   const handleStartChallenge = async () => {
     if (selectedChallenge && duration) {
-      const userChallenge = {
+      const challengeData = {
         challengeType: selectedChallenge.type,
         challengeTitle: selectedChallenge.title,
-        duration: duration,
-        startDate: new Date().toISOString().split("T")[0], // 현재 날짜
-        status: "in_progress", // 초기 상태
+        duration,
+        startDate: new Date().toISOString().split("T")[0],
+        status: "in_progress",
       };
-
+  
       try {
-        await axios.post("http://localhost:3001/userChallenges", userChallenge); // 데이터 저장
-        alert("챌린지가 성공적으로 저장되었습니다!");
+        // 데이터 저장
+        await axios.post(`http://localhost:3001/userChallenges`, {
+          user_id: auth.user_id,
+          ...challengeData,
+        });
+  
+        // authcontext에 저장
+        startChallenge(challengeData);
+        alert("챌린지가 저장되었습니다!");
       } catch (error) {
-        console.error("챌린지를 저장하는 중 오류가 발생했습니다:", error);
+        console.error("챌린지 저장 중 오류:", error);
         alert("챌린지 저장에 실패했습니다.");
       }
+    } else {
+      alert("챌린지를 선택해주세요.");
     }
   };
 

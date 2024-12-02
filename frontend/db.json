@@ -1,177 +1,244 @@
 {
-    "challenges": [
-        {
-            "type": "exercise",
-            "title": "운동 챌린지",
-            "icon": "Dumbbell",
-            "tasks": [
-                "30분 달리기",
-                "50개 스쿼트",
-                "30개 푸시업",
-                "15분 플랭크",
-                "1시간 걷기"
-            ],
-            "id": "0acd"
-        },
-        {
-            "type": "hobby",
-            "title": "취미 챌린지",
-            "icon": "Timer",
-            "tasks": [
-                "그림 그리기",
-                "악기 연습",
-                "사진 촬영",
-                "요리하기",
-                "정원 가꾸기"
-            ],
-            "id": "54e6"
-        },
-        {
-            "type": "study",
-            "title": "공부 챌린지",
-            "icon": "Book",
-            "tasks": [
-                "영어 단어 50개",
-                "책 30페이지 읽기",
-                "코딩 1시간",
-                "수학 문제 10개",
-                "새로운 언어 공부"
-            ],
-            "id": "67af"
-        }
-    ],
-    "durations": [
-        {
-            "id": "1",
-            "value": 30
-        },
-        {
-            "id": "2",
-            "value": 66
-        },
-        {
-            "id": "3",
-            "value": 100
-        }
-    ],
-    "userChallenges": [
-        {
-            "id": "26c2",
-            "challengeType": "exercise",
-            "challengeTitle": "운동 챌린지",
-            "duration": 30,
-            "startDate": "2024-11-25",
-            "status": "in_progress"
-        },
-        {
-            "id": "f89e",
-            "challengeType": "hobby",
-            "challengeTitle": "취미 챌린지",
-            "duration": 30,
-            "startDate": "2024-11-25",
-            "status": "in_progress"
-        }
-    ],
-    "notices": [
-        {
-            "id": "1",
-            "title": "서비스 이용약관 변경",
-            "content": "새로운 서비스 이용약관이 적용됩니다.",
-            "author": "관리자",
-            "timestamp": "2024-02-19"
-        },
-        {
-            "id": "2",
-            "title": "서버 점검 안내",
-            "content": "서버 점검이 2024년 2월 20일 진행됩니다.",
-            "author": "관리자",
-            "timestamp": "2024-02-18"
-        }
-    ],
-    "users": [
-        {
-            "id": "user1",
-            "username": "user1",
-            "email": "user1@example.com",
-            "password": "password1"
-        },
-        {
-            "id": "user2",
-            "username": "user2",
-            "email": "user2@example.com",
-            "password": "password2"
-        },
-        {
-            "id": "user3",
-            "username": "user3",
-            "email": "user3@example.com",
-            "password": "password3"
-        }
-    ],
-    "admins": [
-        {
-            "id": "admin1",
-            "username": "admin",
-            "email": "admin@example.com",
-            "password": "admin123"
-        }
-    ],
-    "communityPosts": [
-        {
-            "id": "1",
-            "title": "운동 챌린지 같이 하실 분!",
-            "content": "운동 챌린지 시작했어요. 함께 참여할 분들 모집합니다!",
-            "author": "user1",
-            "timestamp": "2024-11-22",
-            "duration": "30일",
-            "type": "exercise",
-            "views": 150,
-            "likes": 20
-        },
-        {
-            "id": "2",
-            "title": "취미 챌린지 팁 공유",
-            "content": "취미 챌린지 하면서 요리 팁 공유해요!",
-            "author": "user2",
-            "timestamp": "2024-11-22",
-            "duration": "66일",
-            "type": "hobby",
-            "views": 80,
-            "likes": 10
-        },
-        {
-            "id": "3",
-            "title": "공부 챌린지 후기",
-            "content": "영어 단어 50개 외우기 성공! 다음 목표는 코딩입니다.",
-            "author": "user3",
-            "timestamp": "2024-11-22",
-            "duration": "100일",
-            "type": "study",
-            "views": 50,
-            "likes": 5
-        }
-    ],
-    "communityComments": [
-        {
-            "id": "1",
-            "postId": "1",
-            "author": "user2",
-            "content": "저도 참여하고 싶어요! 어떻게 하면 되나요?",
-            "timestamp": "2024-11-22"
-        },
-        {
-            "id": "2",
-            "postId": "2",
-            "author": "user3",
-            "content": "요리 팁 감사합니다. 정말 도움됐어요!",
-            "timestamp": "2024-11-22"
-        },
-        {
-            "id": "3",
-            "postId": "3",
-            "author": "user1",
-            "content": "축하드립니다! 코딩도 꼭 성공하세요!",
-            "timestamp": "2024-11-22"
-        }
-    ]
+  "challenges": [
+    {
+      "type": "exercise",
+      "title": "운동 챌린지",
+      "icon": "Dumbbell",
+      "tasks": [
+        "30분 달리기",
+        "50개 스쿼트",
+        "30개 푸시업",
+        "15분 플랭크",
+        "1시간 걷기"
+      ],
+      "id": "0acd"
+    },
+    {
+      "type": "hobby",
+      "title": "취미 챌린지",
+      "icon": "Timer",
+      "tasks": [
+        "그림 그리기",
+        "악기 연습",
+        "사진 촬영",
+        "요리하기",
+        "정원 가꾸기"
+      ],
+      "id": "54e6"
+    },
+    {
+      "type": "study",
+      "title": "공부 챌린지",
+      "icon": "Book",
+      "tasks": [
+        "영어 단어 50개",
+        "책 30페이지 읽기",
+        "코딩 1시간",
+        "수학 문제 10개",
+        "새로운 언어 공부"
+      ],
+      "id": "67af"
+    }
+  ],
+  "durations": [
+    {
+      "id": "1",
+      "value": 30
+    },
+    {
+      "id": "2",
+      "value": 66
+    },
+    {
+      "id": "3",
+      "value": 100
+    }
+  ],
+  "userChallenges": [
+    {
+      "id": "26c2",
+      "challengeType": "exercise",
+      "challengeTitle": "운동 챌린지",
+      "duration": 30,
+      "startDate": "2024-11-25",
+      "status": "in_progress"
+    },
+    {
+      "id": "f89e",
+      "challengeType": "hobby",
+      "challengeTitle": "취미 챌린지",
+      "duration": 30,
+      "startDate": "2024-11-25",
+      "status": "in_progress"
+    },
+    {
+      "id": "7235",
+      "challengeType": "hobby",
+      "challengeTitle": "취미 챌린지",
+      "duration": 100,
+      "startDate": "2024-12-02",
+      "status": "in_progress"
+    }
+  ],
+  "notices": [
+    {
+      "id": "1",
+      "title": "서비스 이용약관 변경",
+      "content": "새로운 서비스 이용약관이 적용됩니다.",
+      "author": "관리자",
+      "timestamp": "2024-02-19"
+    },
+    {
+      "id": "2",
+      "title": "서버 점검 안내",
+      "content": "서버 점검이 2024년 2월 20일 진행됩니다.",
+      "author": "관리자",
+      "timestamp": "2024-02-18"
+    }
+  ],
+  "users": [
+    {
+      "id": "user1",
+      "username": "user1",
+      "email": "user1@example.com",
+      "password": "password1"
+    },
+    {
+      "id": "user2",
+      "username": "user2",
+      "email": "user2@example.com",
+      "password": "password2"
+    },
+    {
+      "id": "user3",
+      "username": "user3",
+      "email": "user3@example.com",
+      "password": "password3"
+    },
+    {
+      "id": "d7c9",
+      "username": "user1",
+      "password": "ds"
+    },
+    {
+      "id": "0f39",
+      "username": "user1",
+      "password": "dd"
+    },
+    {
+      "id": "b57c",
+      "username": "user1",
+      "password": "dd"
+    },
+    {
+      "id": "d48a",
+      "username": "user1",
+      "password": "dd"
+    },
+    {
+      "id": "8883",
+      "username": "user1",
+      "password": "dd"
+    },
+    {
+      "id": "8a64",
+      "username": "user1",
+      "password": "dd"
+    },
+    {
+      "id": "b35a",
+      "username": "user1",
+      "password": "dd"
+    },
+    {
+      "id": "11b3",
+      "username": "user1",
+      "password": "password1"
+    },
+    {
+      "id": "d15f",
+      "username": "user1",
+      "password": "password1"
+    },
+    {
+      "id": "4374",
+      "username": "user1",
+      "password": "password1"
+    }
+  ],
+  "admins": [
+    {
+      "id": "admin1",
+      "username": "admin",
+      "email": "admin@example.com",
+      "password": "admin123"
+    }
+  ],
+  "communityPosts": [
+    {
+      "id": "1",
+      "title": "운동 챌린지 같이 하실 분!",
+      "content": "운동 챌린지 시작했어요. 함께 참여할 분들 모집합니다!",
+      "author": "user1",
+      "timestamp": "2024-11-22",
+      "duration": "30일",
+      "type": "exercise",
+      "views": 150,
+      "likes": 20
+    },
+    {
+      "id": "2",
+      "title": "취미 챌린지 팁 공유",
+      "content": "취미 챌린지 하면서 요리 팁 공유해요!",
+      "author": "user2",
+      "timestamp": "2024-11-22",
+      "duration": "66일",
+      "type": "hobby",
+      "views": 80,
+      "likes": 10
+    },
+    {
+      "id": "3",
+      "title": "공부 챌린지 후기",
+      "content": "영어 단어 50개 외우기 성공! 다음 목표는 코딩입니다.",
+      "author": "user3",
+      "timestamp": "2024-11-22",
+      "duration": "100일",
+      "type": "study",
+      "views": 50,
+      "likes": 5
+    },
+    {
+      "id": "1733127899312",
+      "title": "ㅇ",
+      "content": "ㅇ",
+      "author": "user1",
+      "timestamp": "2024-12-02",
+      "duration": "30일",
+      "type": "exercise"
+    }
+  ],
+  "communityComments": [
+    {
+      "id": "1",
+      "postId": "1",
+      "author": "user2",
+      "content": "저도 참여하고 싶어요! 어떻게 하면 되나요?",
+      "timestamp": "2024-11-22"
+    },
+    {
+      "id": "2",
+      "postId": "2",
+      "author": "user3",
+      "content": "요리 팁 감사합니다. 정말 도움됐어요!",
+      "timestamp": "2024-11-22"
+    },
+    {
+      "id": "3",
+      "postId": "3",
+      "author": "user1",
+      "content": "축하드립니다! 코딩도 꼭 성공하세요!",
+      "timestamp": "2024-11-22"
+    }
+  ]
 }

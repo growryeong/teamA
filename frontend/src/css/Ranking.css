@@ -8,11 +8,11 @@
     /* padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 50px;*/
-    margin-top: 350px;
+    margin-top: 320px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     /* 그림자 추가 */
     width: 273px;
-    height: 150px;
+    height: 250px;
 }
 
 .ranking-container h3 {

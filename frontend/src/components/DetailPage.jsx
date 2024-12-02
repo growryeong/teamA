@@ -13,21 +13,14 @@ const DetailPage = () => {
     useEffect(() => {
         // 게시글 데이터 가져오기
         axios.get(`http://localhost:3001/communityPosts/${id}`)
-            .then((response) => {
-                setPost(response.data); // 게시글 데이터 저장
-            })
-            .catch((error) => {
-                console.error("게시글 로드 중 오류 발생:", error);
-            });
+      .then((response) => setPost(response.data))
+      .catch((error) => console.error('게시글 로드 중 오류:', error));
+
 
         // 댓글 데이터 가져오기
-        axios.get(`http://localhost:3001/communityComments/${id}`)
-            .then((response) => {
-                setComments(response.data); // 댓글 데이터 저장
-            })
-            .catch((error) => {
-                console.error("댓글 로드 중 오류 발생:", error);
-            });
+        axios.get(`http://localhost:3001/communityComments?postId=${id}`)
+            .then((response) => setComments(response.data)) // 댓글 데이터 저장
+            .catch((error) => console.error("댓글 로드 중 오류 발생:", error));
     }, [id]);
 
     // 댓글 작성
@@ -35,7 +28,8 @@ const DetailPage = () => {
         event.preventDefault(); // 폼 제출 기본 동작 방지
         const commentData = {
             id: "guest", // 예시: 사용자 ID (로그인 시스템이 있다면 유동적으로 변경)
-            content: newComment
+            content: newComment,
+            timestamp: new Date().toISOString(), // 댓글 작성 시간 추가
         };
 
         axios.post("http://localhost:3001/communityComments", commentData)

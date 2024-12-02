@@ -44,7 +44,7 @@ const Register = () => {
             name: formData.username
         };
 
-        axios.post('http://localhost:8080/api/auth/register', requestData)
+        axios.post('http://localhost:3001/user', requestData)
             .then((response) => {
                 alert('회원가입 성공!');
                 navigate('/'); // 회원가입 성공 시 메인으로 이동

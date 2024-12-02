@@ -5,7 +5,10 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
 import '../css/Header.css';
 
+
+
 function Header() {
+
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false); // 메뉴 상태 관리
 

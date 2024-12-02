@@ -24,7 +24,7 @@ const LoginDropdown = () => {
 
         const loginData = { username, password };
 
-        axios.post("http://localhost:8080/api/auth/login", loginData)
+        axios.post("http://localhost:3001/users", loginData)
             .then((response) => {
                 const userData = response.data; // 서버에서 반환된 사용자 데이터
                 login(userData); // Context의 로그인 함수 호출
