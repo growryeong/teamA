@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../css/LoginDropdown.css';
 import Ranking from './Ranking.jsx';
@@ -11,22 +12,45 @@ const LoginDropdown = () => {
     const [username, setUsername] = useState(''); // 사용자 이름 상태
     const [password, setPassword] = useState(''); // 비밀번호 상태
     const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 여부 상태
+    const [email, setEmail] = useState(''); // 사용자 이메일
+    const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태
 
     // 드롭다운 토글 함수
     const toggleDropdown = () => {
         setIsOpen(!isOpen); // 드롭다운 상태를 반전
     };
 
-    // 로그인 처리 함수 (DB연결 후 수정필요)
+    // 로그인 처리 함수
     const handleSubmit = (e) => {
         e.preventDefault(); // 폼의 기본 제출 동작 방지
-        setIsLoggedIn(true); // 로그인 상태로 전환
-        setIsOpen(false); // 드롭다운 닫기
+
+        const loginData = {
+            username,
+            password
+        };
+
+        axios.post("http://localhost:3001/users", loginData)
+            .then((response) => {
+                const { email, username } = response.data;
+                setEmail(email);
+                setUsername(username);
+                setIsLoggedIn(true); // 로그인 상태로 전환
+                setErrorMessage(''); // 에러 메시지 초기화
+                setIsOpen(false); // 드롭다운 닫기
+            })
+            .catch((error) => {
+                setErrorMessage("아이디 또는 비밀번호가 올바르지 않습니다.");
+                console.error("로그인 오류:", error);
+            });
     };
 
-    // 로그아웃 처리 함수 (DB연결 후 수정 필요)
+    // 로그아웃 처리 함수
     const handleLogout = () => {
         setIsLoggedIn(false); // 로그아웃 상태로 전환
+        setUsername('');
+        setPassword('');
+        setEmail('');
+        setErrorMessage('');
         setIsOpen(false); // 드롭다운 닫기
         navigate('/'); // MainPage.jsx로 이동
     };
@@ -49,7 +73,6 @@ const LoginDropdown = () => {
                                     placeholder='아이디'
                                     id="user_id"
                                     value={username}
-                                    onChange={(e) => setUsername(e.target.value)} // 사용자 이름 업데이트
                                     required
                                 />
                                 {/* 비밀번호 입력 필드 */}
@@ -58,16 +81,17 @@ const LoginDropdown = () => {
                                     placeholder='비밀번호'
                                     id="password"
                                     value={password}
-                                    onChange={(e) => setPassword(e.target.value)} // 비밀번호 업데이트
                                     required
                                 />
+                                {/* 에러 메시지 표시 */}
+                                {errorMessage && <p className="error-message">{errorMessage}</p>}
                                 {/* 로그인 버튼 */}
                                 <button type="submit" className='login-submit'>로그인</button>
                             </form>
                         </div>
                     ) : ( // 로그인 후 상태
                         <div className='login-after'>
-                            <p>test123@eamil.com</p> {/* email이 표시될 부분 */}
+                            <p>{email}</p> {/* email 표시 */}
                             <h2>안녕하세요 <br /> {username}님.</h2>
 
                             {/* 계정 관리 버튼 */}
@@ -78,16 +102,6 @@ const LoginDropdown = () => {
                             {/* 로그아웃 버튼 */}
                             <div className='btn-after-bottom'>
                                 <button onClick={handleLogout}>로그아웃</button>
-                            </div>
-                        </div>
-                    )}
-                    {!isLoggedIn && ( // 로그인 전일 때만 표시되는 회원가입 버튼
-                        <div>
-                            <hr className="divider" />
-                            <div className='btn'>
-                                {/* 회원가입 페이지로 이동 */}
-                                <button className='signup' onClick={() => { navigate('/register'); setIsOpen(false); }}>
-                                    회원가입</button>
                             </div>
                         </div>
                     )}

@@ -1,31 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Sidebar() {
+function Sidebar({ onCategorySelect }) {
+    const [activeCategory, setActiveCategory] = useState({ period: null, category: null });
+
+    const handleCategoryClick = (period, category) => {
+        setActiveCategory({ period, category }); // 클릭된 카테고리 상태 저장
+        onCategorySelect(period, category); // 부모 컴포넌트로 선택된 카테고리 전달
+    };
+
     return (
         <div className="side">
             <aside className="sidebar">
                 <h2>커뮤니티</h2>
-                {/* 각각 버튼을 누르면 분류가 되도록
-                (30일 누르면 30일 챌린지, 66일-운동 누르면 66일-운동만 뜨는식으로) */}
                 <div className="category">
-                    <h3>30일</h3>
-                    <ul>
-                        <li>운동</li>
-                        <li>취미</li>
-                        <li>공부</li>
-                    </ul>
-                    <h3>66일</h3>
-                    <ul>
-                        <li>운동</li>
-                        <li>취미</li>
-                        <li>공부</li>
-                    </ul>
-                    <h3>100일</h3>
-                    <ul>
-                        <li>운동</li>
-                        <li>취미</li>
-                        <li>공부</li>
-                    </ul>
+                    {["30일", "66일", "100일"].map((period) => (
+                        <div key={period}>
+                            <h3>{period}</h3>
+                            <ul>
+                                {["운동", "취미", "공부"].map((category) => (
+                                    <li
+                                        key={category}
+                                        className={
+                                            activeCategory.period === period && activeCategory.category === category
+                                                ? "active" // 활성화된 카테고리 강조
+                                                : ""
+                                        }
+                                        onClick={() => handleCategoryClick(period, category)}
+                                    >
+                                        {category}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </aside>
         </div>

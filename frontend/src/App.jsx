@@ -14,6 +14,7 @@ import Mgmt from './components/Mgmt.jsx';
 import Header from './components/Header.jsx'
 import NoticeDetail from './components/NoticeDetail.jsx';
 import DetailPage from './components/DetailPage.jsx';
+import WritePost from './components/WritePost.jsx';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/mgmt" element={<Mgmt />} />
           <Route path="/notices/:id" element={<NoticeDetail />} />
           <Route path="/detailpage" element={<DetailPage />} />
+          <Route path='/writepost' element={<WritePost />} />
         </Routes>
       </main>
     </Router>

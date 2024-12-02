@@ -1,58 +1,97 @@
-import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
-function Content() {
-
+function Content({ selectedCategory }) {
+    const [posts, setPosts] = useState([]); // 전체 게시글 상태
+    const [filteredPosts, setFilteredPosts] = useState([]); // 필터링된 게시글 상태
     const navigate = useNavigate();
+
+    // Spring Boot에서 데이터 가져오기
+    useEffect(() => {
+        axios.get("http://localhost:3001/Posts")
+            .then((response) => {
+                setPosts(response.data); // 전체 게시글 데이터 저장
+                setFilteredPosts(response.data); // 초기값으로 전체 데이터 표시
+            })
+            .catch((error) => {
+                console.error("데이터 로드 중 오류 발생:", error);
+            });
+    }, []);
+
+    // 선택된 카테고리에 따라 게시글 필터링
+    useEffect(() => {
+        if (selectedCategory.period && selectedCategory.category) {
+            const filtered = posts.filter((post) => {
+                return post.duration === selectedCategory.period && post.type === selectedCategory.category;
+            });
+            setFilteredPosts(filtered);
+        } else {
+            setFilteredPosts(posts); // 카테고리가 선택되지 않으면 전체 게시글 표시
+        }
+    }, [selectedCategory, posts]);
 
     return (
         <section className="content">
             <hr className="cm-hr" />
             <div className="content-header">
-                <h2>30일 / 운동</h2> {/* 현재 카테고리 분류 상태 */}
+                <h2>커뮤니티</h2>
 
-                {/* 검색기능 */}
+                {/* 검색 기능
                 <div className="search-bar">
                     <input type="text" placeholder="search" />
                     <button>🔍</button>
-                </div>
+                </div> */}
             </div>
 
             {/* 게시글 리스트 */}
             <table>
                 <thead>
                     <tr>
-                        <th>No</th> {/* post_id */}
-                        <th>제목</th> {/* title */}
-                        <th>글쓴이</th> {/* author */}
-                        <th>작성시간</th> {/* timestamp */}
+                        <th>No</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>작성시간</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* 임시로 넣은 값 */}
-                    <tr>
-                        <td>25</td>
-                        <td className='post_title' onClick={() => { navigate('/detailpage'); }}>조깅 챌린지</td> {/* 제목 클릭시 글 내부로 이동 */}
-                        <td>홍길동</td>
-                        <td>2024-02-19</td>
-                    </tr>
-                    {/* 빈 줄(DB연결하면 위에 thead와 같은 정보를 DB에서 불러오기) */}
-                    {[...Array(9)].map((_, i) => (
-                        <tr key={i}>
-                            <td>&nbsp;</td>
-                            <td href=''>&nbsp;</td> {/* 제목 클릭시 글 내부로 이동 */}
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                    {filteredPosts.length > 0 ? (
+                        filteredPosts.map((post) => (
+                            <tr key={post.id}>
+                                <td>{post.id}</td>
+                                <td
+                                    className="post_title"
+                                    onClick={() => navigate(`/detailpage/${post.id}`)}
+                                >
+                                    {post.title}
+                                </td>
+                                <td>{post.author}</td>
+                                <td>{post.timestamp}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="4" style={{ textAlign: "center" }}>
+                                게시글이 없습니다.
+                            </td>
                         </tr>
-                    ))}
+                    )}
                 </tbody>
             </table>
-            <div className="pagination">
-                <span>〈</span>
-                {[1, 2, 3, 4, 5].map((num) => (
-                    <span key={num} className="page-number">{num}</span>
-                ))}
-                <span>〉</span>
+
+            <div className="pagination-container">
+                <div className="pagination">
+                    <span>〈</span>
+                    {[1, 2, 3, 4, 5].map((num) => (
+                        <span key={num} className="page-number">
+                            {num}
+                        </span>
+                    ))}
+                    <span>〉</span>
+                </div>
+                <Link to="/writepost">
+                    <button className="write-button">작성하기</button>
+                </Link>
             </div>
         </section>
     );
