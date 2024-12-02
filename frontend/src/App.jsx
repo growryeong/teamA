@@ -15,6 +15,7 @@ import Header from './components/Header.jsx'
 import NoticeDetail from './components/NoticeDetail.jsx';
 import DetailPage from './components/DetailPage.jsx';
 import WritePost from './components/WritePost.jsx';
+import { AuthProvider } from "./components/AuthContext.jsx";
 
 function App() {
   return (

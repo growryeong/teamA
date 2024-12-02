@@ -57,7 +57,7 @@ const Register = () => {
 
     return (
         <div>
-            <hr className='top-line' />
+            <hr className='top-line'/>
             <div className="register-container">
                 <div className='register'>
                     <h2>회원가입</h2>
@@ -72,7 +72,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 required
                             />
-                            <hr />
+                            <hr/>
                         </div>
                         {/* 이메일 입력 */}
                         <div className="form-field">
@@ -84,7 +84,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 required
                             />
-                            <hr />
+                            <hr/>
                         </div>
                         {/* 비밀번호 입력 */}
                         <div className="form-field">
@@ -104,7 +104,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 required
                             />
-                            <hr />
+                            <hr/>
                         </div>
                         {/* 유저이름 입력 */}
                         <div className="form-field">

@@ -1,41 +1,34 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../css/LoginDropdown.css';
+import { AuthContext } from './AuthContext.jsx'; // AuthContext 가져오기
 import Ranking from './Ranking.jsx';
 
 const LoginDropdown = () => {
     const navigate = useNavigate();
-
-    // 상태 관리
+    const { auth, login, logout } = useContext(AuthContext); // Context에서 로그인 상태 및 함수 가져오기
     const [isOpen, setIsOpen] = useState(false); // 드롭다운 열림/닫힘 상태
-    const [username, setUsername] = useState(''); // 사용자 이름 상태
-    const [password, setPassword] = useState(''); // 비밀번호 상태
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 여부 상태
-    const [email, setEmail] = useState(''); // 사용자 이메일
-    const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     // 드롭다운 토글 함수
     const toggleDropdown = () => {
-        setIsOpen(!isOpen); // 드롭다운 상태를 반전
+        setIsOpen(!isOpen);
     };
 
     // 로그인 처리 함수
     const handleSubmit = (e) => {
-        e.preventDefault(); // 폼의 기본 제출 동작 방지
+        e.preventDefault();
 
-        const loginData = {
-            username,
-            password
-        };
+        const loginData = { username, password };
 
-        axios.post("http://localhost:3001/users", loginData)
+        axios.post("http://localhost:8080/api/auth/login", loginData)
             .then((response) => {
-                const { email, username } = response.data;
-                setEmail(email);
-                setUsername(username);
-                setIsLoggedIn(true); // 로그인 상태로 전환
-                setErrorMessage(''); // 에러 메시지 초기화
+                const userData = response.data; // 서버에서 반환된 사용자 데이터
+                login(userData); // Context의 로그인 함수 호출
+                setErrorMessage('');
                 setIsOpen(false); // 드롭다운 닫기
             })
             .catch((error) => {
@@ -46,53 +39,48 @@ const LoginDropdown = () => {
 
     // 로그아웃 처리 함수
     const handleLogout = () => {
-        setIsLoggedIn(false); // 로그아웃 상태로 전환
-        setUsername('');
-        setPassword('');
-        setEmail('');
-        setErrorMessage('');
+        logout(); // Context의 로그아웃 함수 호출
         setIsOpen(false); // 드롭다운 닫기
-        navigate('/'); // MainPage.jsx로 이동
+        navigate('/'); // 로그아웃 후 메인 페이지로 이동
     };
 
     return (
         <div className="dropdown">
             {/* 드롭다운 버튼 */}
             <button className="login-btn" onClick={toggleDropdown}>
-                {isLoggedIn ? `${username}님` : '로그인'} {/* 로그인 상태에 따라 버튼 텍스트 변경 */}
+                {auth.isLoggedIn ? `${auth.username}님` : '로그인'} {/* 로그인 상태에 따라 버튼 텍스트 변경 */}
             </button>
-            {isOpen && ( // 드롭다운이 열렸을 때만 콘텐츠 표시
+            {isOpen && (
                 <div className="dropdown-content">
-                    {!isLoggedIn ? ( // 로그인 전 상태
+                    {!auth.isLoggedIn ? ( // 로그인 전 상태
                         <div>
-                            <h2>웰빙 도파밍</h2> {/* 사이트 이름 */}
+                            <h2>웰빙 도파밍</h2>
                             <form onSubmit={handleSubmit}>
-                                {/* 아이디 입력 필드 */}
+                                {/* 아이디 입력 */}
                                 <input
                                     type="text"
                                     placeholder='아이디'
-                                    id="user_id"
                                     value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
                                     required
                                 />
-                                {/* 비밀번호 입력 필드 */}
+                                {/* 비밀번호 입력 */}
                                 <input
                                     type="password"
                                     placeholder='비밀번호'
-                                    id="password"
                                     value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     required
                                 />
-                                {/* 에러 메시지 표시 */}
+                                {/* 에러 메시지 */}
                                 {errorMessage && <p className="error-message">{errorMessage}</p>}
-                                {/* 로그인 버튼 */}
                                 <button type="submit" className='login-submit'>로그인</button>
                             </form>
                         </div>
-                    ) : ( // 로그인 후 상태
+                    ) : (
                         <div className='login-after'>
-                            <p>{email}</p> {/* email 표시 */}
-                            <h2>안녕하세요 <br /> {username}님.</h2>
+                            <p>{auth.email}</p> {/* 이메일 표시 */}
+                            <h2>안녕하세요 <br /> {auth.username}님.</h2>
 
                             {/* 계정 관리 버튼 */}
                             <div className='btn-after-top'>
@@ -108,7 +96,7 @@ const LoginDropdown = () => {
                 </div>
             )}
             {/* 로그인 후에만 순위 표시 */}
-            {isLoggedIn && isOpen && <Ranking username={username} />}
+            {auth.isLoggedIn && isOpen && <Ranking username={auth.username} />}
         </div>
     );
 };
