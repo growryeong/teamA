@@ -99,9 +99,8 @@ tbody td {
 }
 
 .pagination {
-    text-align: center;
-    font-size: 18px;
-}
+    margin: 0 auto; /* pagination을 컨테이너 안에서 가운데 정렬 */
+  }
 
 .page-number {
     margin: 0 5px;
@@ -111,3 +110,23 @@ tbody td {
 .post_title {
     cursor: pointer;
 }
+
+.write-button{
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 6px;
+    color: white;
+    background-color: #00C236;
+    border: 0;
+    border-radius: 6px;
+    width: 100px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* pagination은 가운데, 버튼은 오른쪽 */
+    margin-top: 20px;
+  }
