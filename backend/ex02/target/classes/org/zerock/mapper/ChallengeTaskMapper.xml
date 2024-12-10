@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="org.zerock.mapper.ChallengeTaskMapper">
+    <select id="findByChallengeId" parameterType="long" resultType="org.zerock.domain.ChallengeTask">
+        SELECT task_id AS taskId, challenge_id AS challengeId, task
+        FROM CHALLENGE_TASKS
+        WHERE challenge_id = #{challengeId}
+    </select>
+</mapper>

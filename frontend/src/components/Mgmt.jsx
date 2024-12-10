@@ -17,7 +17,7 @@ const Mgmt = () => {
     // 진행 중 챌린지 가져오기
     const fetchChallenges = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/userChallenges?user_id=${auth.user_id}`);
+        const response = await axios.get(`http://localhost:8080/user/challenges?user_id=${auth.user_id}`);
         setChallenges(response.data);
       } catch (error) {
         console.error("챌린지 목록 로드 중 오류:", error);
@@ -36,7 +36,7 @@ const Mgmt = () => {
   const handlePasswordChange = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3001/${auth.user_id}/change-password`, { password })
+      .post(`http://localhost:8080/user/${auth.userId}/change-password`, { password: password })
       .then(() => {
         alert("비밀번호가 성공적으로 변경되었습니다.");
         setPassword(''); // 입력 필드 초기화
@@ -51,7 +51,7 @@ const Mgmt = () => {
   const handleEmailChange = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3001/${auth.user_id}/change-email`, { email: newEmail })
+      .post(`http://localhost:8080/user/${auth.userId}/change-email`, { email: newEmail })
       .then(() => {
         alert("이메일이 성공적으로 변경되었습니다.");
         setNewEmail(''); // 입력 필드 초기화
@@ -68,7 +68,7 @@ const Mgmt = () => {
       <div className='mgmt-container'>
         {/* 사용자 정보 */}
         <div className='mgmt-info'>
-          <h3>{auth.username}님</h3>
+          <h3>{auth.userId}님</h3>
           <hr className='divider2' />
           <h3>{auth.email}</h3>
         </div>
@@ -111,21 +111,59 @@ const Mgmt = () => {
         </div>
       </div>
 
+
       {/* 진행 중인 챌린지 목록 */}
-      <div className='mychallenge'>
-        <div className='mychallenge-list'>
-        <h3>진행 중인 챌린지 목록</h3>
-    {displayedChallenges.length > 0 ? (
-      displayedChallenges.map((challenge, index) => (
-        <p key={challenge.id || index}>
-          {challenge.challengeTitle} ({challenge.duration}일) - 시작일: {challenge.startDate}
-        </p>
-      ))
-    ) : (
-      <p>진행 중인 챌린지가 없습니다.</p>
-          )}
+      {/* 진행 중인 챌린지 목록 */}
+<div className='mychallenge'>
+  <div className='mychallenge-list p-6'>
+    <h3 className="text-xl font-bold mb-6">진행 중인 챌린지 목록</h3>
+    <div className="space-y-4">
+      {auth.startedChallenge && auth.startedChallenge.length > 0 ? (
+        auth.startedChallenge.map((challenge) => (
+          <div 
+            key={challenge.userChallengeId}
+            className="bg-white rounded-lg p-4 shadow-sm border border-green-100"
+          >
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="text-lg font-medium">
+                {challenge.challengeTitle}
+                <span className="ml-2 text-sm text-green-600">
+                  {challenge.duration}일
+                </span>
+              </h4>
+            </div>
+            
+            <div className="text-sm text-gray-600 space-y-2">
+              <div>
+                <span>시작일: {new Date(challenge.startDate).toLocaleDateString()}</span>
+              </div>
+              
+              <div>
+                <span>도전 과제: {challenge.task}</span>
+              </div>
+              
+              <div>
+                <div className="w-full bg-gray-100 rounded h-2 mt-1">
+                  <div 
+                    className="bg-green-500 h-2 rounded transition-all duration-300"
+                    style={{ width: `${challenge.progress || 0}%` }}
+                  />
+                </div>
+                <div className="text-right text-xs mt-1 text-gray-500">
+                  진행률: {challenge.progress || 0}%
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <div className="text-center py-6 bg-white rounded-lg border border-gray-100">
+          <p className="text-gray-500">진행 중인 챌린지가 없습니다.</p>
         </div>
-      </div>
+      )}
+    </div>
+  </div>
+</div>
     </div>
   );
 };

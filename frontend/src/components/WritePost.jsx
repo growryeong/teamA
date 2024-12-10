@@ -17,7 +17,7 @@ const WritePost = () => {
   useEffect(() => {
     if (auth.isLoggedIn) {
       axios
-        .get(`http://localhost:3001/userChallenges?user_id=${auth.user_id}`)
+        .get(`http://localhost:8080/api/userChallenges/${auth.userId}`)
         .then((response) => {
           setChallenges(response.data); // 백엔드에서 가져온 진행 중인 챌린지 목록 저장
         })
@@ -36,22 +36,33 @@ const WritePost = () => {
       return;
     }
 
+    const selectedChallengeData = challenges.find(
+      challenge => challenge.userChallengeId === selectedChallenge
+    );
+
+    if (!selectedChallengeData) {
+      alert('챌린지를 선택해주세요.');
+      return;
+    }
+
     // 백엔드로 보낼 데이터
     const postData = {
-      id: new Date().getTime().toString(), // 고유 ID 생성
       title,
       content,
-      author: auth.username,
-      timestamp: new Date().toISOString().split('T')[0], // 날짜 형식
-      duration: "30일", // 선택된 챌린지의 기간 (필요시 수정)
-      type: "exercise", // 선택된 챌린지의 유형 (필요시 수정)
-      // views: 0, // 초기 조회수
+      author: auth.userId,
+      authorName: auth.name,
+      timestamp: new Date().toISOString().split('T')[0],
+      challengeId: selectedChallengeData.challengeId,
+      challengeTitle: selectedChallengeData.challengeTitle,
+      duration: selectedChallengeData.duration,
+      challengeType: selectedChallengeData.challengeType,
+      progress: selectedChallengeData.progress
     };
 
     try {
-      await axios.post('http://localhost:3001/communityPosts', postData);
+      await axios.post('http://localhost:8080/api/community/posts', postData);
       alert('게시글이 성공적으로 등록되었습니다.');
-      navigate('/community'); // 등록 후 커뮤니티 페이지로 이동
+      navigate('/community');
     } catch (error) {
       console.error('게시글 등록 중 오류:', error);
       alert('게시글 등록에 실패했습니다. 다시 시도해주세요.');
@@ -66,15 +77,16 @@ const WritePost = () => {
           <div className='challenge-list-container'>
             {/* 진행 중인 챌린지 목록 */}
             <select
-              // id='challenge'
               value={selectedChallenge}
               onChange={(e) => setSelectedChallenge(e.target.value)}
               required
             >
-              <option value=''>챌린지를 선택해 주세요</option>
+              <option value="">챌린지를 선택해 주세요</option>
               {challenges.map((challenge) => (
-                <option key={challenge.id} value={challenge.id}>
-                  {challenge.challengeTitle}
+                <option key={challenge.userChallengeId} value={challenge.userChallengeId}>
+                  {challenge.task} ({challenge.duration}일 - 
+                  {challenge.challengeType === "exercise" ? "운동" :
+                  challenge.challengeType === "study" ? "공부" : "취미"})
                 </option>
               ))}
             </select>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.CommunityMapper">
+    <!-- 전체 게시글 조회 -->
+	<select id="getCommunityPosts" resultType="org.zerock.domain.CommunityPost">
+	    SELECT 
+	        post_id AS postId,
+	        user_id AS userId,
+	        title,
+	        content,
+	        view_count as viewCount,
+	        TO_CHAR(timestamp, 'YYYY-MM-DD HH24:MI:SS') as timestamp
+	    FROM community
+	    ORDER BY timestamp DESC
+	</select>
+
+    <!-- 특정 게시글 조회 -->
+	<select id="getPostById" resultType="org.zerock.domain.CommunityPost">
+	    SELECT 
+	        post_id AS postId,
+	        user_id AS userId,
+	        title,
+	        content,
+	        timestamp
+	    FROM community
+	    WHERE post_id = #{postId}
+	    FETCH FIRST ROW ONLY  <!-- Oracle에서 단일 행만 반환하도록 설정 -->
+	</select>
+
+    <!-- 게시글 작성 -->
+    <insert id="insertPost">
+        INSERT INTO community (
+            post_id,
+            user_id,
+            title,
+            content,
+            timestamp
+        ) VALUES (
+            post_seq.NEXTVAL,
+            #{userId},
+            #{title},
+            #{content},
+            #{timestamp}
+        )
+    </insert>
+
+    <!-- 조회수 증가 -->
+    <update id="updateViewCount">
+        UPDATE community 
+        SET view_count = view_count + 1 
+        WHERE post_id = #{postId}
+    </update>
+</mapper>

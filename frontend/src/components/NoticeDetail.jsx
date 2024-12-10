@@ -12,7 +12,7 @@ const NoticeDetail = () => {
         const fetchNotice = async () => {
             try {
                 console.log("Fetching notice with ID:", id); // id 확인
-                const response = await axios.get(`http://localhost:3001/notices/${id}`);
+                const response = await axios.get(`http://localhost:8080/notices/${id}`);
                 console.log("Fetched notice:", response.data); // 응답 데이터 확인
                 setNotice(response.data);
             } catch (err) {

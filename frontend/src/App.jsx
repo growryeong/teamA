@@ -25,7 +25,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/notice" element={<NoticeBoard />} />
+            <Route path="/notices" element={<NoticeBoard />} />
             <Route path="/challenge" element={<ChallengeDetail />} />
             <Route path="/exercise" element={<ExercisePage />} />
             <Route path="/hobby" element={<HobbyPage />} />

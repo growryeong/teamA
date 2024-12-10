@@ -11,28 +11,34 @@ function Content({ selectedCategory }) {
 
   // Spring Boot에서 데이터 가져오기
   useEffect(() => {
+    console.log("Fetching community posts...");
     axios
-      .get("http://localhost:3001/communityPosts")
+      .get("http://localhost:8080/communityPosts")
       .then((response) => {
-        setPosts(response.data); // 전체 게시글 데이터 저장
-        setFilteredPosts(response.data); // 초기값으로 전체 데이터 표시
+        console.log("서버 응답:", response);  // 전체 응답 확인
+        console.log("받아온 데이터:", response.data);  // 실제 데이터 확인
+        setPosts(response.data);
+        setFilteredPosts(response.data);
       })
       .catch((error) => {
         console.error("데이터 로드 중 오류 발생:", error);
       });
   }, []);
-
-  // 선택된 카테고리에 따라 게시글 필터링
+  
   useEffect(() => {
     if (selectedCategory?.period && selectedCategory?.category) {
+      console.log("Filtering with category:", selectedCategory);
       const filtered = posts.filter((post) => {
+        console.log("Filtering post:", post); // 각 게시글 데이터 출력
         return (
           post.duration === selectedCategory.period &&
           post.type === selectedCategory.category
         );
       });
+      console.log("Filtered posts:", filtered);
       setFilteredPosts(filtered);
     } else {
+      console.log("No category selected, displaying all posts.");
       setFilteredPosts(posts); // 카테고리가 선택되지 않으면 전체 게시글 표시
     }
   }, [selectedCategory, posts]);
@@ -54,7 +60,7 @@ function Content({ selectedCategory }) {
             <th>작성시간</th>
           </tr>
         </thead>
-        <tbody>
+        {/* <tbody>
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post) => (
               <tr key={post.id}>
@@ -67,6 +73,29 @@ function Content({ selectedCategory }) {
                 </td>
                 <td>{post.author}</td>
                 <td>{post.timestamp}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" style={{ textAlign: "center" }}>
+                게시글이 없습니다.
+              </td>
+            </tr>
+          )}
+        </tbody> */}
+        <tbody>
+          {filteredPosts && filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => (
+              <tr key={post.postId}>
+                <td>{post.postId}</td>
+                <td
+                  className="post_title"
+                  onClick={() => navigate(`/detailpage/${post.postId}`)}
+                >
+                  {post.title}
+                </td>
+                <td>{post.userId}</td>
+                <td>{new Date(post.timestamp).toLocaleDateString()}</td>
               </tr>
             ))
           ) : (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 function Sidebar({ onCategorySelect }) {
   const [activeCategory, setActiveCategory] = useState({ period: null, category: null });

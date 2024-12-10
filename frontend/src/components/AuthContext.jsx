@@ -1,52 +1,104 @@
 import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(() => {
     const savedAuth = localStorage.getItem("auth");
-    return savedAuth ? JSON.parse(savedAuth) : { 
-         isLoggedIn: false, // 로그인 여부
-         user_id: null, // 사용자 ID
-         username: "", // 사용자 이름
-         email: "", // 사용자 이메일
-         startedChallenge: null //전역 챌린지 상태
+    return savedAuth
+      ? JSON.parse(savedAuth)
+      : {
+          isLoggedIn: false,
+          userId: null,
+          username: "",
+          email: "",
+          startedChallenge: null, // 진행 중인 챌린지 상태
         };
   });
 
-  // 전역 챌린지 상태, 챌린지 정보 가져오기 위해
+  // 진행 중인 챌린지 가져오기
+  // useEffect(() => {
+  //   const fetchOngoingChallenge = async () => {
+  //     if (auth.userId) {
+  //       try {
+  //         const response = await axios.get(
+  //           `http://localhost:8080/api/userChallenges/${auth.userId}`
+  //         );
+  //         const ongoingChallenge = response.data;
+  
+  //         // 서버에서 받은 데이터가 in_progress 상태인지 확인
+  //         if (ongoingChallenge && ongoingChallenge.status === "in_progress") {
+  //           setAuth((prevAuth) => ({
+  //             ...prevAuth,
+  //             startedChallenge: ongoingChallenge,
+  //           }));
+  //         } else {
+  //           console.warn("진행 중인 챌린지가 없습니다.");
+  //         }
+  //       } catch (error) {
+  //         console.error("진행 중인 챌린지 데이터를 가져오지 못했습니다.", error);
+  //       }
+  //     }
+  //   };
+  
+  //   fetchOngoingChallenge();
+  // }, [auth.userId]);
   useEffect(() => {
-    localStorage.setItem("auth", JSON.stringify(auth));
-  }, [auth]);
+    const fetchOngoingChallenge = async () => {
+      if (auth.userId) {
+        try {
+          const response = await axios.get(
+            `http://localhost:8080/api/userChallenges/${auth.userId}`
+          );
+          const ongoingChallenge = response.data;
+          if (ongoingChallenge) {
+            setAuth((prevAuth) => {
+              const updatedAuth = { ...prevAuth, startedChallenge: ongoingChallenge };
+              localStorage.setItem("auth", JSON.stringify(updatedAuth));
+              return updatedAuth;
+            });
+          }
+        } catch (error) {
+          console.error("진행 중인 챌린지 데이터를 가져오지 못했습니다.", error);
+        }
+      }
+    };
 
-  // 로그인 함수
+    fetchOngoingChallenge();
+  }, [auth.userId]);
+
   const login = (userData) => {
     setAuth({
       isLoggedIn: true,
       ...userData,
     });
+    localStorage.setItem("auth", JSON.stringify(userData)); // 저장
   };
 
-  // 로그아웃 함수
   const logout = () => {
     setAuth({
       isLoggedIn: false,
-      user_id: null,
+      userId: null,
       username: "",
       email: "",
       startedChallenge: null,
     });
+    localStorage.removeItem("auth");
   };
 
-  // 챌린지 시작하기 버튼 함수
   const startChallenge = (challengeData) => {
-    setAuth((prevAuth) => ({
-      ...prevAuth,
-      startedChallenge: {
-        ...challengeData,
-        progress: challengeData.progress || 0, // 진행률 기본값 추가
-    },
-    }));
+    setAuth((prevAuth) => {
+      const updatedAuth = {
+        ...prevAuth,
+        startedChallenge: {
+          ...challengeData,
+          progress: challengeData.progress || 0,
+        },
+      };
+      localStorage.setItem("auth", JSON.stringify(updatedAuth));
+      return updatedAuth;
+    });
   };
 
   return (

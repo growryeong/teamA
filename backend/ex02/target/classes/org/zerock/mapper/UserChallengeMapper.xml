@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="org.zerock.mapper.UserChallengeMapper">
+
+	<insert id="insertUserChallenge" parameterType="org.zerock.domain.UserChallenge">
+	    INSERT INTO USERCHALLENGE(
+	        user_challenge_id,
+	        user_id, 
+	        challenge_id, 
+	        progress, 
+	        status, 
+	        start_date, 
+	        end_date,
+	        duration
+	    )
+	    SELECT 
+	        user_challenge_seq.NEXTVAL,
+	        #{userId},
+	        #{challengeId},
+	        #{progress},
+	        #{status},
+	        #{startDate},
+	        #{endDate},
+	        #{duration}
+	    FROM dual
+	</insert>
+
+    <select id="findByUserAndChallenge" parameterType="map" resultType="org.zerock.domain.UserChallenge">
+        SELECT user_id AS userId, challenge_id AS challengeId, progress, status, start_date AS startDate, end_date AS endDate
+        FROM USERCHALLENGE
+        WHERE user_id = #{userId} AND challenge_id = #{challengeId}
+    </select>
+
+    <select id="findByUser" parameterType="string" resultType="org.zerock.domain.UserChallenge">
+        SELECT user_id AS userId, challenge_id AS challengeId, progress, status, start_date AS startDate, end_date AS endDate
+        FROM USERCHALLENGE
+        WHERE user_id = #{userId}
+    </select>
+    
+    <select id="findOngoingChallenge" parameterType="string" resultType="org.zerock.domain.UserChallenge">
+	    SELECT 
+	        uc.user_challenge_id AS userChallengeId,
+	        uc.user_id AS userId,
+	        uc.challenge_id AS challengeId,
+	        uc.progress,
+	        uc.status,
+	        uc.start_date AS startDate,
+	        uc.end_date AS endDate,
+	        c.title AS challengeTitle,
+	        c.duration,
+	        ct.task AS task
+	    FROM USERCHALLENGE uc
+	    JOIN CHALLENGES c ON uc.challenge_id = c.challenge_id
+	    LEFT JOIN CHALLENGE_TASKS ct ON c.challenge_id = ct.challenge_id
+	    WHERE uc.user_id = #{userId} 
+	    AND uc.status = 'in_progress'
+	</select>
+	
+	<select id="findOngoingChallengeByUserId" parameterType="string" resultType="org.zerock.domain.UserChallenge">
+	    SELECT 
+	        uc.user_challenge_id AS userChallengeId,
+	        uc.user_id AS userId,
+	        uc.challenge_id AS challengeId,
+	        uc.progress,
+	        uc.status,
+	        uc.start_date AS startDate,
+	        uc.end_date AS endDate,
+	        uc.duration AS duration,  <!-- challenges 테이블이 아닌 userchallenge 테이블의 duration 사용 -->
+	        c.title AS challengeTitle,
+	        (SELECT task FROM CHALLENGE_TASKS 
+	         WHERE challenge_id = c.challenge_id 
+	         AND ROWNUM = 1) AS task
+	    FROM USERCHALLENGE uc
+	    JOIN CHALLENGES c ON uc.challenge_id = c.challenge_id
+	    WHERE uc.user_id = #{userId} 
+	    AND uc.status = 'in_progress'
+	</select>
+
+</mapper>

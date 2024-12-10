@@ -22,9 +22,11 @@ function Header() {
                 <a onClick={() => navigate('/')}>웰빙 도파민</a>
             </div>
             <div className={`header-right ${isMenuOpen ? 'active' : ''}`}>
-                <a href='/challenge'>챌린지도전</a>
+                {/* <a href='/challenge'>챌린지도전</a> */}
+                <a onClick={() => navigate('/challenge')}>챌린지도전</a>
                 <a onClick={() => navigate('/community')}>커뮤니티</a>
-                <a href='/notice'>공지사항</a>
+                <a onClick={() => navigate('/notices')}>공지사항</a>
+                {/* <a href='/notices'>공지사항</a> */}
                 <LoginDropdown />
             </div>
 
@@ -41,7 +43,7 @@ function Header() {
                 <div className='mobile-menu'>
                     <a href='/hallenge'>챌린지도전</a>
                     <a href='/community'>커뮤니티</a>
-                    <a href='/notice'>공지사항</a>
+                    <a href='/notices'>공지사항</a>
                 </div>
             )}
         </div>

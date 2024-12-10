@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../css/NoticeBoard.css';
 import { useNavigate } from "react-router-dom";
 
+
 /*
 컴포넌트 렌더링되면 useEffect를 통해 /api/notices API 호출하여 공지사항 목록 가져옴
 공지사항 목록은 notices 상태에 저장, 화면에 표시
@@ -13,6 +14,7 @@ ww
 const NoticeBoard = () => {
     const [notices, setNotices] = useState([]); // 공지사항 목록
     const [error, setError] = useState(null); // 에러 상태
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
 
@@ -20,15 +22,19 @@ const NoticeBoard = () => {
     useEffect(() => {
         const fetchNotices = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/notices'); // API 호출
+                const response = await axios.get('http://localhost:8080/notices'); // API 호출
                 setNotices(response.data); // 응답 데이터 저장
+                setLoading(false); // !추가
             } catch (err) {
                 setError('공지사항 데이터를 가져오는 데 실패했습니다.');
+                setLoading(false); // !추가
             }
         };
-
         fetchNotices(); // 함수 호출
     }, []);
+
+    if (loading) return <div className='text-center p-4'>로딩중...</div>
+    if (error) return <div className='text-red-500 p-4'>{error}</div>;
 
 
     return (

@@ -18,24 +18,36 @@ const LoginDropdown = () => {
         setIsOpen(!isOpen);
     };
 
-    // 로그인 처리 함수
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const loginData = { username, password };
-
-        axios.post("http://localhost:3001/users", loginData)
+    
+        const loginData = {
+            userId: username, // username을 userId로 변경
+            password: password
+        };
+    
+        console.log('전송되는 로그인 데이터:', loginData);
+    
+        axios.post("http://localhost:8080/user", loginData)
             .then((response) => {
+                console.log('서버 응답:', response.data); // 서버로부터 반환된 데이터 확인
                 const userData = response.data; // 서버에서 반환된 사용자 데이터
-                login(userData); // Context의 로그인 함수 호출
-                setErrorMessage('');
-                setIsOpen(false); // 드롭다운 닫기
+                if (userData.userId) {
+                    login(userData); // Context의 로그인 함수 호출
+                    setErrorMessage('');
+                    setIsOpen(false); // 드롭다운 닫기
+                } else {
+                    console.error("userId가 응답에 포함되지 않았습니다.");
+                    setErrorMessage("서버 응답에 문제가 있습니다.");
+                }
             })
             .catch((error) => {
                 setErrorMessage("아이디 또는 비밀번호가 올바르지 않습니다.");
-                console.error("로그인 오류:", error);
+                console.error("로그인 오류:", error.response || error.message);
             });
     };
+    
+
 
     // 로그아웃 처리 함수
     const handleLogout = () => {

@@ -38,13 +38,14 @@ const Register = () => {
 
         // 서버에 회원가입 요청
         const requestData = {
-            username: formData.userId,
+            userId: formData.userId,
             email: formData.email,
             password: formData.password,
-            name: formData.username
+            username: formData.username
         };
+        console.log('전송되는 데이터:', requestData);
 
-        axios.post('http://localhost:3001/user', requestData)
+        axios.post('http://localhost:8080/user/register', requestData)
             .then((response) => {
                 alert('회원가입 성공!');
                 navigate('/'); // 회원가입 성공 시 메인으로 이동

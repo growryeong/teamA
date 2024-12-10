@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.CommentMapper">
+
+    <select id="getCommentsByPostId" resultType="org.zerock.domain.Comment">
+        SELECT * FROM comments WHERE post_id = #{postId} ORDER BY timestamp ASC
+    </select>
+
+    <insert id="insertComment">
+        INSERT INTO comments (post_id, user_id, comment_text, timestamp)
+        VALUES (#{postId}, #{userId}, #{commentText}, CURRENT_TIMESTAMP)
+    </insert>
+</mapper>
