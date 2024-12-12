@@ -1,6 +1,7 @@
 package org.zerock.mapper;
 
 import org.zerock.domain.Challenge;
+import org.zerock.domain.ChallengeTask;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,4 +15,7 @@ public interface ChallengeMapper {
     Challenge findById(Long challengeId);
     Challenge findByTitleAndType(@Param("title") String title, @Param("typeName") String typeName);
     Challenge findByTitleAndType(Map<String, Object> params);
+    
+    Challenge findByChallengeId(@Param("challengeId") Long challengeId);
+    ChallengeTask findTaskByChallengeId(@Param("challengeId") Long challengeId);
 }

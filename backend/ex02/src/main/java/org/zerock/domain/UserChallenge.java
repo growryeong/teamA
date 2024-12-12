@@ -11,11 +11,10 @@ public class UserChallenge {
     private Long userChallengeId;
     private String userId;
     private Long challengeId;
+    private Long taskId;  // 추가
     private Double progress;
     private String status;
     private String startDate;
     private String endDate;
-    private String challengeTitle;
     private Integer duration;
-    private String task;  // 추가
 }

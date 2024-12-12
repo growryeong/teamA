@@ -68,26 +68,29 @@ const ChallengeDetail = () => {
     const selected = challenges.find(
       (challenge) => challenge.activityTypeId === typeMap[type]
     );
-    console.log("Selected challenge:", selected);
 
     if (!selected) {
       alert("해당 유형의 챌린지를 찾을 수 없습니다.");
       return;
     }
 
-    setSelectedChallenge(selected);
-
     try {
       const tasksResponse = await axios.get(
         `http://localhost:8080/api/challenges/${selected.challengeId}/tasks`
       );
       console.log("Tasks fetched:", tasksResponse.data);
+      // tasks 중에서 랜덤으로 하나 선택
+      const randomTask = tasksResponse.data[Math.floor(Math.random() * tasksResponse.data.length)];
+      
+      setSelectedChallenge({
+        ...selected,
+        taskId: randomTask.taskId,  // task_id 추가
+        task: randomTask.task
+      });
       setTasks(tasksResponse.data);
 
-      // 랜덤 기간 선택 부분
       if (durations.length > 0) {
         const randomDuration = durations[Math.floor(Math.random() * durations.length)];
-        console.log("Selected random duration:", randomDuration);  // 로그 추가
         setDuration(randomDuration);
       }
     } catch (err) {
@@ -104,15 +107,26 @@ const ChallengeDetail = () => {
     }
   
     const challengeData = {
-      user_id: auth.userId,
-      challengeType: selectedType,
+      user_id: auth.userId, // 필드 이름을 user_id로 변경
+      challengeId: selectedChallenge.challengeId,
+      challengeType: selectedChallenge.challengeId,
       challengeTitle: selectedChallenge.title,
+      task_id: selectedChallenge.taskId,
       duration: duration,
       startDate: new Date().toISOString().split("T")[0],
-      status: "in_progress"
+      status: "in_progress",
     };
   
     console.log("전송 데이터:", challengeData);
+
+    console.log("전송 데이터:", {
+      userId: auth.userId,
+      challengeId: selectedChallenge.challengeId, // 확인 필요
+      taskId: selectedChallenge.taskId, // 확인 필요
+      duration: duration,
+      startDate: new Date().toISOString().split("T")[0],
+      status: "in_progress",
+  });
   
     try {
       const response = await axios.post(
@@ -213,7 +227,7 @@ const ChallengeDetail = () => {
               <div className="text-center">
                 <h2 className="text-2xl font-bold mb-4">도전 과제</h2>
                 <p className="text-xl">
-                  {tasks.length > 0 ? tasks[0].task : "과제를 가져오지 못했습니다."}
+                  {selectedChallenge.task || "과제를 가져오지 못했습니다."}
                 </p>
               </div>
             </CardContent>

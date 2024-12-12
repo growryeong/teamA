@@ -24,6 +24,10 @@ public class ChallengeService {
     public List<Challenge> getAllChallenges() {
         return challengeMapper.findAll();
     }
+    
+    public List<ChallengeTask> findAllTasks() {
+        return challengeTaskMapper.findAllTasks();
+    }
 
     public List<ChallengeTask> getTasksByChallengeId(Long challengeId) {
         return challengeTaskMapper.findByChallengeId(challengeId);

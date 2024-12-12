@@ -26,52 +26,53 @@ public class UserChallengeService {
    private final UserMapper userMapper;
 
    @Transactional
-   public void saveUserChallenge(String userId, String challengeType, String challengeTitle, 
-                               int duration, String startDate, String status) {
-	    // 유저 존재 확인
-	    User user = userMapper.findById(userId);
-	    if (user == null) {
-	        log.warn("User not found for userId={}", userId);
-	        throw new RuntimeException("해당 유저를 찾을 수 없습니다. userId: " + userId);
-	    }
+   public void saveUserChallenge(String userId,Long challengeId, String challengeType, String challengeTitle, 
+                                  int duration, String startDate, String status, Long taskId) {
+       User user = userMapper.findById(userId);
+       if (user == null) {
+           log.warn("User not found for userId={}", userId);
+           throw new RuntimeException("해당 유저를 찾을 수 없습니다. userId: " + userId);
+       }
 
-	    // Challenge 조회
-	    Map<String, Object> params = new HashMap<>();
-	    params.put("title", challengeTitle);
-	    params.put("activityTypeId", Integer.parseInt(challengeType));  // String을 Integer로 변환
+       Map<String, Object> params = new HashMap<>();
+       params.put("title", challengeTitle);
+       params.put("activityTypeId", Integer.parseInt(challengeType));
 
-	    Challenge challenge = challengeMapper.findByTitleAndType(params);
-	    if (challenge == null) {
-	        log.warn("Challenge not found for title={} and type={}", challengeTitle, challengeType);
-	        throw new RuntimeException("해당 챌린지를 찾을 수 없습니다. title: " + challengeTitle + ", type: " + challengeType);
-	    }
+       Challenge challenge = challengeMapper.findByTitleAndType(params);
+       if (challenge == null) {
+           log.warn("Challenge not found for title={} and type={}", challengeTitle, challengeType);
+           throw new RuntimeException("해당 챌린지를 찾을 수 없습니다. title: " + challengeTitle + ", type: " + challengeType);
+       }
 
-	    // Date Processing
-	    LocalDate start = LocalDate.parse(startDate);
-	    LocalDate end = start.plusDays(duration);
-	    
-	    UserChallenge userChallenge = new UserChallenge();
-	    userChallenge.setUserId(userId);
-	    userChallenge.setChallengeId(challenge.getChallengeId());
-	    userChallenge.setProgress(0.0);
-	    userChallenge.setStatus(status);
-	    userChallenge.setStartDate(startDate);
-	    userChallenge.setEndDate(end.toString());
-	    userChallenge.setDuration(duration);  // duration 설정 추가해야 함
+       LocalDate start = LocalDate.parse(startDate);
+       LocalDate end = start.plusDays(duration);
 
-	    log.info("Prepared UserChallenge entity: {}", userChallenge);
-	    
-	    try {
-	        userChallengeMapper.insertUserChallenge(userChallenge);
-	        log.info("UserChallenge inserted successfully for userId={} and challengeId={}", userId, challenge.getChallengeId());
-	    } catch (Exception e) {
-	        log.error("Error inserting UserChallenge: {}", e.getMessage(), e);
-	        throw new RuntimeException("챌린지 저장 중 오류가 발생했습니다.", e);
-	    }
+       UserChallenge userChallenge = new UserChallenge();
+       userChallenge.setUserId(userId);
+       userChallenge.setChallengeId(challenge.getChallengeId());
+       userChallenge.setProgress(0.0);
+       userChallenge.setStatus(status);
+       userChallenge.setStartDate(startDate);
+       userChallenge.setEndDate(end.toString());
+       userChallenge.setDuration(duration);
+       userChallenge.setTaskId(taskId);
+
+       userChallengeMapper.insertUserChallenge(userChallenge);
    }
 
    // 진행 중인 챌린지 가져오기
    public List<UserChallenge> getOngoingChallenge(String userId) {
        return userChallengeMapper.findOngoingChallengeByUserId(userId);
    }
+   
+   public Map<String, Object> getUserChallengeDetails(Long userChallengeId) {
+       return userChallengeMapper.getUserChallengeDetails(userChallengeId);
+   }
+   // 중복 체크 로직
+   public boolean isChallengeAlreadyParticipated(String userId, Long taskId) {
+	    List<UserChallenge> userChallenges = userChallengeMapper.findByUser(userId);
+
+	    return userChallenges.stream()
+	                         .anyMatch(challenge -> challenge.getTaskId().equals(taskId));
+	}
 }

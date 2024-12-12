@@ -8,4 +8,13 @@
         FROM CHALLENGE_TASKS
         WHERE challenge_id = #{challengeId}
     </select>
+    
+    <select id="findAllTasks" resultType="org.zerock.domain.ChallengeTask">
+	    SELECT task_id AS taskId,
+	           challenge_id AS challengeId,
+	           task
+	    FROM CHALLENGE_TASKS
+	</select>
+    
+    
 </mapper>

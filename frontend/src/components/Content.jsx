@@ -13,7 +13,7 @@ function Content({ selectedCategory }) {
   useEffect(() => {
     console.log("Fetching community posts...");
     axios
-      .get("http://localhost:8080/communityPosts")
+      .get("http://localhost:8080/api/communityPosts")
       .then((response) => {
         console.log("서버 응답:", response);  // 전체 응답 확인
         console.log("받아온 데이터:", response.data);  // 실제 데이터 확인

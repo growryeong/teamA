@@ -7,5 +7,6 @@ import java.util.List;
 @Mapper
 public interface ChallengeTaskMapper {
     List<ChallengeTask> findByChallengeId(Long challengeId);
+    List<ChallengeTask> findAllTasks();
     void insert(ChallengeTask task);
 }

@@ -10,22 +10,15 @@ import lombok.Data;
 public class CommunityPost {
     private Long postId;
     private String userId;
+    private Long userChallengeId; // USER_CHALLENGE_ID 추가
     private String title;
     private String content;
-    
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-    private LocalDateTime timestamp;
+    private int viewCount;
+    private String timestamp;
 
-    // timestamp getter/setter 수정
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 
-    public String getTimestamp() {
-        if (timestamp != null) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            return timestamp.format(formatter);
-        }
-        return null;
+    public void setCurrentTimestamp() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        this.timestamp = LocalDateTime.now().format(formatter);
     }
 }

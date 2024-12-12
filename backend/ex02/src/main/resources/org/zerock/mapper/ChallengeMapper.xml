@@ -10,10 +10,14 @@
     </select>
 
     <select id="findById" parameterType="long" resultType="org.zerock.domain.Challenge">
-        SELECT challenge_id AS challengeId,
-               title, description, duration, activity_type_id AS activityTypeId
-        FROM CHALLENGES
-        WHERE challenge_id = #{challengeId}
+        SELECT 
+            challenge_id AS challengeId,
+            title,
+            description,
+            duration,
+            activity_type_id AS activityTypeId
+        FROM Challenges 
+        WHERE challenge_id = #{challengeId, jdbcType=NUMERIC}
     </select>
 
     <insert id="insert" parameterType="org.zerock.domain.Challenge" useGeneratedKeys="true" keyProperty="challengeId">
@@ -23,13 +27,33 @@
     
 	<select id="findByTitleAndType" parameterType="map" resultType="org.zerock.domain.Challenge">
 	    SELECT 
-	        ch.challenge_id AS challengeId,
-	        ch.title AS title,
-	        ch.description AS description,
-	        ch.duration AS duration,
-	        ch.activity_type_id AS activityTypeId
-	    FROM CHALLENGES ch
-	    WHERE ch.title = #{title}
-	    AND ch.activity_type_id = #{activityTypeId, jdbcType=NUMERIC}
+	        challenge_id AS challengeId,
+	        title,
+	        activity_type_id AS activityTypeId,
+	        duration
+	    FROM challenges
+	    WHERE title = #{title, jdbcType=VARCHAR} 
+	      AND activity_type_id = #{activityTypeId, jdbcType=INTEGER}
 	</select>
+	
+	<select id="findByChallengeId" resultType="org.zerock.domain.Challenge">
+	    SELECT 
+	        challenge_id AS challengeId,
+	        title,
+	        description,
+	        duration,
+	        activity_type_id AS activityTypeId
+	    FROM Challenges 
+	    WHERE challenge_id = #{challengeId}
+	</select>
+	
+    <select id="findTaskByChallengeId" parameterType="long" resultType="org.zerock.domain.ChallengeTask">
+        SELECT 
+            task_id AS taskId,
+            challenge_id AS challengeId,
+            task
+        FROM Challenge_Tasks
+        WHERE challenge_id = #{challengeId, jdbcType=NUMERIC}
+        AND ROWNUM = 1
+    </select>
 </mapper>

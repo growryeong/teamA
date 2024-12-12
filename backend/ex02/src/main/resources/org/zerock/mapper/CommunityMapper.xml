@@ -5,47 +5,71 @@
 
 <mapper namespace="org.zerock.mapper.CommunityMapper">
     <!-- 전체 게시글 조회 -->
-	<select id="getCommunityPosts" resultType="org.zerock.domain.CommunityPost">
-	    SELECT 
-	        post_id AS postId,
-	        user_id AS userId,
-	        title,
-	        content,
-	        view_count as viewCount,
-	        TO_CHAR(timestamp, 'YYYY-MM-DD HH24:MI:SS') as timestamp
-	    FROM community
-	    ORDER BY timestamp DESC
-	</select>
+    <select id="getCommunityPosts" resultType="org.zerock.domain.CommunityPost">
+	        SELECT 
+	            post_id AS postId,
+	            user_id AS userId,
+	            user_challenge_id AS userChallengeId,
+	            title,
+	            content,
+	            view_count AS viewCount,
+	            timestamp
+	        FROM COMMUNITY
+	    </select>
 
     <!-- 특정 게시글 조회 -->
-	<select id="getPostById" resultType="org.zerock.domain.CommunityPost">
-	    SELECT 
-	        post_id AS postId,
-	        user_id AS userId,
-	        title,
-	        content,
-	        timestamp
-	    FROM community
-	    WHERE post_id = #{postId}
-	    FETCH FIRST ROW ONLY  <!-- Oracle에서 단일 행만 반환하도록 설정 -->
-	</select>
+	    <select id="getPostById" parameterType="long" resultType="org.zerock.domain.CommunityPostDTO">
+		    SELECT 
+		        post_id AS postId,
+		        user_id AS userId,
+		        user_challenge_id AS userChallengeId,
+		        title,
+		        content,
+		        view_count AS viewCount,
+		        TO_CHAR(timestamp, 'YYYY-MM-DD HH24:MI:SS') AS timestamp
+		    FROM COMMUNITY
+		    WHERE post_id = #{postId}
+	    </select>
+	
+	    <!-- 게시글 작성 -->
+		<insert id="insertPost" parameterType="org.zerock.domain.CommunityPost">
+		    INSERT INTO COMMUNITY (
+		        post_id,
+		        user_id,
+		        user_challenge_id,
+		        title,
+		        content,
+		        view_count,
+		        timestamp
+		    ) VALUES (
+		        SEQ_COMMUNITY_POST_ID.NEXTVAL,
+		        #{userId},
+		        #{userChallengeId},
+		        #{title},
+		        #{content},
+		        #{viewCount},
+		        CURRENT_TIMESTAMP
+		    )
+		</insert>
+	
+	    <select id="getPostWithDetails" parameterType="long" resultType="map">
+	        SELECT 
+	            c.post_id AS postId,
+	            c.user_id AS userId,
+	            c.title AS title,
+	            c.content AS content,
+	            c.view_count AS viewCount,
+	            c.timestamp AS timestamp,
+	            uc.challenge_id AS challengeId,
+	            ch.title AS challengeTitle,
+	            ct.task AS task
+	        FROM COMMUNITY c
+	        LEFT JOIN USERCHALLENGE uc ON c.user_challenge_id = uc.user_challenge_id
+	        LEFT JOIN CHALLENGES ch ON uc.challenge_id = ch.challenge_id
+	        LEFT JOIN CHALLENGE_TASKS ct ON uc.task_id = ct.task_id
+	        WHERE c.post_id = #{postId}
+	    </select>
 
-    <!-- 게시글 작성 -->
-    <insert id="insertPost">
-        INSERT INTO community (
-            post_id,
-            user_id,
-            title,
-            content,
-            timestamp
-        ) VALUES (
-            post_seq.NEXTVAL,
-            #{userId},
-            #{title},
-            #{content},
-            #{timestamp}
-        )
-    </insert>
 
     <!-- 조회수 증가 -->
     <update id="updateViewCount">
@@ -53,4 +77,37 @@
         SET view_count = view_count + 1 
         WHERE post_id = #{postId}
     </update>
+    
+    
+    <select id="getPostWithChallenge" parameterType="long" resultType="map">
+        SELECT 
+            c.post_id,
+            c.user_id,
+            c.challenge_id,
+            c.title,
+            c.content,
+            c.view_count,
+            c.timestamp,
+            ch.title as challenge_title,
+            ch.duration,
+            ct.task
+        FROM community c
+        JOIN challenges ch ON c.challenge_id = ch.challenge_id
+        LEFT JOIN challenge_tasks ct ON ch.challenge_id = ct.challenge_id
+        WHERE c.post_id = #{postId}
+    </select>
+
+    
+    <update id="updatePost" parameterType="org.zerock.domain.CommunityPost">
+        UPDATE community
+        SET 
+            title = #{title},
+            content = #{content},
+            timestamp = #{timestamp}
+        WHERE post_id = #{postId}
+    </update>
+    
+    <delete id="deletePost" parameterType="long">
+        DELETE FROM community WHERE post_id = #{postId}
+    </delete>
 </mapper>

@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
           userId: null,
           username: "",
           email: "",
-          startedChallenge: null, // 진행 중인 챌린지 상태
+          startedChallenge: [], // 진행 중인 챌린지 상태
         };
   });
 
@@ -44,20 +44,57 @@ export const AuthProvider = ({ children }) => {
   
   //   fetchOngoingChallenge();
   // }, [auth.userId]);
+  // 진행 중인 챌린지 가져오기
   useEffect(() => {
     const fetchOngoingChallenge = async () => {
       if (auth.userId) {
         try {
+          // 진행 중인 챌린지 데이터 가져오기
           const response = await axios.get(
             `http://localhost:8080/api/userChallenges/${auth.userId}`
           );
-          const ongoingChallenge = response.data;
-          if (ongoingChallenge) {
-            setAuth((prevAuth) => {
-              const updatedAuth = { ...prevAuth, startedChallenge: ongoingChallenge };
-              localStorage.setItem("auth", JSON.stringify(updatedAuth));
-              return updatedAuth;
+          const ongoingChallenges = response.data;
+
+          if (ongoingChallenges && ongoingChallenges.length > 0) {
+            // task와 title을 매핑
+            const challengesResponse = await axios.get(
+              "http://localhost:8080/api/challenges"
+            );
+            const tasksResponse = await axios.get(
+              "http://localhost:8080/api/tasks"
+            );
+
+            const challenges = challengesResponse.data;
+            const tasks = tasksResponse.data;
+
+            const updatedChallenges = ongoingChallenges.map((challenge) => {
+              const challengeData = challenges.find(
+                (c) => c.challengeId === challenge.challengeId
+              );
+              const taskData = tasks.find((t) => t.taskId === challenge.taskId);
+
+              return {
+                ...challenge,
+                challengeTitle: challengeData?.title || "제목 없음",
+                task: taskData?.task || "과제 없음",
+              };
             });
+
+            setAuth((prevAuth) => ({
+              ...prevAuth,
+              startedChallenge: updatedChallenges,
+            }));
+
+            // LocalStorage에도 업데이트
+            localStorage.setItem(
+              "auth",
+              JSON.stringify({
+                ...auth,
+                startedChallenge: updatedChallenges,
+              })
+            );
+          } else {
+            console.warn("진행 중인 챌린지가 없습니다.");
           }
         } catch (error) {
           console.error("진행 중인 챌린지 데이터를 가져오지 못했습니다.", error);
@@ -91,10 +128,13 @@ export const AuthProvider = ({ children }) => {
     setAuth((prevAuth) => {
       const updatedAuth = {
         ...prevAuth,
-        startedChallenge: {
-          ...challengeData,
-          progress: challengeData.progress || 0,
-        },
+        startedChallenge: [
+          ...prevAuth.startedChallenge,
+          {
+            ...challengeData,
+            progress: challengeData.progress || 0,
+          },
+        ],
       };
       localStorage.setItem("auth", JSON.stringify(updatedAuth));
       return updatedAuth;

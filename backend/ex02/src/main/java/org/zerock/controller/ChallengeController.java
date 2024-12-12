@@ -2,6 +2,7 @@ package org.zerock.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,8 +34,9 @@ public class ChallengeController {
      * GET /api/challenges
      */
     @GetMapping("/challenges")
-    public List<Challenge> getChallenges() {
-        return challengeService.getAllChallenges();
+    public ResponseEntity<List<Challenge>> getAllChallenges() {
+        List<Challenge> challenges = challengeService.getAllChallenges();
+        return ResponseEntity.ok(challenges);
     }
 
     /**
@@ -68,6 +70,11 @@ public class ChallengeController {
             request.getDuration(),
             request.getTasks()
         );
+    }
+    @GetMapping("/tasks")
+    public ResponseEntity<List<ChallengeTask>> getAllTasks() {
+        List<ChallengeTask> tasks = challengeService.findAllTasks();
+        return ResponseEntity.ok(tasks);
     }
 
     @Getter @Setter
