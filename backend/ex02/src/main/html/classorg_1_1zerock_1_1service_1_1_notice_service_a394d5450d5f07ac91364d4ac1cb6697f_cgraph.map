@@ -1,0 +1,5 @@
+<map id="org.zerock.service.NoticeService.getNotice" name="org.zerock.service.NoticeService.getNotice">
+<area shape="rect" id="Node000001" title="공지사항 상세 조회" alt="" coords="5,5,176,48"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_notice_mapper.html#ad15f75322a103b484fe04d9888c1ed94" title="특정 공지사항 조회" alt="" coords="224,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,24,208,24,208,29,176,29"/>
+</map>

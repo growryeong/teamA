@@ -1,0 +1,26 @@
+\doxysection{Duration\+Service.\+java}
+\hypertarget{_duration_service_8java_source}{}\label{_duration_service_8java_source}\index{java/org/zerock/service/DurationService.java@{java/org/zerock/service/DurationService.java}}
+\mbox{\hyperlink{_duration_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.service;}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.zerock.domain.Duration;}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.zerock.mapper.DurationMapper;}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00017}00017\ @Service}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00018}00018\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00019}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service}{00019}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service}{DurationService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00022}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce}{00022}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_duration_mapper}{DurationMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce}{durationMapper}};}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00031}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883}{00031}}\ \ \ \ \ \textcolor{keyword}{public}\ List<Duration>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883}{getAllDurations}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce}{durationMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_duration_mapper_a770a59fef2fb6bae3270fba5e64bad19}{findAll}}();}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_duration_service_8java_source_l00034}00034\ \}}
+
+\end{DoxyCode}

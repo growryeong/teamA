@@ -1,0 +1,5 @@
+<map id="org.zerock.service.CommentService.getCommentsByPostId" name="org.zerock.service.CommentService.getCommentsByPostId">
+<area shape="rect" id="Node000001" title="게시글 ID를 기반으로 댓글 조회" alt="" coords="5,5,211,48"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_comment_mapper.html#a7380f7bf3d2edc0a069dfb713e32f218" title="특정 게시글의 댓글 조회" alt="" coords="259,5,463,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,24,243,24,243,29,211,29"/>
+</map>

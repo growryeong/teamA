@@ -1,0 +1,5 @@
+<map id="org.zerock.service.CommentService.addComment" name="org.zerock.service.CommentService.addComment">
+<area shape="rect" id="Node000001" title="댓글 등록" alt="" coords="5,5,195,48"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_comment_mapper.html#a453f78113f6ae78495e78522ad41c3e1" title="새로운 댓글 등록" alt="" coords="243,5,433,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,24,227,24,227,29,195,29"/>
+</map>

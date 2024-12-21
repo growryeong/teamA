@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project1: java/org/zerock/domain/Criteria.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project1<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_criteria_8java_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Criteria.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_criteria_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>org.zerock.domain;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> lombok.Getter;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> lombok.Setter;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> lombok.ToString;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>@ToString</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>@Setter</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>@Getter</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html">   11</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_criteria.html">Criteria</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ab72709582f73231284cf03fae8288a30">   13</a></span>  <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ab72709582f73231284cf03fae8288a30">pageNum</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ac5f15e3845bb7e3cfb5c4ba40dbf4126">   14</a></span>  <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ac5f15e3845bb7e3cfb5c4ba40dbf4126">amount</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#aa83b73c4a6dd5023f934339a1edae081">   16</a></span>  <span class="keyword">private</span> String <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#aa83b73c4a6dd5023f934339a1edae081">type</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a9e16373ab433f73262a395f28ffebf1a">   17</a></span>  <span class="keyword">private</span> String <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a9e16373ab433f73262a395f28ffebf1a">keyword</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a38811b499095e9be643a4045d07ef277">   19</a></span>  <span class="keyword">public</span> <a class="code hl_function" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a38811b499095e9be643a4045d07ef277">Criteria</a>() {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">this</span>(1, 10);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  }</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#afbbfe421498e6d333df5941389e97822">   23</a></span>  <span class="keyword">public</span> <a class="code hl_function" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#afbbfe421498e6d333df5941389e97822">Criteria</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ab72709582f73231284cf03fae8288a30">pageNum</a>, <span class="keywordtype">int</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ac5f15e3845bb7e3cfb5c4ba40dbf4126">amount</a>) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    this.pageNum = <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ab72709582f73231284cf03fae8288a30">pageNum</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    this.amount = <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ac5f15e3845bb7e3cfb5c4ba40dbf4126">amount</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  }</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a9cbac5a2deec88671f8c30f295b43215">   28</a></span>  <span class="keyword">public</span> String[] <a class="code hl_function" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a9cbac5a2deec88671f8c30f295b43215">getTypeArr</a>() {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#aa83b73c4a6dd5023f934339a1edae081">type</a> == <span class="keyword">null</span>? <span class="keyword">new</span> String[] {}: <a class="code hl_variable" href="classorg_1_1zerock_1_1domain_1_1_criteria.html#aa83b73c4a6dd5023f934339a1edae081">type</a>.split(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  }</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+</div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html">org.zerock.domain.Criteria</a></div><div class="ttdef"><b>Definition</b> <a href="#l00011">Criteria.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_a38811b499095e9be643a4045d07ef277"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a38811b499095e9be643a4045d07ef277">org.zerock.domain.Criteria.Criteria</a></div><div class="ttdeci">Criteria()</div><div class="ttdef"><b>Definition</b> <a href="#l00019">Criteria.java:19</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_a9cbac5a2deec88671f8c30f295b43215"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a9cbac5a2deec88671f8c30f295b43215">org.zerock.domain.Criteria.getTypeArr</a></div><div class="ttdeci">String[] getTypeArr()</div><div class="ttdef"><b>Definition</b> <a href="#l00028">Criteria.java:28</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_a9e16373ab433f73262a395f28ffebf1a"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#a9e16373ab433f73262a395f28ffebf1a">org.zerock.domain.Criteria.keyword</a></div><div class="ttdeci">String keyword</div><div class="ttdef"><b>Definition</b> <a href="#l00017">Criteria.java:17</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_aa83b73c4a6dd5023f934339a1edae081"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#aa83b73c4a6dd5023f934339a1edae081">org.zerock.domain.Criteria.type</a></div><div class="ttdeci">String type</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Criteria.java:16</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_ab72709582f73231284cf03fae8288a30"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ab72709582f73231284cf03fae8288a30">org.zerock.domain.Criteria.pageNum</a></div><div class="ttdeci">int pageNum</div><div class="ttdef"><b>Definition</b> <a href="#l00013">Criteria.java:13</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_ac5f15e3845bb7e3cfb5c4ba40dbf4126"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#ac5f15e3845bb7e3cfb5c4ba40dbf4126">org.zerock.domain.Criteria.amount</a></div><div class="ttdeci">int amount</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Criteria.java:14</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_criteria_html_afbbfe421498e6d333df5941389e97822"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_criteria.html#afbbfe421498e6d333df5941389e97822">org.zerock.domain.Criteria.Criteria</a></div><div class="ttdeci">Criteria(int pageNum, int amount)</div><div class="ttdef"><b>Definition</b> <a href="#l00023">Criteria.java:23</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_dbfded582784846724308f9150bf5e72.html">org</a></li><li class="navelem"><a class="el" href="dir_1d36fa85a4c40021bc41e20ad60b1a86.html">zerock</a></li><li class="navelem"><a class="el" href="dir_41bade1dedd935d89e2723727f52ff08.html">domain</a></li><li class="navelem"><a class="el" href="_criteria_8java.html">Criteria.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

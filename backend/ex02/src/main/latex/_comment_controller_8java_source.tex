@@ -1,0 +1,66 @@
+\doxysection{Comment\+Controller.\+java}
+\hypertarget{_comment_controller_8java_source}{}\label{_comment_controller_8java_source}\index{java/org/zerock/controller/CommentController.java@{java/org/zerock/controller/CommentController.java}}
+\mbox{\hyperlink{_comment_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.controller;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00003}00003\ \textcolor{keyword}{import}\ lombok.Getter;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00004}00004\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00005}00005\ \textcolor{keyword}{import}\ lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00006}00006\ \textcolor{keyword}{import}\ lombok.ToString;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00007}00007\ \textcolor{keyword}{import}\ lombok.extern.slf4j.Slf4j;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.http.HttpStatus;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.http.ResponseEntity;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.*;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.zerock.domain.Comment;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00013}00013\ \textcolor{keyword}{import}\ org.zerock.service.CommentService;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00015}00015\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00016}00016\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00023}00023\ @Slf4j}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00024}00024\ @RestController}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00025}00025\ @RequestMapping(\textcolor{stringliteral}{"{}/api/comments"{}})}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00026}00026\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00027}00027\ @CrossOrigin(origins\ =\ \textcolor{stringliteral}{"{}http://localhost:3000"{}})\ \textcolor{comment}{//\ CORS\ 허용}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00028}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller}{00028}}\ public\ class\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller}{CommentController}}\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00031}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4}{00031}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service}{CommentService}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4}{commentService}};}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00041}00041\ \ \ \ \ @PostMapping}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00042}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_ac224e24d59843057406207438377b3f9}{00042}}\ \ \ \ \ \textcolor{keyword}{public}\ ResponseEntity<String>\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_ac224e24d59843057406207438377b3f9}{addComment}}(@RequestBody\ Map<String,\ Object>\ payload)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 요청\ 데이터에서\ 필요한\ 정보\ 추출}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ postId\ =\ ((Number)\ payload.get(\textcolor{stringliteral}{"{}postId"{}})).longValue();}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ String\ userId\ =\ (String)\ payload.get(\textcolor{stringliteral}{"{}userId"{}});}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ String\ commentText\ =\ (String)\ payload.get(\textcolor{stringliteral}{"{}commentText"{}});}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 댓글\ 등록\ 서비스\ 호출}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ commentService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a1e49a7e511c54b882ea4ce429f7d5df8}{addComment}}(postId,\ userId,\ commentText);}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 성공\ 응답\ 반환}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(\textcolor{stringliteral}{"{}댓글이\ 성공적으로\ 추가되었습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}댓글\ 추가\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 응답\ 반환}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}댓글\ 추가\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00071}00071\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/\{postId\}"{}})}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00072}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_a33b301b89fd6d261a4a77e8980fbf403}{00072}}\ \ \ \ \ public\ ResponseEntity<List<\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment}{Comment}}>>\ getComments(@PathVariable\ Long\ postId)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 댓글\ 목록\ 조회\ 서비스\ 호출}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ List<Comment>\ comments\ =\ commentService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a9fdfe0091ff30420f56f6f38ef687dcf}{getCommentsByPostId}}(postId);}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 조회된\ 댓글\ 확인용\ 로그\ 출력}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}Fetched\ Comments:\ \{\}"{}},\ comments);}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 조회\ 결과\ 반환}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(comments);}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_comment_controller_8java_source_l00082}00082\ \}}
+
+\end{DoxyCode}

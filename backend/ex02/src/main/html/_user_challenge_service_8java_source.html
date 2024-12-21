@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project1: java/org/zerock/service/UserChallengeService.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project1<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_user_challenge_service_8java_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UserChallengeService.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_user_challenge_service_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>org.zerock.service;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.time.LocalDate;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.springframework.stereotype.Service;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.zerock.domain.User;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.zerock.domain.UserChallenge;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> org.zerock.mapper.ChallengeMapper;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> org.zerock.mapper.UserChallengeMapper;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> org.zerock.mapper.UserMapper;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>@Service</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>@Slf4j</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>@RequiredArgsConstructor</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html">   27</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html">UserChallengeService</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">   30</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_interface" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html">UserChallengeMapper</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">userChallengeMapper</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a6573e6547ed4fde87602d20f59a6e456">   33</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_interface" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">ChallengeMapper</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a6573e6547ed4fde87602d20f59a6e456">challengeMapper</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#ad6dc57e85311c44cb0281dabeb327571">   36</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_interface" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html">UserMapper</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#ad6dc57e85311c44cb0281dabeb327571">userMapper</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    @Transactional</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#abbbd50521c8facd21bd83c2919329517">   54</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#abbbd50521c8facd21bd83c2919329517">saveUserChallenge</a>(String userId, Long challengeId, String challengeType, String challengeTitle, </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                                  <span class="keywordtype">int</span> duration, String startDate, String status, Long taskId) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">int</span> activityTypeId = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">if</span> (challengeType != <span class="keyword">null</span>) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                activityTypeId = Integer.parseInt(challengeType);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            } <span class="keywordflow">catch</span> (NumberFormatException e) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                log.warn(<span class="stringliteral">&quot;유효하지 않은 챌린지 유형: {}, 기본값 0으로 설정&quot;</span>, challengeType);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_user.html">User</a> user = <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#ad6dc57e85311c44cb0281dabeb327571">userMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#a511a9f42cc19fc8f81c3abcd3b1a8a3d">findById</a>(userId);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> (user == <span class="keyword">null</span>) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;유저를 찾을 수 없습니다. userId: &quot;</span> + userId);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        LocalDate start = LocalDate.parse(startDate);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        LocalDate end = start.plusDays(duration);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_user_challenge.html">UserChallenge</a> userChallenge = <span class="keyword">new</span> <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_user_challenge.html">UserChallenge</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        userChallenge.setUserId(userId);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        userChallenge.setChallengeId(challengeId);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        userChallenge.setProgress(0.0);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        userChallenge.setStatus(status);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        userChallenge.setStartDate(startDate);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        userChallenge.setEndDate(end.toString());</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        userChallenge.setDuration(duration);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        userChallenge.setTaskId(taskId);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        log.info(<span class="stringliteral">&quot;새로운 사용자 챌린지 저장: {}&quot;</span>, userChallenge);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">userChallengeMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a647a96376df7b31c09e45141faae2d3f">insertUserChallenge</a>(userChallenge);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    @Transactional</div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a64817f0444a3473ad791b8012755a8db">   97</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a64817f0444a3473ad791b8012755a8db">duplicateUserChallenge</a>(Long originalUserChallengeId, String newUserId) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        Map&lt;String, Object&gt; originalChallenge = <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a08d37cf340caaaa7ff7faa247a071987">getUserChallengeDetails</a>(originalUserChallengeId);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">if</span> (originalChallenge == <span class="keyword">null</span> || originalChallenge.isEmpty()) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;유효한 유저 챌린지 데이터를 찾을 수 없습니다.&quot;</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        Long challengeId = ((Number) originalChallenge.get(<span class="stringliteral">&quot;CHALLENGEID&quot;</span>)).longValue();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        Long taskId = ((Number) originalChallenge.get(<span class="stringliteral">&quot;TASKID&quot;</span>)).longValue();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordtype">int</span> duration = ((Number) originalChallenge.get(<span class="stringliteral">&quot;DURATION&quot;</span>)).intValue();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        String challengeTitle = (String) originalChallenge.get(<span class="stringliteral">&quot;CHALLENGETITLE&quot;</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_user_challenge.html">UserChallenge</a> newChallenge = <span class="keyword">new</span> <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_user_challenge.html">UserChallenge</a>();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        newChallenge.setUserId(newUserId);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        newChallenge.setChallengeId(challengeId);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        newChallenge.setTaskId(taskId);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        newChallenge.setDuration(duration);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        newChallenge.setStartDate(LocalDate.now().toString());</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        newChallenge.setEndDate(LocalDate.now().plusDays(duration).toString());</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        newChallenge.setStatus(<span class="stringliteral">&quot;in_progress&quot;</span>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        newChallenge.setProgress(0.0);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">userChallengeMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a647a96376df7b31c09e45141faae2d3f">insertUserChallenge</a>(newChallenge);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a18f64b17f7b97be4f741fc1e910edc22">  129</a></span>    <span class="keyword">public</span> List&lt;UserChallenge&gt; <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a18f64b17f7b97be4f741fc1e910edc22">getOngoingChallenge</a>(String userId) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">userChallengeMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a6c4659d3bb763604b94eb1adf4680414">findOngoingChallengeByUserId</a>(userId);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a08d37cf340caaaa7ff7faa247a071987">  141</a></span>    <span class="keyword">public</span> Map&lt;String, Object&gt; <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a08d37cf340caaaa7ff7faa247a071987">getUserChallengeDetails</a>(Long userChallengeId) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">userChallengeMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a0a59516a89020931684005d0e7ca1927">getUserChallengeDetails</a>(userChallengeId);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    }</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a9bc24ade41b865ec5cfb35dd4ba042bc">  154</a></span>    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a9bc24ade41b865ec5cfb35dd4ba042bc">isChallengeAlreadyParticipated</a>(String userId, Long taskId) {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        List&lt;UserChallenge&gt; userChallenges = <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">userChallengeMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#aeea43e6b52f52fcef5f7f34d131b5d18">findByUser</a>(userId);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">return</span> userChallenges.stream()</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                             .anyMatch(challenge -&gt; challenge.getTaskId().equals(taskId));</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>}</div>
+</div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_user_challenge_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_user_challenge.html">org.zerock.domain.UserChallenge</a></div><div class="ttdoc">사용자 챌린지(UserChallenge) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_user_challenge_8java_source.html#l00011">UserChallenge.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_user_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_user.html">org.zerock.domain.User</a></div><div class="ttdoc">사용자(User) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_user_8java_source.html#l00013">User.java:13</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html">org.zerock.service.UserChallengeService</a></div><div class="ttdoc">사용자 챌린지 관리를 위한 서비스</div><div class="ttdef"><b>Definition</b> <a href="#l00027">UserChallengeService.java:27</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_a08d37cf340caaaa7ff7faa247a071987"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a08d37cf340caaaa7ff7faa247a071987">org.zerock.service.UserChallengeService.getUserChallengeDetails</a></div><div class="ttdeci">Map&lt; String, Object &gt; getUserChallengeDetails(Long userChallengeId)</div><div class="ttdoc">사용자 챌린지 상세 정보 조회</div><div class="ttdef"><b>Definition</b> <a href="#l00141">UserChallengeService.java:141</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_a18f64b17f7b97be4f741fc1e910edc22"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a18f64b17f7b97be4f741fc1e910edc22">org.zerock.service.UserChallengeService.getOngoingChallenge</a></div><div class="ttdeci">List&lt; UserChallenge &gt; getOngoingChallenge(String userId)</div><div class="ttdoc">진행 중인 사용자 챌린지 조회</div><div class="ttdef"><b>Definition</b> <a href="#l00129">UserChallengeService.java:129</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_a64817f0444a3473ad791b8012755a8db"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a64817f0444a3473ad791b8012755a8db">org.zerock.service.UserChallengeService.duplicateUserChallenge</a></div><div class="ttdeci">void duplicateUserChallenge(Long originalUserChallengeId, String newUserId)</div><div class="ttdoc">기존 사용자 챌린지를 복제하여 새로운 사용자로 저장</div><div class="ttdef"><b>Definition</b> <a href="#l00097">UserChallengeService.java:97</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_a6573e6547ed4fde87602d20f59a6e456"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a6573e6547ed4fde87602d20f59a6e456">org.zerock.service.UserChallengeService.challengeMapper</a></div><div class="ttdeci">final ChallengeMapper challengeMapper</div><div class="ttdef"><b>Definition</b> <a href="#l00033">UserChallengeService.java:33</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_a76b42545301f99307d5536e01b93db80"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a76b42545301f99307d5536e01b93db80">org.zerock.service.UserChallengeService.userChallengeMapper</a></div><div class="ttdeci">final UserChallengeMapper userChallengeMapper</div><div class="ttdef"><b>Definition</b> <a href="#l00030">UserChallengeService.java:30</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_a9bc24ade41b865ec5cfb35dd4ba042bc"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a9bc24ade41b865ec5cfb35dd4ba042bc">org.zerock.service.UserChallengeService.isChallengeAlreadyParticipated</a></div><div class="ttdeci">boolean isChallengeAlreadyParticipated(String userId, Long taskId)</div><div class="ttdoc">사용자 챌린지 참여 중복 여부 확인</div><div class="ttdef"><b>Definition</b> <a href="#l00154">UserChallengeService.java:154</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_abbbd50521c8facd21bd83c2919329517"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#abbbd50521c8facd21bd83c2919329517">org.zerock.service.UserChallengeService.saveUserChallenge</a></div><div class="ttdeci">void saveUserChallenge(String userId, Long challengeId, String challengeType, String challengeTitle, int duration, String startDate, String status, Long taskId)</div><div class="ttdoc">새로운 사용자 챌린지 저장</div><div class="ttdef"><b>Definition</b> <a href="#l00054">UserChallengeService.java:54</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_user_challenge_service_html_ad6dc57e85311c44cb0281dabeb327571"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#ad6dc57e85311c44cb0281dabeb327571">org.zerock.service.UserChallengeService.userMapper</a></div><div class="ttdeci">final UserMapper userMapper</div><div class="ttdef"><b>Definition</b> <a href="#l00036">UserChallengeService.java:36</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">org.zerock.mapper.ChallengeMapper</a></div><div class="ttdoc">챌린지 데이터를 처리하기 위한 Mapper 인터페이스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_mapper_8java_source.html#l00018">ChallengeMapper.java:18</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_html"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html">org.zerock.mapper.UserChallengeMapper</a></div><div class="ttdoc">사용자 챌린지 관리를 위한 Mapper 인터페이스</div><div class="ttdef"><b>Definition</b> <a href="_user_challenge_mapper_8java_source.html#l00017">UserChallengeMapper.java:17</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_html_a0a59516a89020931684005d0e7ca1927"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a0a59516a89020931684005d0e7ca1927">org.zerock.mapper.UserChallengeMapper.getUserChallengeDetails</a></div><div class="ttdeci">Map&lt; String, Object &gt; getUserChallengeDetails(@Param(&quot;userChallengeId&quot;) Long userChallengeId)</div><div class="ttdoc">사용자 챌린지 ID로 상세 정보 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_html_a647a96376df7b31c09e45141faae2d3f"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a647a96376df7b31c09e45141faae2d3f">org.zerock.mapper.UserChallengeMapper.insertUserChallenge</a></div><div class="ttdeci">void insertUserChallenge(UserChallenge userChallenge)</div><div class="ttdoc">사용자 챌린지 등록</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_html_a6c4659d3bb763604b94eb1adf4680414"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#a6c4659d3bb763604b94eb1adf4680414">org.zerock.mapper.UserChallengeMapper.findOngoingChallengeByUserId</a></div><div class="ttdeci">List&lt; UserChallenge &gt; findOngoingChallengeByUserId(@Param(&quot;userId&quot;) String userId)</div><div class="ttdoc">특정 사용자의 진행 중인 챌린지 목록 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_html_aeea43e6b52f52fcef5f7f34d131b5d18"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper.html#aeea43e6b52f52fcef5f7f34d131b5d18">org.zerock.mapper.UserChallengeMapper.findByUser</a></div><div class="ttdeci">List&lt; UserChallenge &gt; findByUser(@Param(&quot;userId&quot;) String userId)</div><div class="ttdoc">특정 사용자의 모든 챌린지 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_html"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html">org.zerock.mapper.UserMapper</a></div><div class="ttdoc">사용자 관리를 위한 Mapper 인터페이스</div><div class="ttdef"><b>Definition</b> <a href="_user_mapper_8java_source.html#l00017">UserMapper.java:17</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_html_a511a9f42cc19fc8f81c3abcd3b1a8a3d"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#a511a9f42cc19fc8f81c3abcd3b1a8a3d">org.zerock.mapper.UserMapper.findById</a></div><div class="ttdeci">User findById(String userId)</div><div class="ttdoc">사용자 ID로 사용자 조회</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_dbfded582784846724308f9150bf5e72.html">org</a></li><li class="navelem"><a class="el" href="dir_1d36fa85a4c40021bc41e20ad60b1a86.html">zerock</a></li><li class="navelem"><a class="el" href="dir_2bb85f31ffe2a1cefde0e53f12ee9bbf.html">service</a></li><li class="navelem"><a class="el" href="_user_challenge_service_8java.html">UserChallengeService.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

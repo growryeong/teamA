@@ -2,19 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="org.zerock.mapper.ChallengeTaskMapper">
+<mapper namespace="org.zerock.mapper.ChallengeTaskMapper">
+
+    <!--
+        @brief 챌린지 ID로 과제 조회
+        @details 
+        CHALLENGE_TASKS 테이블에서 주어진 챌린지 ID에 해당하는 모든 과제를 조회합니다.
+        @param challengeId 조회할 챌린지의 ID (long 타입)
+        @return 해당 챌린지에 연결된 과제 리스트 (org.zerock.domain.ChallengeTask)
+    -->
     <select id="findByChallengeId" parameterType="long" resultType="org.zerock.domain.ChallengeTask">
-        SELECT task_id AS taskId, challenge_id AS challengeId, task
+        SELECT 
+            task_id AS taskId, 
+            challenge_id AS challengeId, 
+            task
         FROM CHALLENGE_TASKS
         WHERE challenge_id = #{challengeId}
     </select>
     
+    <!--
+        @brief 모든 과제 조회
+        @details 
+        CHALLENGE_TASKS 테이블에 저장된 모든 과제 정보를 조회합니다.
+        @return 모든 과제 리스트 (org.zerock.domain.ChallengeTask)
+    -->
     <select id="findAllTasks" resultType="org.zerock.domain.ChallengeTask">
-	    SELECT task_id AS taskId,
-	           challenge_id AS challengeId,
-	           task
-	    FROM CHALLENGE_TASKS
-	</select>
-    
-    
+        SELECT 
+            task_id AS taskId,
+            challenge_id AS challengeId,
+            task
+        FROM CHALLENGE_TASKS
+    </select>
+
 </mapper>

@@ -1,0 +1,7 @@
+<map id="org.zerock.mapper.ChallengeTypeMapper.findByName" name="org.zerock.mapper.ChallengeTypeMapper.findByName">
+<area shape="rect" id="Node000001" title="챌린지 유형 이름으로 조회" alt="" coords="493,5,684,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_challenge_service.html#a9b9074293210b76930e6e4e2f509ad06" title="새로운 챌린지 생성" alt="" coords="255,5,445,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="478,29,446,29,446,24,478,24"/>
+<area shape="rect" id="Node000003" href="$classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a8cb338fd76578ce1ccc8db3b8cd91769" title="새로운 챌린지 생성" alt="" coords="5,5,207,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="239,29,207,29,207,24,239,24"/>
+</map>

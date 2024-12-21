@@ -1,0 +1,9 @@
+<map id="org.zerock.service.ChallengeService.createChallenge" name="org.zerock.service.ChallengeService.createChallenge">
+<area shape="rect" id="Node000001" title="새로운 챌린지 생성" alt="" coords="5,72,196,115"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_type_mapper.html#a1a9c9c585050921096760a19b007d573" title="챌린지 유형 이름으로 조회" alt="" coords="244,5,435,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,69,245,50,247,55,180,74"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a5f87077f2dc003e81797cc89e07e2412" title="새로운 챌린지 삽입" alt="" coords="244,72,435,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,91,228,91,228,96,196,96"/>
+<area shape="rect" id="Node000004" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper.html#a45b9cbec8de3a973a1fac9a3234a9689" title="새로운 챌린지 과제 삽입" alt="" coords="244,139,435,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="180,113,247,131,245,137,178,118"/>
+</map>

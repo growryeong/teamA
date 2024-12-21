@@ -1,0 +1,68 @@
+\doxysection{Notice\+Controller.\+java}
+\hypertarget{_notice_controller_8java_source}{}\label{_notice_controller_8java_source}\index{java/org/zerock/controller/NoticeController.java@{java/org/zerock/controller/NoticeController.java}}
+\mbox{\hyperlink{_notice_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.controller;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00003}00003\ \textcolor{keyword}{import}\ org.springframework.beans.factory.annotation.Autowired;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.springframework.http.HttpStatus;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.http.ResponseEntity;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.*;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.zerock.domain.NoticeDTO;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.zerock.service.NoticeService;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.slf4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.slf4j.LoggerFactory;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00012}00012\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00019}00019\ @RestController}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00020}00020\ @RequestMapping(\textcolor{stringliteral}{"{}/notices"{}})}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00021}00021\ @CrossOrigin(origins\ =\ \textcolor{stringliteral}{"{}http://localhost:3000"{}})\ \textcolor{comment}{//\ CORS\ 허용}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00022}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller}{00022}}\ public\ class\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller}{NoticeController}}\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00025}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{00025}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ Logger\ logger\ =\ LoggerFactory.getLogger(\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller}{NoticeController}}.class);}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00028}00028\ \ \ \ \ @Autowired}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00029}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff}{00029}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service}{NoticeService}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff}{noticeService}};}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00038}00038\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00039}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_ae0fbe76502ebff1275be8e77b21dda2d}{00039}}\ \ \ \ \ public\ ResponseEntity<?>\ getNoticeList()\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ logger.info(\textcolor{stringliteral}{"{}공지사항\ 목록\ 조회\ 요청"{}});}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 공지사항\ 목록\ 조회\ 서비스\ 호출}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ List<NoticeDTO>\ notices\ =\ noticeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a11e1b1986e9bafbbcc18140e600acc82}{getNoticeList}}();}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ logger.info(\textcolor{stringliteral}{"{}조회된\ 공지사항\ 수:\ \{\}"{}},\ notices.size());}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 공지사항\ 목록\ 반환}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(notices);}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ logger.error(\textcolor{stringliteral}{"{}공지사항\ 목록\ 조회\ 중\ 오류\ 발생"{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 발생\ 시\ 500\ 응답\ 반환}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}공지사항\ 목록을\ 불러오는데\ 실패했습니다:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00066}00066\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/\{id\}"{}})}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00067}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a686224904ff0dd018a3adcbe514b0450}{00067}}\ \ \ \ \ public\ ResponseEntity<?>\ getNoticeDetail(@PathVariable\ Long\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ logger.info(\textcolor{stringliteral}{"{}공지사항\ 상세\ 조회\ 요청\ ID:\ \{\}"{}},\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 공지사항\ 상세\ 조회\ 서비스\ 호출}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_notice_d_t_o}{NoticeDTO}}\ notice\ =\ noticeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a394d5450d5f07ac91364d4ac1cb6697f}{getNotice}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 조회된\ 공지사항\ 반환}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(notice);}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ logger.error(\textcolor{stringliteral}{"{}공지사항\ 상세\ 조회\ 중\ 오류\ 발생\ ID:\ "{}}\ +\ \textcolor{keywordtype}{id},\ e);}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 발생\ 시\ 500\ 응답\ 반환}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}공지사항을\ 불러오는데\ 실패했습니다:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_controller_8java_source_l00084}00084\ \}}
+
+\end{DoxyCode}

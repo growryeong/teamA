@@ -88,3 +88,81 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+/* 댓글 섹션 전체 스타일 */
+.dp-comment {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 댓글 입력 폼 스타일 */
+.create-comment {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.comment-submit-btn {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.comment-submit-btn:hover {
+    background-color: #218838;
+}
+
+/* 댓글 리스트 스타일 */
+.comment-list {
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.comment-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-item h3 {
+    font-size: 14px;
+    color: #007bff;
+    margin: 0;
+}
+
+.comment-item p {
+    font-size: 13px;
+    margin: 0;
+    color: #333;
+}
+
+.comment-item small {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+}

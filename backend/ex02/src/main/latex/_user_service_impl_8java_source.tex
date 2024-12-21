@@ -1,0 +1,82 @@
+\doxysection{User\+Service\+Impl.\+java}
+\hypertarget{_user_service_impl_8java_source}{}\label{_user_service_impl_8java_source}\index{java/org/zerock/service/UserServiceImpl.java@{java/org/zerock/service/UserServiceImpl.java}}
+\mbox{\hyperlink{_user_service_impl_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.service;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.beans.factory.annotation.Autowired;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.zerock.domain.UserChallengeDTO;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.zerock.domain.UserDTO;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.zerock.mapper.UserMapper;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00017}00017\ @Service}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00018}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl}{00018}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl}{UserServiceImpl}}\ \textcolor{keyword}{implements}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1service_1_1_user_service}{UserService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00021}00021\ \ \ \ \ @Autowired}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00022}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{00022}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper}{UserMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}};}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00032}00032\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00033}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a2d47c6b69afe8c24075d2891f8115f16}{00033}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a2d47c6b69afe8c24075d2891f8115f16}{registerUser}}(\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{UserDTO}}\ userDTO)\ \textcolor{keywordflow}{throws}\ Exception\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 중복\ 체크}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_a03c3bb117c66571db962b2573607357c}{checkUserId}}(userDTO.getUserId())\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}이미\ 존재하는\ 아이디입니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_aba3601e3916014b1440ce8bab6889954}{checkEmail}}(userDTO.getEmail())\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}이미\ 존재하는\ 이메일입니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 사용자\ 등록}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_afe7785ffdf6ccd781826818a7fb39ed7}{insertUser}}(userDTO);}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00056}00056\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00057}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_ae07fe2a5bc582bab544d4909efc7fbec}{00057}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{UserDTO}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_ae07fe2a5bc582bab544d4909efc7fbec}{login}}(String\ userId,\ String\ password)\ \textcolor{keywordflow}{throws}\ Exception\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 사용자\ 조회}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{UserDTO}}\ user\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_a5499bd5790f4c09a6376aac7ef31ccd9}{getUserByUserId}}(userId);}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (user\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}아이디가\ 존재하지\ 않습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!user.getPassword().equals(password))\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}비밀번호가\ 일치하지\ 않습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ user;}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00081}00081\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00082}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a3dcb3512bc9ab399b682bfd4f151d4c9}{00082}}\ \ \ \ \ \textcolor{keyword}{public}\ List<UserChallengeDTO>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a3dcb3512bc9ab399b682bfd4f151d4c9}{getUserChallenges}}(String\ userId)\ \textcolor{keywordflow}{throws}\ Exception\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_aa9de73e0fd0193f0f1bd9e9febc28656}{getUserChallenges}}(userId);}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00095}00095\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00096}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a7e17bdf216c74f17971a9597c523f613}{00096}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a7e17bdf216c74f17971a9597c523f613}{updatePassword}}(String\ userId,\ String\ newPassword)\ \textcolor{keywordflow}{throws}\ Exception\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{UserDTO}}\ user\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_a5499bd5790f4c09a6376aac7ef31ccd9}{getUserByUserId}}(userId);}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (user\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}사용자를\ 찾을\ 수\ 없습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 비밀번호\ 업데이트}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_a3ca4da8bddb4509406a47446724b85af}{updatePassword}}(userId,\ newPassword);}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}비밀번호\ 변경에\ 실패했습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00118}00118\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00119}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_ad7dd992e3bff188ae0e4890ddf7102ed}{00119}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_ad7dd992e3bff188ae0e4890ddf7102ed}{updateEmail}}(String\ userId,\ String\ newEmail)\ \textcolor{keywordflow}{throws}\ Exception\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이메일\ 중복\ 체크}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_aba3601e3916014b1440ce8bab6889954}{checkEmail}}(newEmail)\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}이미\ 존재하는\ 이메일입니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00123}00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이메일\ 업데이트}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00126}00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a538243d3e0bfac384d6f92fdcfe28d46}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_a5e1ce588594673fdd89b5d4749d88749}{updateEmail}}(userId,\ newEmail);}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_service_impl_8java_source_l00128}00128\ \}}
+
+\end{DoxyCode}

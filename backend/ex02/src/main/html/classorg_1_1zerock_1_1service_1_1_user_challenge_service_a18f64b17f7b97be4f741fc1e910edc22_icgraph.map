@@ -1,0 +1,5 @@
+<map id="org.zerock.service.UserChallengeService.getOngoingChallenge" name="org.zerock.service.UserChallengeService.getOngoingChallenge">
+<area shape="rect" id="Node000001" title="진행 중인 사용자 챌린지 조회" alt="" coords="259,13,477,56"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1controller_1_1_user_challenge_controller.html#ad7ce098c3fa2074870a9ec506d413523" title="특정 사용자의 진행 중인 챌린지 조회" alt="" coords="5,5,211,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,37,211,37,211,32,243,32"/>
+</map>

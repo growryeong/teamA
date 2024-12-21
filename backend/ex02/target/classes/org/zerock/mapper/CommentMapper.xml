@@ -4,12 +4,54 @@
 
 <mapper namespace="org.zerock.mapper.CommentMapper">
 
-    <select id="getCommentsByPostId" resultType="org.zerock.domain.Comment">
-        SELECT * FROM comments WHERE post_id = #{postId} ORDER BY timestamp ASC
+    <!--
+        @brief 댓글 등록
+        @details 
+        COMMENTS 테이블에 새로운 댓글을 삽입합니다.
+        @param postId 댓글이 달린 게시글의 ID (long 타입)
+        @param userId 댓글을 작성한 사용자의 ID (String)
+        @param commentText 댓글 내용 (String)
+        @return 삽입된 댓글의 기본 정보
+    -->
+    <insert id="insertComment" parameterType="org.zerock.domain.Comment">
+        INSERT INTO COMMENTS (POST_ID, USER_ID, COMMENT_TEXT, TIMESTAMP)
+        VALUES (
+            #{postId}, 
+            #{userId}, 
+            #{commentText}, 
+            CURRENT_TIMESTAMP
+        )
+    </insert>
+    
+    <!--
+        @brief 댓글 결과 매핑
+        @details 
+        COMMENTS 테이블의 결과를 `org.zerock.domain.Comment` 클래스의 필드와 매핑합니다.
+    -->
+    <resultMap id="CommentResultMap" type="org.zerock.domain.Comment">
+        <id property="commentId" column="COMMENT_ID" />
+        <result property="postId" column="POST_ID" />
+        <result property="userId" column="USER_ID" />
+        <result property="commentText" column="COMMENT_TEXT" />
+        <result property="timestamp" column="TIMESTAMP" />
+    </resultMap>
+    
+    <!--
+        @brief 특정 게시글의 댓글 조회
+        @details 
+        COMMENTS 테이블에서 주어진 게시글 ID에 해당하는 모든 댓글을 조회합니다.
+        @param postId 댓글을 조회할 게시글의 ID (long 타입)
+        @return 해당 게시글의 댓글 리스트 (org.zerock.domain.Comment)
+    -->
+    <select id="getCommentsByPostId" parameterType="long" resultMap="CommentResultMap">
+        SELECT 
+            COMMENT_ID, 
+            POST_ID, 
+            USER_ID, 
+            COMMENT_TEXT, 
+            TIMESTAMP 
+        FROM COMMENTS 
+        WHERE POST_ID = #{postId}
     </select>
 
-    <insert id="insertComment">
-        INSERT INTO comments (post_id, user_id, comment_text, timestamp)
-        VALUES (#{postId}, #{userId}, #{commentText}, CURRENT_TIMESTAMP)
-    </insert>
 </mapper>

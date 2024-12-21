@@ -1,0 +1,7 @@
+<map id="org.zerock.service.CommunityService" name="org.zerock.service.CommunityService">
+<area shape="rect" id="Node000001" title="커뮤니티 게시글 관리를 위한 서비스" alt="" coords="109,325,299,496"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html" title="커뮤니티 게시글 관리를 위한 Mapper 인터페이스" alt="" coords="5,5,195,261"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,260,169,308,164,310,146,262"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html" title="챌린지 데이터를 처리하기 위한 Mapper 인터페이스" alt="" coords="219,27,400,240"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="301,241,283,302,278,312,274,310,278,300,296,239"/>
+</map>

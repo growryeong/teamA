@@ -1,0 +1,7 @@
+<map id="org.zerock.service.UserServiceImpl.updateEmail" name="org.zerock.service.UserServiceImpl.updateEmail">
+<area shape="rect" id="Node000001" title="사용자 이메일 변경" alt="" coords="5,39,210,81"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#aba3601e3916014b1440ce8bab6889954" title="이메일 중복 확인" alt="" coords="260,5,503,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,45,244,41,244,46,211,50"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#a5e1ce588594673fdd89b5d4749d88749" title="사용자 이메일 변경" alt="" coords="258,72,505,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,70,242,74,242,79,210,75"/>
+</map>

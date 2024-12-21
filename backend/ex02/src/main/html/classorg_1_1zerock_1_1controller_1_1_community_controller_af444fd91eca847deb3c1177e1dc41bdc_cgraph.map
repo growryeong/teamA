@@ -1,0 +1,7 @@
+<map id="org.zerock.controller.CommunityController.getPostWithChallenge" name="org.zerock.controller.CommunityController.getPostWithChallenge">
+<area shape="rect" id="Node000001" title="특정 게시글 및 연관된 챌린지 정보 조회" alt="" coords="5,5,217,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_community_service.html#a91e202c9a924b9e60896f2985c6273a8" title="게시글 상세 정보 및 관련 챌린지 조회" alt="" coords="265,5,492,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,24,249,24,249,29,217,29"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#ae58272a81d0be86062c80f19a85c500b" title="특정 게시글 조회" alt="" coords="540,5,740,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="493,24,524,24,524,29,493,29"/>
+</map>

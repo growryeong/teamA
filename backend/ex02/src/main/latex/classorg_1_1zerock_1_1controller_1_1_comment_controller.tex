@@ -1,0 +1,161 @@
+\doxysection{org.\+zerock.\+controller.\+Comment\+Controller 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1controller_1_1_comment_controller}{}\label{classorg_1_1zerock_1_1controller_1_1_comment_controller}\index{org.zerock.controller.CommentController@{org.zerock.controller.CommentController}}
+
+
+댓글 관리를 위한 REST 컨트롤러  
+
+
+
+
+org.\+zerock.\+controller.\+Comment\+Controller에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classorg_1_1zerock_1_1controller_1_1_comment_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$ String $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_ac224e24d59843057406207438377b3f9}{add\+Comment}} (@Request\+Body Map$<$ String, Object $>$ payload)
+\begin{DoxyCompactList}\small\item\em 댓글 등록 \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment}{Comment}} $>$ $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_a33b301b89fd6d261a4a77e8980fbf403}{get\+Comments}} (@Path\+Variable Long post\+Id)
+\begin{DoxyCompactList}\small\item\em 특정 게시글의 댓글 목록 조회 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service}{Comment\+Service}} \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4}{comment\+Service}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+댓글 관리를 위한 REST 컨트롤러 
+
+이 컨트롤러는 댓글 등록 및 조회와 관련된 API를 제공합니다. 
+
+\mbox{\hyperlink{_comment_controller_8java_source}{Comment\+Controller.\+java}} 파일의 \mbox{\hyperlink{_comment_controller_8java_source_l00028}{28}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_comment_controller_ac224e24d59843057406207438377b3f9}\index{org.zerock.controller.CommentController@{org.zerock.controller.CommentController}!addComment@{addComment}}
+\index{addComment@{addComment}!org.zerock.controller.CommentController@{org.zerock.controller.CommentController}}
+\doxysubsubsection{\texorpdfstring{addComment()}{addComment()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_comment_controller_ac224e24d59843057406207438377b3f9} 
+Response\+Entity$<$ String $>$ org.\+zerock.\+controller.\+Comment\+Controller.\+add\+Comment (\begin{DoxyParamCaption}\item[{@Request\+Body Map$<$ String, Object $>$}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+댓글 등록 
+
+사용자가 댓글을 작성하면 해당 댓글을 데이터베이스에 추가합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em payload} & 댓글 작성에 필요한 정보 (post\+Id, user\+Id, comment\+Text) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+성공적으로 등록되었는지 여부 메시지 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_comment_controller_8java_source}{Comment\+Controller.\+java}} 파일의 \mbox{\hyperlink{_comment_controller_8java_source_l00042}{42}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 요청\ 데이터에서\ 필요한\ 정보\ 추출}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ postId\ =\ ((Number)\ payload.get(\textcolor{stringliteral}{"{}postId"{}})).longValue();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ String\ userId\ =\ (String)\ payload.get(\textcolor{stringliteral}{"{}userId"{}});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ String\ commentText\ =\ (String)\ payload.get(\textcolor{stringliteral}{"{}commentText"{}});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 댓글\ 등록\ 서비스\ 호출}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4}{commentService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a1e49a7e511c54b882ea4ce429f7d5df8}{addComment}}(postId,\ userId,\ commentText);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 성공\ 응답\ 반환}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(\textcolor{stringliteral}{"{}댓글이\ 성공적으로\ 추가되었습니다."{}});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}댓글\ 추가\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 응답\ 반환}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}댓글\ 추가\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_comment_controller_ac224e24d59843057406207438377b3f9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_comment_controller_a33b301b89fd6d261a4a77e8980fbf403}\index{org.zerock.controller.CommentController@{org.zerock.controller.CommentController}!getComments@{getComments}}
+\index{getComments@{getComments}!org.zerock.controller.CommentController@{org.zerock.controller.CommentController}}
+\doxysubsubsection{\texorpdfstring{getComments()}{getComments()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_comment_controller_a33b301b89fd6d261a4a77e8980fbf403} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment}{Comment}} $>$ $>$ org.\+zerock.\+controller.\+Comment\+Controller.\+get\+Comments (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{post\+Id}{}\end{DoxyParamCaption})}
+
+
+
+특정 게시글의 댓글 목록 조회 
+
+주어진 게시글 ID에 해당하는 모든 댓글을 반환합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 댓글을 조회할 게시글의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+댓글 목록 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_comment_controller_8java_source}{Comment\+Controller.\+java}} 파일의 \mbox{\hyperlink{_comment_controller_8java_source_l00072}{72}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 댓글\ 목록\ 조회\ 서비스\ 호출}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ List<Comment>\ comments\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4}{commentService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a9fdfe0091ff30420f56f6f38ef687dcf}{getCommentsByPostId}}(postId);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 조회된\ 댓글\ 확인용\ 로그\ 출력}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}Fetched\ Comments:\ \{\}"{}},\ comments);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 조회\ 결과\ 반환}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(comments);}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_comment_controller_a33b301b89fd6d261a4a77e8980fbf403_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4}\index{org.zerock.controller.CommentController@{org.zerock.controller.CommentController}!commentService@{commentService}}
+\index{commentService@{commentService}!org.zerock.controller.CommentController@{org.zerock.controller.CommentController}}
+\doxysubsubsection{\texorpdfstring{commentService}{commentService}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_comment_controller_af1e69be0f677f30d11f8803a7929c0f4} 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service}{Comment\+Service}} org.\+zerock.\+controller.\+Comment\+Controller.\+comment\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+댓글 관리를 위한 서비스 
+
+\mbox{\hyperlink{_comment_controller_8java_source}{Comment\+Controller.\+java}} 파일의 \mbox{\hyperlink{_comment_controller_8java_source_l00031}{31}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/controller/\mbox{\hyperlink{_comment_controller_8java}{Comment\+Controller.\+java}}\end{DoxyCompactItemize}

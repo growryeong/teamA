@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.noticeboard.mapper.NoticeMapper">
+    <select id="getAllNotices" resultType="Notice">
+        SELECT id, title, content, author, timestamp
+        FROM notices
+        ORDER BY id DESC
+    </select>
+
+    <select id="getNoticeById" parameterType="int" resultType="Notice">
+        SELECT id, title, content, author, timestamp
+        FROM notices
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertNotice" parameterType="Notice">
+        INSERT INTO notices (title, content, author, timestamp)
+        VALUES (#{title}, #{content}, #{author}, NOW())
+    </insert>
+
+    <update id="updateNotice" parameterType="Notice">
+        UPDATE notices
+        SET title = #{title},
+            content = #{content},
+            author = #{author}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteNotice" parameterType="int">
+        DELETE FROM notices
+        WHERE id = #{id}
+    </delete>
+</mapper>

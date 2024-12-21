@@ -1,0 +1,201 @@
+\doxysection{org.\+zerock.\+mapper.\+Challenge\+Mapper 인터페이스 참조}
+\hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{}\label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+
+
+챌린지 데이터를 처리하기 위한 Mapper 인터페이스  
+
+
+
+
+org.\+zerock.\+mapper.\+Challenge\+Mapper에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} $>$ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_afbb86c96d3cfbe38fbda82e6cf9e6efc}{find\+All}} ()
+\begin{DoxyCompactList}\small\item\em 모든 챌린지 조회 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a5f87077f2dc003e81797cc89e07e2412}{insert}} (\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} challenge)
+\begin{DoxyCompactList}\small\item\em 새로운 챌린지 삽입 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_af16741e8aed32d6bd5320d2deb28839e}{find\+By\+Id}} (Long challenge\+Id)
+\begin{DoxyCompactList}\small\item\em 챌린지 ID로 챌린지 조회 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a584bf2f43bc36923204897e02e3f0397}{find\+By\+Title\+And\+Type}} (@Param("{}title"{}) String title, @Param("{}type\+Name"{}) String type\+Name)
+\begin{DoxyCompactList}\small\item\em 챌린지 제목과 유형으로 챌린지 조회 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a1a605bc011c4e96f346bfae4d9d3aacc}{find\+By\+Title\+And\+Type}} (Map$<$ String, Object $>$ params)
+\begin{DoxyCompactList}\small\item\em 챌린지 제목과 유형으로 챌린지 조회 (Map 형태의 매개변수 사용) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_ac2c3709e0f3169d4c60e672946aa3085}{find\+By\+Challenge\+Id}} (@Param("{}challenge\+Id"{}) Long challenge\+Id)
+\begin{DoxyCompactList}\small\item\em 챌린지 ID로 챌린지 조회 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{Challenge\+Task}} \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a4b24504347d0dfcf2cbd7b9663b525b1}{find\+Task\+By\+Challenge\+Id}} (@Param("{}challenge\+Id"{}) Long challenge\+Id)
+\begin{DoxyCompactList}\small\item\em 챌린지 ID로 챌린지 과제 조회 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+챌린지 데이터를 처리하기 위한 Mapper 인터페이스 
+
+이 인터페이스는 챌린지와 관련된 데이터베이스 작업을 처리하며, 챌린지 목록 조회, 삽입, 검색 등의 기능을 제공합니다. 
+
+\mbox{\hyperlink{_challenge_mapper_8java_source}{Challenge\+Mapper.\+java}} 파일의 \mbox{\hyperlink{_challenge_mapper_8java_source_l00018}{18}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_afbb86c96d3cfbe38fbda82e6cf9e6efc}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!findAll@{findAll}}
+\index{findAll@{findAll}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{findAll()}{findAll()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_afbb86c96d3cfbe38fbda82e6cf9e6efc} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} $>$ org.\+zerock.\+mapper.\+Challenge\+Mapper.\+find\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+모든 챌린지 조회 
+
+데이터베이스에 등록된 모든 챌린지 정보를 조회합니다.
+
+\begin{DoxyReturn}{반환값}
+모든 챌린지의 리스트 
+\end{DoxyReturn}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_afbb86c96d3cfbe38fbda82e6cf9e6efc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_ac2c3709e0f3169d4c60e672946aa3085}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!findByChallengeId@{findByChallengeId}}
+\index{findByChallengeId@{findByChallengeId}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{findByChallengeId()}{findByChallengeId()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_ac2c3709e0f3169d4c60e672946aa3085} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} org.\+zerock.\+mapper.\+Challenge\+Mapper.\+find\+By\+Challenge\+Id (\begin{DoxyParamCaption}\item[{@Param("{}challenge\+Id"{}) Long}]{challenge\+Id}{}\end{DoxyParamCaption})}
+
+
+
+챌린지 ID로 챌린지 조회 
+
+챌린지 ID를 기반으로 챌린지 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em challenge\+Id} & 조회할 챌린지의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 챌린지 객체 
+\end{DoxyReturn}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_af16741e8aed32d6bd5320d2deb28839e}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!findById@{findById}}
+\index{findById@{findById}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{findById()}{findById()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_af16741e8aed32d6bd5320d2deb28839e} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} org.\+zerock.\+mapper.\+Challenge\+Mapper.\+find\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{challenge\+Id}{}\end{DoxyParamCaption})}
+
+
+
+챌린지 ID로 챌린지 조회 
+
+특정 챌린지 ID를 기반으로 챌린지 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em challenge\+Id} & 조회할 챌린지의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 챌린지 객체 
+\end{DoxyReturn}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a584bf2f43bc36923204897e02e3f0397}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!findByTitleAndType@{findByTitleAndType}}
+\index{findByTitleAndType@{findByTitleAndType}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{findByTitleAndType()}{findByTitleAndType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a584bf2f43bc36923204897e02e3f0397} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} org.\+zerock.\+mapper.\+Challenge\+Mapper.\+find\+By\+Title\+And\+Type (\begin{DoxyParamCaption}\item[{@Param("{}title"{}) String}]{title}{, }\item[{@Param("{}type\+Name"{}) String}]{type\+Name}{}\end{DoxyParamCaption})}
+
+
+
+챌린지 제목과 유형으로 챌린지 조회 
+
+제목과 유형 이름을 기반으로 챌린지 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em title} & 챌린지 제목 \\
+\hline
+{\em type\+Name} & 챌린지 유형 이름 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 챌린지 객체 
+\end{DoxyReturn}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a1a605bc011c4e96f346bfae4d9d3aacc}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!findByTitleAndType@{findByTitleAndType}}
+\index{findByTitleAndType@{findByTitleAndType}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{findByTitleAndType()}{findByTitleAndType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a1a605bc011c4e96f346bfae4d9d3aacc} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} org.\+zerock.\+mapper.\+Challenge\+Mapper.\+find\+By\+Title\+And\+Type (\begin{DoxyParamCaption}\item[{Map$<$ String, Object $>$}]{params}{}\end{DoxyParamCaption})}
+
+
+
+챌린지 제목과 유형으로 챌린지 조회 (Map 형태의 매개변수 사용) 
+
+제목과 유형 이름을 Map으로 전달받아 챌린지 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em params} & 제목과 유형 이름을 포함한 매개변수 Map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 챌린지 객체 
+\end{DoxyReturn}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a4b24504347d0dfcf2cbd7b9663b525b1}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!findTaskByChallengeId@{findTaskByChallengeId}}
+\index{findTaskByChallengeId@{findTaskByChallengeId}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{findTaskByChallengeId()}{findTaskByChallengeId()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a4b24504347d0dfcf2cbd7b9663b525b1} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{Challenge\+Task}} org.\+zerock.\+mapper.\+Challenge\+Mapper.\+find\+Task\+By\+Challenge\+Id (\begin{DoxyParamCaption}\item[{@Param("{}challenge\+Id"{}) Long}]{challenge\+Id}{}\end{DoxyParamCaption})}
+
+
+
+챌린지 ID로 챌린지 과제 조회 
+
+특정 챌린지 ID에 해당하는 과제 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em challenge\+Id} & 조회할 챌린지의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 챌린지의 과제 정보 
+\end{DoxyReturn}
+\Hypertarget{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a5f87077f2dc003e81797cc89e07e2412}\index{org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}!insert@{insert}}
+\index{insert@{insert}!org.zerock.mapper.ChallengeMapper@{org.zerock.mapper.ChallengeMapper}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a5f87077f2dc003e81797cc89e07e2412} 
+void org.\+zerock.\+mapper.\+Challenge\+Mapper.\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}}}]{challenge}{}\end{DoxyParamCaption})}
+
+
+
+새로운 챌린지 삽입 
+
+주어진 챌린지 객체를 데이터베이스에 삽입합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em challenge} & 삽입할 챌린지 객체 \\
+\hline
+\end{DoxyParams}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a5f87077f2dc003e81797cc89e07e2412_icgraph}
+\end{center}
+\end{figure}
+
+
+이 인터페이스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/mapper/\mbox{\hyperlink{_challenge_mapper_8java}{Challenge\+Mapper.\+java}}\end{DoxyCompactItemize}

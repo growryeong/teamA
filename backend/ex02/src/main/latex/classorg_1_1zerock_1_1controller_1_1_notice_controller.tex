@@ -1,0 +1,176 @@
+\doxysection{org.\+zerock.\+controller.\+Notice\+Controller 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1controller_1_1_notice_controller}{}\label{classorg_1_1zerock_1_1controller_1_1_notice_controller}\index{org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}}
+
+
+공지사항 관리를 위한 REST 컨트롤러  
+
+
+
+
+org.\+zerock.\+controller.\+Notice\+Controller에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{classorg_1_1zerock_1_1controller_1_1_notice_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_ae0fbe76502ebff1275be8e77b21dda2d}{get\+Notice\+List}} ()
+\begin{DoxyCompactList}\small\item\em 공지사항 목록 조회 \end{DoxyCompactList}\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a686224904ff0dd018a3adcbe514b0450}{get\+Notice\+Detail}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em 공지사항 상세 조회 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service}{Notice\+Service}} \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff}{notice\+Service}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{정적 Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+static final Logger \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{logger}} = Logger\+Factory.\+get\+Logger(Notice\+Controller.\+class)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+공지사항 관리를 위한 REST 컨트롤러 
+
+이 컨트롤러는 공지사항의 목록 조회와 상세 조회를 처리하기 위한 API를 제공합니다. 
+
+\mbox{\hyperlink{_notice_controller_8java_source}{Notice\+Controller.\+java}} 파일의 \mbox{\hyperlink{_notice_controller_8java_source_l00022}{22}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_notice_controller_a686224904ff0dd018a3adcbe514b0450}\index{org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}!getNoticeDetail@{getNoticeDetail}}
+\index{getNoticeDetail@{getNoticeDetail}!org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}}
+\doxysubsubsection{\texorpdfstring{getNoticeDetail()}{getNoticeDetail()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_notice_controller_a686224904ff0dd018a3adcbe514b0450} 
+Response\+Entity$<$?$>$ org.\+zerock.\+controller.\+Notice\+Controller.\+get\+Notice\+Detail (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
+
+
+
+공지사항 상세 조회 
+
+특정 ID에 해당하는 공지사항의 상세 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em id} & 조회할 공지사항의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+공지사항 상세 정보를 포함한 Response\+Entity 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_notice_controller_8java_source}{Notice\+Controller.\+java}} 파일의 \mbox{\hyperlink{_notice_controller_8java_source_l00067}{67}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{logger}}.info(\textcolor{stringliteral}{"{}공지사항\ 상세\ 조회\ 요청\ ID:\ \{\}"{}},\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 공지사항\ 상세\ 조회\ 서비스\ 호출}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ NoticeDTO\ notice\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff}{noticeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a394d5450d5f07ac91364d4ac1cb6697f}{getNotice}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 조회된\ 공지사항\ 반환}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(notice);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{logger}}.error(\textcolor{stringliteral}{"{}공지사항\ 상세\ 조회\ 중\ 오류\ 발생\ ID:\ "{}}\ +\ \textcolor{keywordtype}{id},\ e);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 발생\ 시\ 500\ 응답\ 반환}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}공지사항을\ 불러오는데\ 실패했습니다:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_notice_controller_a686224904ff0dd018a3adcbe514b0450_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_notice_controller_ae0fbe76502ebff1275be8e77b21dda2d}\index{org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}!getNoticeList@{getNoticeList}}
+\index{getNoticeList@{getNoticeList}!org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}}
+\doxysubsubsection{\texorpdfstring{getNoticeList()}{getNoticeList()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_notice_controller_ae0fbe76502ebff1275be8e77b21dda2d} 
+Response\+Entity$<$?$>$ org.\+zerock.\+controller.\+Notice\+Controller.\+get\+Notice\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+공지사항 목록 조회 
+
+등록된 모든 공지사항의 목록을 조회합니다.
+
+\begin{DoxyReturn}{반환값}
+공지사항 목록을 포함한 Response\+Entity 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_notice_controller_8java_source}{Notice\+Controller.\+java}} 파일의 \mbox{\hyperlink{_notice_controller_8java_source_l00039}{39}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{logger}}.info(\textcolor{stringliteral}{"{}공지사항\ 목록\ 조회\ 요청"{}});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 공지사항\ 목록\ 조회\ 서비스\ 호출}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ List<NoticeDTO>\ notices\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff}{noticeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a11e1b1986e9bafbbcc18140e600acc82}{getNoticeList}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{logger}}.info(\textcolor{stringliteral}{"{}조회된\ 공지사항\ 수:\ \{\}"{}},\ notices.size());}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 공지사항\ 목록\ 반환}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(notices);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}{logger}}.error(\textcolor{stringliteral}{"{}공지사항\ 목록\ 조회\ 중\ 오류\ 발생"{}},\ e);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 발생\ 시\ 500\ 응답\ 반환}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}공지사항\ 목록을\ 불러오는데\ 실패했습니다:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_notice_controller_ae0fbe76502ebff1275be8e77b21dda2d_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b}\index{org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}!logger@{logger}}
+\index{logger@{logger}!org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_notice_controller_a7165aada5e7317bb5bc49364392c229b} 
+final Logger org.\+zerock.\+controller.\+Notice\+Controller.\+logger = Logger\+Factory.\+get\+Logger(Notice\+Controller.\+class)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+로깅을 위한 Logger 인스턴스 
+
+\mbox{\hyperlink{_notice_controller_8java_source}{Notice\+Controller.\+java}} 파일의 \mbox{\hyperlink{_notice_controller_8java_source_l00025}{25}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff}\index{org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}!noticeService@{noticeService}}
+\index{noticeService@{noticeService}!org.zerock.controller.NoticeController@{org.zerock.controller.NoticeController}}
+\doxysubsubsection{\texorpdfstring{noticeService}{noticeService}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_notice_controller_aaf273606a42f006250479ca2e429c0ff} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service}{Notice\+Service}} org.\+zerock.\+controller.\+Notice\+Controller.\+notice\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+공지사항 관리를 위한 서비스 
+
+\mbox{\hyperlink{_notice_controller_8java_source}{Notice\+Controller.\+java}} 파일의 \mbox{\hyperlink{_notice_controller_8java_source_l00029}{29}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/controller/\mbox{\hyperlink{_notice_controller_8java}{Notice\+Controller.\+java}}\end{DoxyCompactItemize}

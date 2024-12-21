@@ -1,0 +1,305 @@
+\doxysection{org.\+zerock.\+controller.\+User\+Challenge\+Controller 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller}{}\label{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller}\index{org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}}
+
+
+사용자 챌린지 관리를 위한 REST 컨트롤러  
+
+
+
+
+org.\+zerock.\+controller.\+User\+Challenge\+Controller에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{클래스}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries User\+Challenge\+Request}
+\begin{DoxyCompactList}\small\item\em 사용자 챌린지 생성 요청 데이터 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$ String $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a92873b0e26b4b4c63c9503febfebd1ad}{save\+User\+Challenge}} (@Request\+Body User\+Challenge\+Request request)
+\begin{DoxyCompactList}\small\item\em 사용자 챌린지 저장 \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{User\+Challenge}} $>$ $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_ad7ce098c3fa2074870a9ec506d413523}{get\+Ongoing\+Challenge}} (@Path\+Variable String user\+Id)
+\begin{DoxyCompactList}\small\item\em 특정 사용자의 진행 중인 챌린지 조회 \end{DoxyCompactList}\item 
+Response\+Entity$<$ Map$<$ String, Object $>$ $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_afe03aa6d65ef99b57db913eef4376ed2}{get\+User\+Challenge\+Details}} (@Path\+Variable Long user\+Challenge\+Id)
+\begin{DoxyCompactList}\small\item\em 특정 사용자 챌린지의 상세 정보 조회 \end{DoxyCompactList}\item 
+Response\+Entity$<$ String $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a348788057d8297cbc2136abb36a1e791}{join\+Challenge}} (@Request\+Body Map$<$ String, Object $>$ request)
+\begin{DoxyCompactList}\small\item\em 사용자 챌린지에 참여 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service}{User\+Challenge\+Service}} \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{user\+Challenge\+Service}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+사용자 챌린지 관리를 위한 REST 컨트롤러 
+
+이 컨트롤러는 사용자 챌린지 등록, 조회 및 참여와 관련된 API를 제공합니다. 
+
+\mbox{\hyperlink{_user_challenge_controller_8java_source}{User\+Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_controller_8java_source_l00036}{36}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_ad7ce098c3fa2074870a9ec506d413523}\index{org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}!getOngoingChallenge@{getOngoingChallenge}}
+\index{getOngoingChallenge@{getOngoingChallenge}!org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}}
+\doxysubsubsection{\texorpdfstring{getOngoingChallenge()}{getOngoingChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_ad7ce098c3fa2074870a9ec506d413523} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{User\+Challenge}} $>$ $>$ org.\+zerock.\+controller.\+User\+Challenge\+Controller.\+get\+Ongoing\+Challenge (\begin{DoxyParamCaption}\item[{@Path\+Variable String}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+특정 사용자의 진행 중인 챌린지 조회 
+
+사용자의 ID를 기준으로 진행 중인 챌린지를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 조회할 사용자의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+진행 중인 챌린지 목록 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_controller_8java_source}{User\+Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_controller_8java_source_l00085}{85}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 진행\ 중인\ 챌린지\ 목록\ 조회}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ List<UserChallenge>\ ongoingChallenges\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{userChallengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22}{getOngoingChallenge}}(userId);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ongoingChallenges.isEmpty())\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 진행\ 중인\ 챌린지가\ 없을\ 경우\ 404\ 응답}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.NOT\_FOUND).build();}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 진행\ 중인\ 챌린지\ 목록\ 반환}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(ongoingChallenges);}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_ad7ce098c3fa2074870a9ec506d413523_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_afe03aa6d65ef99b57db913eef4376ed2}\index{org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}!getUserChallengeDetails@{getUserChallengeDetails}}
+\index{getUserChallengeDetails@{getUserChallengeDetails}!org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}}
+\doxysubsubsection{\texorpdfstring{getUserChallengeDetails()}{getUserChallengeDetails()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_afe03aa6d65ef99b57db913eef4376ed2} 
+Response\+Entity$<$ Map$<$ String, Object $>$ $>$ org.\+zerock.\+controller.\+User\+Challenge\+Controller.\+get\+User\+Challenge\+Details (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{user\+Challenge\+Id}{}\end{DoxyParamCaption})}
+
+
+
+특정 사용자 챌린지의 상세 정보 조회 
+
+사용자 챌린지 ID를 기준으로 상세 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Challenge\+Id} & 조회할 사용자 챌린지 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+사용자 챌린지의 상세 정보 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_controller_8java_source}{User\+Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_controller_8java_source_l00107}{107}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 사용자\ 챌린지\ 상세\ 정보\ 조회}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ Map<String,\ Object>\ result\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{userChallengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}{getUserChallengeDetails}}(userChallengeId);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 상세\ 정보\ 반환}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(result);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}챌린지\ 상세\ 정보\ 조회\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 발생\ 시\ 500\ 응답}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR).build();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_afe03aa6d65ef99b57db913eef4376ed2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a348788057d8297cbc2136abb36a1e791}\index{org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}!joinChallenge@{joinChallenge}}
+\index{joinChallenge@{joinChallenge}!org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}}
+\doxysubsubsection{\texorpdfstring{joinChallenge()}{joinChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a348788057d8297cbc2136abb36a1e791} 
+Response\+Entity$<$ String $>$ org.\+zerock.\+controller.\+User\+Challenge\+Controller.\+join\+Challenge (\begin{DoxyParamCaption}\item[{@Request\+Body Map$<$ String, Object $>$}]{request}{}\end{DoxyParamCaption})}
+
+
+
+사용자 챌린지에 참여 
+
+기존 챌린지 정보를 복제하여 새로운 사용자로 저장합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em request} & 챌린지 참여 요청 데이터 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+성공 또는 실패 메시지 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_controller_8java_source}{User\+Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_controller_8java_source_l00131}{131}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}챌린지\ 참여\ 요청\ 데이터:\ \{\}"{}},\ request);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 요청\ 데이터\ 파싱}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ userChallengeId\ =\ ((Number)\ request.get(\textcolor{stringliteral}{"{}userChallengeId"{}})).longValue();}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ String\ newUserId\ =\ (String)\ request.get(\textcolor{stringliteral}{"{}userId"{}});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 기존\ 챌린지\ 데이터\ 조회}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ Map<String,\ Object>\ originalChallenge\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{userChallengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}{getUserChallengeDetails}}(userChallengeId);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (originalChallenge\ ==\ \textcolor{keyword}{null}\ ||\ originalChallenge.isEmpty())\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ log.warn(\textcolor{stringliteral}{"{}유효한\ 챌린지\ 데이터를\ 찾을\ 수\ 없습니다.\ userChallengeId:\ \{\}"{}},\ userChallengeId);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.NOT\_FOUND).body(\textcolor{stringliteral}{"{}유효한\ 챌린지\ 데이터를\ 찾을\ 수\ 없습니다."{}});}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 데이터\ 추출\ 및\ 변환}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ challengeId\ =\ ((BigDecimal)\ originalChallenge.get(\textcolor{stringliteral}{"{}CHALLENGEID"{}})).longValue();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ taskId\ =\ ((BigDecimal)\ originalChallenge.get(\textcolor{stringliteral}{"{}TASKID"{}})).longValue();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ String\ challengeTitle\ =\ (String)\ originalChallenge.get(\textcolor{stringliteral}{"{}CHALLENGETITLE"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ Integer\ duration\ =\ ((BigDecimal)\ originalChallenge.get(\textcolor{stringliteral}{"{}DURATION"{}})).intValue();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 새로운\ 사용자\ 챌린지\ 생성}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{userChallengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517}{saveUserChallenge}}(}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newUserId,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ challengeId,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{null},\ \textcolor{comment}{//\ 챌린지\ 유형은\ null\ 처리}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ challengeTitle,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duration,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LocalDate.now().toString(),\ \textcolor{comment}{//\ 현재\ 날짜를\ 시작\ 날짜로\ 설정}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\_progress"{}},\ \textcolor{comment}{//\ 상태\ 설정}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ taskId}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(\textcolor{stringliteral}{"{}챌린지\ 참여가\ 성공적으로\ 완료되었습니다."{}});}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}챌린지\ 참여\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 메시지\ 반환}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}챌린지\ 참여\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a348788057d8297cbc2136abb36a1e791_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a92873b0e26b4b4c63c9503febfebd1ad}\index{org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}!saveUserChallenge@{saveUserChallenge}}
+\index{saveUserChallenge@{saveUserChallenge}!org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}}
+\doxysubsubsection{\texorpdfstring{saveUserChallenge()}{saveUserChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a92873b0e26b4b4c63c9503febfebd1ad} 
+Response\+Entity$<$ String $>$ org.\+zerock.\+controller.\+User\+Challenge\+Controller.\+save\+User\+Challenge (\begin{DoxyParamCaption}\item[{@Request\+Body User\+Challenge\+Request}]{request}{}\end{DoxyParamCaption})}
+
+
+
+사용자 챌린지 저장 
+
+새로운 사용자 챌린지를 저장합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em request} & 사용자 챌린지 생성을 위한 요청 객체 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+저장 성공 또는 실패 메시지 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_controller_8java_source}{User\+Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_controller_8java_source_l00050}{50}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}요청\ 데이터:\ \{\}"{}},\ request);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 사용자\ 챌린지\ 저장\ 서비스\ 호출}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{userChallengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517}{saveUserChallenge}}(}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getUser\_id(),}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getChallengeId(),}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getChallengeType(),}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getChallengeTitle(),}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getDuration(),}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getStartDate(),}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getStatus(),}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getTask\_id()}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(\textcolor{stringliteral}{"{}챌린지가\ 성공적으로\ 저장되었습니다!"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}챌린지\ 저장\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 메시지\ 반환}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}챌린지\ 저장\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a92873b0e26b4b4c63c9503febfebd1ad_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}\index{org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}!userChallengeService@{userChallengeService}}
+\index{userChallengeService@{userChallengeService}!org.zerock.controller.UserChallengeController@{org.zerock.controller.UserChallengeController}}
+\doxysubsubsection{\texorpdfstring{userChallengeService}{userChallengeService}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199} 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service}{User\+Challenge\+Service}} org.\+zerock.\+controller.\+User\+Challenge\+Controller.\+user\+Challenge\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+사용자 챌린지 관리를 위한 서비스 
+
+\mbox{\hyperlink{_user_challenge_controller_8java_source}{User\+Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_controller_8java_source_l00039}{39}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/controller/\mbox{\hyperlink{_user_challenge_controller_8java}{User\+Challenge\+Controller.\+java}}\end{DoxyCompactItemize}

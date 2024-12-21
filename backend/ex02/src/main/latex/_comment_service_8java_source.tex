@@ -1,0 +1,30 @@
+\doxysection{Comment\+Service.\+java}
+\hypertarget{_comment_service_8java_source}{}\label{_comment_service_8java_source}\index{java/org/zerock/service/CommentService.java@{java/org/zerock/service/CommentService.java}}
+\mbox{\hyperlink{_comment_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.service;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.zerock.domain.Comment;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.zerock.mapper.CommentMapper;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00015}00015\ @Service}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00016}00016\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00017}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service}{00017}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service}{CommentService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00020}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a676f104b8f9c40679866b86225585090}{00020}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_comment_mapper}{CommentMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a676f104b8f9c40679866b86225585090}{commentMapper}};}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00031}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a1e49a7e511c54b882ea4ce429f7d5df8}{00031}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a1e49a7e511c54b882ea4ce429f7d5df8}{addComment}}(Long\ postId,\ String\ userId,\ String\ commentText)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a676f104b8f9c40679866b86225585090}{commentMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_comment_mapper_a453f78113f6ae78495e78522ad41c3e1}{insertComment}}(postId,\ userId,\ commentText);}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00043}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a9fdfe0091ff30420f56f6f38ef687dcf}{00043}}\ \ \ \ \ \textcolor{keyword}{public}\ List<Comment>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a9fdfe0091ff30420f56f6f38ef687dcf}{getCommentsByPostId}}(Long\ postId)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ List<Comment>\ comments\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_comment_service_a676f104b8f9c40679866b86225585090}{commentMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_comment_mapper_a7380f7bf3d2edc0a069dfb713e32f218}{getCommentsByPostId}}(postId);}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ comments;}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_comment_service_8java_source_l00047}00047\ \}}
+
+\end{DoxyCode}

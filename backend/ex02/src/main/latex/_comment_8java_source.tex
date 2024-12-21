@@ -1,0 +1,37 @@
+\doxysection{Comment.\+java}
+\hypertarget{_comment_8java_source}{}\label{_comment_8java_source}\index{java/org/zerock/domain/Comment.java@{java/org/zerock/domain/Comment.java}}
+\mbox{\hyperlink{_comment_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.domain;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.sql.Timestamp;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00005}00005\ \textcolor{keyword}{import}\ com.fasterxml.jackson.annotation.JsonFormat;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.fasterxml.jackson.annotation.JsonProperty;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00008}00008\ \textcolor{keyword}{import}\ lombok.Getter;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00010}00010\ \textcolor{keyword}{import}\ lombok.ToString;}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00017}00017\ @Getter}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00018}00018\ @Setter}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00019}00019\ @ToString}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00020}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment}{00020}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment}{Comment}}\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00027}00027\ \ \ \ \ @JsonProperty(\textcolor{stringliteral}{"{}commentId"{}})}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00028}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a88c2f47d5d35b68b4e6aaf6b34614c9e}{00028}}\ \ \ \ \ private\ Long\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a88c2f47d5d35b68b4e6aaf6b34614c9e}{commentId}};}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00035}00035\ \ \ \ \ @JsonProperty("{}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_accf8ffaf2671703f26be6772cbf8b786}{postId}}"{})}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00036}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_accf8ffaf2671703f26be6772cbf8b786}{00036}}\ \ \ \ \ private\ Long\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_accf8ffaf2671703f26be6772cbf8b786}{postId}};}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00043}00043\ \ \ \ \ @JsonProperty("{}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a565fb43f3ce15f5e6f9c445eb15d6178}{userId}}"{})}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00044}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a565fb43f3ce15f5e6f9c445eb15d6178}{00044}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a565fb43f3ce15f5e6f9c445eb15d6178}{userId}};}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00051}00051\ \ \ \ \ @JsonProperty("{}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a8cfd282da0b1f45d806c4fa78819f079}{commentText}}"{})}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00052}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a8cfd282da0b1f45d806c4fa78819f079}{00052}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_a8cfd282da0b1f45d806c4fa78819f079}{commentText}};}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00059}00059\ \ \ \ \ @JsonProperty("{}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_aa5cdb29ae03b6af0390b1d09e9741d94}{timestamp}}"{})}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00060}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_aa5cdb29ae03b6af0390b1d09e9741d94}{00060}}\ \ \ \ \ private\ Timestamp\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_comment_aa5cdb29ae03b6af0390b1d09e9741d94}{timestamp}};}
+\DoxyCodeLine{\Hypertarget{_comment_8java_source_l00061}00061\ \}}
+
+\end{DoxyCode}

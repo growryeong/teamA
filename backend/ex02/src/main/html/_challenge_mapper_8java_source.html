@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project1: java/org/zerock/mapper/ChallengeMapper.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project1<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_challenge_mapper_8java_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ChallengeMapper.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_challenge_mapper_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceorg_1_1zerock_1_1mapper.html">    1</a></span><span class="keyword">package </span>org.zerock.mapper;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> org.zerock.domain.Challenge;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> org.zerock.domain.ChallengeTask;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.apache.ibatis.annotations.Param;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>@Mapper</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">   18</a></span><span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">ChallengeMapper</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#afbb86c96d3cfbe38fbda82e6cf9e6efc">   27</a></span>    List&lt;Challenge&gt; <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#afbb86c96d3cfbe38fbda82e6cf9e6efc">findAll</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a5f87077f2dc003e81797cc89e07e2412">   36</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a5f87077f2dc003e81797cc89e07e2412">insert</a>(<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a> challenge);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#af16741e8aed32d6bd5320d2deb28839e">   46</a></span>    <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a> <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#af16741e8aed32d6bd5320d2deb28839e">findById</a>(Long challengeId);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a584bf2f43bc36923204897e02e3f0397">   57</a></span>    <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a> <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a584bf2f43bc36923204897e02e3f0397">findByTitleAndType</a>(@Param(<span class="stringliteral">&quot;title&quot;</span>) String title, @Param(<span class="stringliteral">&quot;typeName&quot;</span>) String typeName);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a1a605bc011c4e96f346bfae4d9d3aacc">   67</a></span>    <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a> <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a1a605bc011c4e96f346bfae4d9d3aacc">findByTitleAndType</a>(Map&lt;String, Object&gt; params);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#ac2c3709e0f3169d4c60e672946aa3085">   77</a></span>    <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a> <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#ac2c3709e0f3169d4c60e672946aa3085">findByChallengeId</a>(@Param(<span class="stringliteral">&quot;challengeId&quot;</span>) Long challengeId);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a4b24504347d0dfcf2cbd7b9663b525b1">   87</a></span>    <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge_task.html">ChallengeTask</a> <a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a4b24504347d0dfcf2cbd7b9663b525b1">findTaskByChallengeId</a>(@Param(<span class="stringliteral">&quot;challengeId&quot;</span>) Long challengeId);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+</div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_challenge_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_challenge.html">org.zerock.domain.Challenge</a></div><div class="ttdoc">챌린지 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_8java_source.html#l00011">Challenge.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_challenge_task_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_challenge_task.html">org.zerock.domain.ChallengeTask</a></div><div class="ttdoc">챌린지 과제(ChallengeTask) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_task_8java_source.html#l00011">ChallengeTask.java:11</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">org.zerock.mapper.ChallengeMapper</a></div><div class="ttdoc">챌린지 데이터를 처리하기 위한 Mapper 인터페이스</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ChallengeMapper.java:18</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_a1a605bc011c4e96f346bfae4d9d3aacc"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a1a605bc011c4e96f346bfae4d9d3aacc">org.zerock.mapper.ChallengeMapper.findByTitleAndType</a></div><div class="ttdeci">Challenge findByTitleAndType(Map&lt; String, Object &gt; params)</div><div class="ttdoc">챌린지 제목과 유형으로 챌린지 조회 (Map 형태의 매개변수 사용)</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_a4b24504347d0dfcf2cbd7b9663b525b1"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a4b24504347d0dfcf2cbd7b9663b525b1">org.zerock.mapper.ChallengeMapper.findTaskByChallengeId</a></div><div class="ttdeci">ChallengeTask findTaskByChallengeId(@Param(&quot;challengeId&quot;) Long challengeId)</div><div class="ttdoc">챌린지 ID로 챌린지 과제 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_a584bf2f43bc36923204897e02e3f0397"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a584bf2f43bc36923204897e02e3f0397">org.zerock.mapper.ChallengeMapper.findByTitleAndType</a></div><div class="ttdeci">Challenge findByTitleAndType(@Param(&quot;title&quot;) String title, @Param(&quot;typeName&quot;) String typeName)</div><div class="ttdoc">챌린지 제목과 유형으로 챌린지 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_a5f87077f2dc003e81797cc89e07e2412"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#a5f87077f2dc003e81797cc89e07e2412">org.zerock.mapper.ChallengeMapper.insert</a></div><div class="ttdeci">void insert(Challenge challenge)</div><div class="ttdoc">새로운 챌린지 삽입</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_ac2c3709e0f3169d4c60e672946aa3085"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#ac2c3709e0f3169d4c60e672946aa3085">org.zerock.mapper.ChallengeMapper.findByChallengeId</a></div><div class="ttdeci">Challenge findByChallengeId(@Param(&quot;challengeId&quot;) Long challengeId)</div><div class="ttdoc">챌린지 ID로 챌린지 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_af16741e8aed32d6bd5320d2deb28839e"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#af16741e8aed32d6bd5320d2deb28839e">org.zerock.mapper.ChallengeMapper.findById</a></div><div class="ttdeci">Challenge findById(Long challengeId)</div><div class="ttdoc">챌린지 ID로 챌린지 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html_afbb86c96d3cfbe38fbda82e6cf9e6efc"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html#afbb86c96d3cfbe38fbda82e6cf9e6efc">org.zerock.mapper.ChallengeMapper.findAll</a></div><div class="ttdeci">List&lt; Challenge &gt; findAll()</div><div class="ttdoc">모든 챌린지 조회</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_dbfded582784846724308f9150bf5e72.html">org</a></li><li class="navelem"><a class="el" href="dir_1d36fa85a4c40021bc41e20ad60b1a86.html">zerock</a></li><li class="navelem"><a class="el" href="dir_f5478647c985b44f3d027e6313b4fdc6.html">mapper</a></li><li class="navelem"><a class="el" href="_challenge_mapper_8java.html">ChallengeMapper.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

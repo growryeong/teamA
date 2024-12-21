@@ -1,0 +1,5 @@
+<map id="org.zerock.mapper.UserMapper.insertUser" name="org.zerock.mapper.UserMapper.insertUser">
+<area shape="rect" id="Node000001" title="사용자 회원가입" alt="" coords="258,13,526,40"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_user_service_impl.html#a2d47c6b69afe8c24075d2891f8115f16" title="사용자 회원가입" alt="" coords="5,5,210,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,29,210,29,210,24,242,24"/>
+</map>

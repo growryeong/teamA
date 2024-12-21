@@ -1,0 +1,66 @@
+\doxysection{Community\+Service.\+java}
+\hypertarget{_community_service_8java_source}{}\label{_community_service_8java_source}\index{java/org/zerock/service/CommunityService.java@{java/org/zerock/service/CommunityService.java}}
+\mbox{\hyperlink{_community_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.service;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ lombok.extern.slf4j.Slf4j;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.zerock.domain.Challenge;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.zerock.domain.ChallengeTask;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.zerock.domain.CommunityPost;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.zerock.domain.CommunityPostDTO;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.zerock.domain.UserChallenge;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.zerock.mapper.ChallengeMapper;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00013}00013\ \textcolor{keyword}{import}\ org.zerock.mapper.CommunityMapper;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00015}00015\ \textcolor{keyword}{import}\ java.util.HashMap;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00016}00016\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00017}00017\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00024}00024\ @Service}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00025}00025\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00026}00026\ @Slf4j}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00027}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service}{00027}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service}{CommunityService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00030}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{00030}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper}{CommunityMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}};}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00033}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a57f2916cf1d1f6bf241c85e5d88a9703}{00033}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{ChallengeMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a57f2916cf1d1f6bf241c85e5d88a9703}{challengeMapper}};}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00043}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573}{00043}}\ \ \ \ \ \textcolor{keyword}{public}\ List<CommunityPost>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573}{getAllPosts}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a3bda467a188175088889af3f65f04137}{getCommunityPosts}}();}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}게시글\ 목록\ 조회\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}게시글\ 목록을\ 가져오는데\ 실패했습니다."{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00060}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8}{00060}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_d_t_o}{CommunityPostDTO}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8}{getPostWithChallengeDTO}}(Long\ postId)\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ae58272a81d0be86062c80f19a85c500b}{getPostById}}(postId);\ \textcolor{comment}{//\ Mapper에서\ DTO\ 반환}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00072}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff}{00072}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff}{createPost}}(\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{CommunityPost}}\ post)\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a0462b4363aff5f97ecf12687c37f4520}{insertPost}}(post);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}게시글\ 저장\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage(),\ e);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00089}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a3f94ad2047005e82f3abf95129321e34}{00089}}\ \ \ \ \ \textcolor{keyword}{public}\ Map<String,\ Object>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a3f94ad2047005e82f3abf95129321e34}{getPostWithChallenge}}(Long\ postId)\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ Map<String,\ Object>\ postDetails\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a38ce769a3f2440c287034bdbe8d15f13}{getPostWithDetails}}(postId);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (postDetails\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}해당\ 게시글을\ 찾을\ 수\ 없습니다.\ postId:\ "{}}\ +\ postId);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ postDetails;}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00106}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a4365e7947ae86573c37fccdb98c3fc2d}{00106}}\ \ \ \ \ \textcolor{keyword}{public}\ List<Map<String,\ Object>>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a4365e7947ae86573c37fccdb98c3fc2d}{getFilteredCommunity}}(String\ challengeType,\ Integer\ duration)\ \{}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a79e01ff8ba092969f9aee4cb4351c721}{fetchFilteredCommunity}}(challengeType,\ duration);}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_service_8java_source_l00109}00109\ \}}
+
+\end{DoxyCode}

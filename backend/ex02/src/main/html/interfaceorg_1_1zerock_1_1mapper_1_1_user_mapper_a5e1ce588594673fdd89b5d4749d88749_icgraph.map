@@ -1,0 +1,5 @@
+<map id="org.zerock.mapper.UserMapper.updateEmail" name="org.zerock.mapper.UserMapper.updateEmail">
+<area shape="rect" id="Node000001" title="사용자 이메일 변경" alt="" coords="258,5,505,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_user_service_impl.html#ad7dd992e3bff188ae0e4890ddf7102ed" title="사용자 이메일 변경" alt="" coords="5,5,210,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,29,210,29,210,24,242,24"/>
+</map>

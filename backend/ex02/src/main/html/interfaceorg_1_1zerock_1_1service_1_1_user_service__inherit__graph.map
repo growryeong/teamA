@@ -1,0 +1,5 @@
+<map id="org.zerock.service.UserService" name="org.zerock.service.UserService">
+<area shape="rect" id="Node000001" title="사용자 관련 비즈니스 로직 인터페이스" alt="" coords="18,5,212,160"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_user_service_impl.html" title="사용자 관리를 위한 서비스 구현 클래스" alt="" coords="5,208,224,363"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,175,117,208,112,208,112,175"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="org.zerock.service.ChallengeService.getTasksByChallengeId" name="org.zerock.service.ChallengeService.getTasksByChallengeId">
+<area shape="rect" id="Node000001" title="특정 챌린지의 과제 목록 조회" alt="" coords="5,5,213,48"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper.html#a5ea98e8da08bc6100ae9079b4698f30c" title="특정 챌린지에 포함된 과제 조회" alt="" coords="261,5,463,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,24,245,24,245,29,213,29"/>
+</map>

@@ -1,0 +1,260 @@
+\doxysection{org.\+zerock.\+controller.\+Challenge\+Controller 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller}{}\label{classorg_1_1zerock_1_1controller_1_1_challenge_controller}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+
+
+챌린지 및 기간 관리를 위한 REST 컨트롤러  
+
+
+
+
+org.\+zerock.\+controller.\+Challenge\+Controller에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_challenge_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{클래스}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Create\+Challenge\+Request}
+\begin{DoxyCompactList}\small\item\em 챌린지 생성을 위한 요청 객체 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} $>$ $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a468656d0de4f6a8424cce8507d675795}{get\+All\+Challenges}} ()
+\begin{DoxyCompactList}\small\item\em 전체 챌린지 목록 조회 \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{Challenge\+Task}} $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_afec8ac834302c30d56e023a6f1093ec0}{get\+Tasks}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em 특정 챌린지에 포함된 과제 목록 조회 \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_duration}{Duration}} $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a563e2e1a777ea45e391ba85a621ea39b}{get\+Durations}} ()
+\begin{DoxyCompactList}\small\item\em 가능한 기간 목록 조회 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a8cb338fd76578ce1ccc8db3b8cd91769}{create\+Challenge}} (@Request\+Body Create\+Challenge\+Request request)
+\begin{DoxyCompactList}\small\item\em 새로운 챌린지 생성 \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{Challenge\+Task}} $>$ $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a5ac5bf9c18b3638a6e68569f7c4143e1}{get\+All\+Tasks}} ()
+\begin{DoxyCompactList}\small\item\em 전체 과제 목록 조회 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service}{Challenge\+Service}} \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d}{challenge\+Service}}
+\item 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service}{Duration\+Service}} \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a778c69eba03a3f7502db7aa70f00d59b}{duration\+Service}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+챌린지 및 기간 관리를 위한 REST 컨트롤러 
+
+이 컨트롤러는 챌린지, 과제, 기간 관련 정보를 조회하거나 새로운 챌린지를 생성하는 API를 제공합니다. 
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00033}{33}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a8cb338fd76578ce1ccc8db3b8cd91769}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!createChallenge@{createChallenge}}
+\index{createChallenge@{createChallenge}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{createChallenge()}{createChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a8cb338fd76578ce1ccc8db3b8cd91769} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} org.\+zerock.\+controller.\+Challenge\+Controller.\+create\+Challenge (\begin{DoxyParamCaption}\item[{@Request\+Body Create\+Challenge\+Request}]{request}{}\end{DoxyParamCaption})}
+
+
+
+새로운 챌린지 생성 
+
+
+\begin{DoxyParams}{매개변수}
+{\em request} & 생성할 챌린지의 정보를 담은 요청 객체 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+생성된 챌린지 객체 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00079}{79}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d}{challengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_a9b9074293210b76930e6e4e2f509ad06}{createChallenge}}(}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ request.getTypeName(),}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ request.getTitle(),}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ request.getDescription(),}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ request.getDuration(),}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ request.getTasks()}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a8cb338fd76578ce1ccc8db3b8cd91769_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a468656d0de4f6a8424cce8507d675795}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!getAllChallenges@{getAllChallenges}}
+\index{getAllChallenges@{getAllChallenges}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{getAllChallenges()}{getAllChallenges()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a468656d0de4f6a8424cce8507d675795} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} $>$ $>$ org.\+zerock.\+controller.\+Challenge\+Controller.\+get\+All\+Challenges (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+전체 챌린지 목록 조회 
+
+\begin{DoxyReturn}{반환값}
+모든 챌린지 정보를 담고 있는 Response\+Entity 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00046}{46}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ List<Challenge>\ challenges\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d}{challengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_ae091a5d0f983fea5347ec63e738e20e1}{getAllChallenges}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(challenges);}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a468656d0de4f6a8424cce8507d675795_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a5ac5bf9c18b3638a6e68569f7c4143e1}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!getAllTasks@{getAllTasks}}
+\index{getAllTasks@{getAllTasks}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{getAllTasks()}{getAllTasks()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a5ac5bf9c18b3638a6e68569f7c4143e1} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{Challenge\+Task}} $>$ $>$ org.\+zerock.\+controller.\+Challenge\+Controller.\+get\+All\+Tasks (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+전체 과제 목록 조회 
+
+\begin{DoxyReturn}{반환값}
+모든 과제를 담고 있는 Response\+Entity 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00095}{95}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ List<ChallengeTask>\ tasks\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d}{challengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_a4eccf958e11fd40d3983c7bf146959a8}{findAllTasks}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(tasks);}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a5ac5bf9c18b3638a6e68569f7c4143e1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a563e2e1a777ea45e391ba85a621ea39b}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!getDurations@{getDurations}}
+\index{getDurations@{getDurations}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{getDurations()}{getDurations()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a563e2e1a777ea45e391ba85a621ea39b} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_duration}{Duration}} $>$ org.\+zerock.\+controller.\+Challenge\+Controller.\+get\+Durations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+가능한 기간 목록 조회 
+
+\begin{DoxyReturn}{반환값}
+모든 기간 정보를 담고 있는 리스트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00068}{68}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a778c69eba03a3f7502db7aa70f00d59b}{durationService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883}{getAllDurations}}();}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a563e2e1a777ea45e391ba85a621ea39b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_afec8ac834302c30d56e023a6f1093ec0}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!getTasks@{getTasks}}
+\index{getTasks@{getTasks}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{getTasks()}{getTasks()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_afec8ac834302c30d56e023a6f1093ec0} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{Challenge\+Task}} $>$ org.\+zerock.\+controller.\+Challenge\+Controller.\+get\+Tasks (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
+
+
+
+특정 챌린지에 포함된 과제 목록 조회 
+
+
+\begin{DoxyParams}{매개변수}
+{\em id} & 조회할 챌린지의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 챌린지에 포함된 과제 리스트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00058}{58}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d}{challengeService}}.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aa518d5a045772b9a32dc68ad5591dde0}{getTasksByChallengeId}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1controller_1_1_challenge_controller_afec8ac834302c30d56e023a6f1093ec0_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!challengeService@{challengeService}}
+\index{challengeService@{challengeService}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{challengeService}{challengeService}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_ab333076490c926e2e9e448d31704646d} 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service}{Challenge\+Service}} org.\+zerock.\+controller.\+Challenge\+Controller.\+challenge\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+챌린지 관리를 위한 서비스 
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00036}{36}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a778c69eba03a3f7502db7aa70f00d59b}\index{org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}!durationService@{durationService}}
+\index{durationService@{durationService}!org.zerock.controller.ChallengeController@{org.zerock.controller.ChallengeController}}
+\doxysubsubsection{\texorpdfstring{durationService}{durationService}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1controller_1_1_challenge_controller_a778c69eba03a3f7502db7aa70f00d59b} 
+final \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service}{Duration\+Service}} org.\+zerock.\+controller.\+Challenge\+Controller.\+duration\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+기간 관리를 위한 서비스 
+
+\mbox{\hyperlink{_challenge_controller_8java_source}{Challenge\+Controller.\+java}} 파일의 \mbox{\hyperlink{_challenge_controller_8java_source_l00038}{38}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/controller/\mbox{\hyperlink{_challenge_controller_8java}{Challenge\+Controller.\+java}}\end{DoxyCompactItemize}

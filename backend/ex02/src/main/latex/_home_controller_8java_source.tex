@@ -1,0 +1,39 @@
+\doxysection{Home\+Controller.\+java}
+\hypertarget{_home_controller_8java_source}{}\label{_home_controller_8java_source}\index{java/org/zerock/controller/HomeController.java@{java/org/zerock/controller/HomeController.java}}
+\mbox{\hyperlink{_home_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.controller;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.text.DateFormat;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.Date;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.util.Locale;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.slf4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.slf4j.LoggerFactory;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.stereotype.Controller;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.ui.Model;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.RequestMapping;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.RequestMethod;}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00017}00017\ @Controller}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00018}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller}{00018}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller}{HomeController}}\ \{}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00019}00019\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00020}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller_ade20b32b240fe4bd028d7c7487169448}{00020}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ Logger\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller_ade20b32b240fe4bd028d7c7487169448}{logger}}\ =\ LoggerFactory.getLogger(\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller}{HomeController}}.class);}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00021}00021\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00025}00025\ \ \ \ \ @RequestMapping(value\ =\ \textcolor{stringliteral}{"{}/"{}},\ method\ =\ RequestMethod.GET)}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00026}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller_ad0bd0ff5facfcbaa593c838a834adc68}{00026}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller_ad0bd0ff5facfcbaa593c838a834adc68}{home}}(Locale\ locale,\ Model\ model)\ \{}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_home_controller_ade20b32b240fe4bd028d7c7487169448}{logger}}.info(\textcolor{stringliteral}{"{}Welcome\ home!\ The\ client\ locale\ is\ \{\}."{}},\ locale);}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00028}00028\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00029}00029\ \ \ \ \ \ \ \ \ Date\ date\ =\ \textcolor{keyword}{new}\ Date();}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ DateFormat\ dateFormat\ =\ DateFormat.getDateTimeInstance(DateFormat.LONG,\ DateFormat.LONG,\ locale);}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ String\ formattedDate\ =\ dateFormat.format(date);}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}serverTime"{}},\ formattedDate\ );}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}home"{}};}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_home_controller_8java_source_l00039}00039\ \}}
+
+\end{DoxyCode}

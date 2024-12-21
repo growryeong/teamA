@@ -1,0 +1,37 @@
+\doxysection{Notice\+Service.\+java}
+\hypertarget{_notice_service_8java_source}{}\label{_notice_service_8java_source}\index{java/org/zerock/service/NoticeService.java@{java/org/zerock/service/NoticeService.java}}
+\mbox{\hyperlink{_notice_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.service;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.beans.factory.annotation.Autowired;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.zerock.domain.NoticeDTO;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.zerock.mapper.NoticeMapper;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00016}00016\ @Service}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00017}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service}{00017}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service}{NoticeService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00020}00020\ \ \ \ \ @Autowired}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00021}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_ab21e0440e97c83928f8d8aa6d88026ae}{00021}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_notice_mapper}{NoticeMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_ab21e0440e97c83928f8d8aa6d88026ae}{noticeMapper}};}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00030}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a11e1b1986e9bafbbcc18140e600acc82}{00030}}\ \ \ \ \ \textcolor{keyword}{public}\ List<NoticeDTO>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a11e1b1986e9bafbbcc18140e600acc82}{getNoticeList}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_ab21e0440e97c83928f8d8aa6d88026ae}{noticeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_notice_mapper_a6506cc290986ff3ac093bfb3c18e6191}{getNoticeList}}();}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00043}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a394d5450d5f07ac91364d4ac1cb6697f}{00043}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_notice_d_t_o}{NoticeDTO}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a394d5450d5f07ac91364d4ac1cb6697f}{getNotice}}(Long\ noticeId)\ \textcolor{keywordflow}{throws}\ Exception\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_notice_d_t_o}{NoticeDTO}}\ notice\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_ab21e0440e97c83928f8d8aa6d88026ae}{noticeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_notice_mapper_ad15f75322a103b484fe04d9888c1ed94}{getNotice}}(noticeId);}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (notice\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{"{}해당\ 공지사항을\ 찾을\ 수\ 없습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ notice;}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00058}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a799570010757c898262160c1b2c046b9}{00058}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_a799570010757c898262160c1b2c046b9}{createNotice}}(\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_notice_d_t_o}{NoticeDTO}}\ notice)\ \{}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_notice_service_ab21e0440e97c83928f8d8aa6d88026ae}{noticeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_notice_mapper_acb9a0a84919be92cba94a7d75c1786d6}{insertNotice}}(notice);}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_notice_service_8java_source_l00061}00061\ \}}
+
+\end{DoxyCode}

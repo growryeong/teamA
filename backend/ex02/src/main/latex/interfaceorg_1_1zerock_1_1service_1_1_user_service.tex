@@ -1,0 +1,215 @@
+\doxysection{org.\+zerock.\+service.\+User\+Service 인터페이스 참조}
+\hypertarget{interfaceorg_1_1zerock_1_1service_1_1_user_service}{}\label{interfaceorg_1_1zerock_1_1service_1_1_user_service}\index{org.zerock.service.UserService@{org.zerock.service.UserService}}
+
+
+사용자 관련 비즈니스 로직 인터페이스  
+
+
+
+
+org.\+zerock.\+service.\+User\+Service에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{interfaceorg_1_1zerock_1_1service_1_1_user_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+org.\+zerock.\+service.\+User\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{interfaceorg_1_1zerock_1_1service_1_1_user_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interfaceorg_1_1zerock_1_1service_1_1_user_service_a3402067d2228ed5ec88e339d2868d7d3}{register\+User}} (\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{User\+DTO}} user\+DTO)  throws Exception
+\begin{DoxyCompactList}\small\item\em 사용자 회원가입 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{User\+DTO}} \mbox{\hyperlink{interfaceorg_1_1zerock_1_1service_1_1_user_service_ae6b63f9104c6d913fe0ef4c21df74cb2}{login}} (String user\+Id, String password)  throws Exception
+\begin{DoxyCompactList}\small\item\em 사용자 로그인 \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o}{User\+Challenge\+DTO}} $>$ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1service_1_1_user_service_aa9b079a50e7ca6053749a5999ee7ce5f}{get\+User\+Challenges}} (String user\+Id)  throws Exception
+\begin{DoxyCompactList}\small\item\em 사용자 챌린지 목록 조회 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfaceorg_1_1zerock_1_1service_1_1_user_service_a56e0ac5f7f967a71d62f469cafdca6ac}{update\+Password}} (String user\+Id, String new\+Password)  throws Exception
+\begin{DoxyCompactList}\small\item\em 사용자 비밀번호 변경 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfaceorg_1_1zerock_1_1service_1_1_user_service_a4a09c2c54e6d2acbf7b0702566edf3fd}{update\+Email}} (String user\+Id, String new\+Email)  throws Exception
+\begin{DoxyCompactList}\small\item\em 사용자 이메일 변경 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+사용자 관련 비즈니스 로직 인터페이스 
+
+이 인터페이스는 사용자 회원가입, 로그인, 정보 수정, 챌린지 조회 등 사용자와 관련된 주요 서비스 기능을 정의합니다. 
+
+\mbox{\hyperlink{_user_service_8java_source}{User\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_service_8java_source_l00015}{15}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{interfaceorg_1_1zerock_1_1service_1_1_user_service_aa9b079a50e7ca6053749a5999ee7ce5f}\index{org.zerock.service.UserService@{org.zerock.service.UserService}!getUserChallenges@{getUserChallenges}}
+\index{getUserChallenges@{getUserChallenges}!org.zerock.service.UserService@{org.zerock.service.UserService}}
+\doxysubsubsection{\texorpdfstring{getUserChallenges()}{getUserChallenges()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1service_1_1_user_service_aa9b079a50e7ca6053749a5999ee7ce5f} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o}{User\+Challenge\+DTO}} $>$ org.\+zerock.\+service.\+User\+Service.\+get\+User\+Challenges (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{}\end{DoxyParamCaption}) throws Exception}
+
+
+
+사용자 챌린지 목록 조회 
+
+특정 사용자가 참여한 챌린지 목록을 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 조회할 사용자 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+사용자가 참여한 챌린지 정보를 포함한 리스트 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{예외}
+{\em Exception} & 데이터 조회 중 오류가 발생한 경우 예외 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a3dcb3512bc9ab399b682bfd4f151d4c9}{org.\+zerock.\+service.\+User\+Service\+Impl}}에서 구현되었습니다.
+
+\Hypertarget{interfaceorg_1_1zerock_1_1service_1_1_user_service_ae6b63f9104c6d913fe0ef4c21df74cb2}\index{org.zerock.service.UserService@{org.zerock.service.UserService}!login@{login}}
+\index{login@{login}!org.zerock.service.UserService@{org.zerock.service.UserService}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1service_1_1_user_service_ae6b63f9104c6d913fe0ef4c21df74cb2} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{User\+DTO}} org.\+zerock.\+service.\+User\+Service.\+login (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{, }\item[{String}]{password}{}\end{DoxyParamCaption}) throws Exception}
+
+
+
+사용자 로그인 
+
+주어진 사용자 ID와 비밀번호를 통해 인증을 수행합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 사용자 ID \\
+\hline
+{\em password} & 사용자 비밀번호 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+인증된 사용자의 상세 정보를 포함한 DTO 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{예외}
+{\em Exception} & 사용자 ID가 없거나 비밀번호가 일치하지 않을 경우 예외 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_ae07fe2a5bc582bab544d4909efc7fbec}{org.\+zerock.\+service.\+User\+Service\+Impl}}에서 구현되었습니다.
+
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfaceorg_1_1zerock_1_1service_1_1_user_service_ae6b63f9104c6d913fe0ef4c21df74cb2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interfaceorg_1_1zerock_1_1service_1_1_user_service_a3402067d2228ed5ec88e339d2868d7d3}\index{org.zerock.service.UserService@{org.zerock.service.UserService}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!org.zerock.service.UserService@{org.zerock.service.UserService}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1service_1_1_user_service_a3402067d2228ed5ec88e339d2868d7d3} 
+void org.\+zerock.\+service.\+User\+Service.\+register\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_d_t_o}{User\+DTO}}}]{user\+DTO}{}\end{DoxyParamCaption}) throws Exception}
+
+
+
+사용자 회원가입 
+
+주어진 사용자 정보를 기반으로 새로운 사용자를 등록합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+DTO} & 회원가입 요청 데이터를 포함하는 DTO \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em Exception} & 아이디나 이메일이 중복된 경우 예외 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a2d47c6b69afe8c24075d2891f8115f16}{org.\+zerock.\+service.\+User\+Service\+Impl}}에서 구현되었습니다.
+
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfaceorg_1_1zerock_1_1service_1_1_user_service_a3402067d2228ed5ec88e339d2868d7d3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interfaceorg_1_1zerock_1_1service_1_1_user_service_a4a09c2c54e6d2acbf7b0702566edf3fd}\index{org.zerock.service.UserService@{org.zerock.service.UserService}!updateEmail@{updateEmail}}
+\index{updateEmail@{updateEmail}!org.zerock.service.UserService@{org.zerock.service.UserService}}
+\doxysubsubsection{\texorpdfstring{updateEmail()}{updateEmail()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1service_1_1_user_service_a4a09c2c54e6d2acbf7b0702566edf3fd} 
+void org.\+zerock.\+service.\+User\+Service.\+update\+Email (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{, }\item[{String}]{new\+Email}{}\end{DoxyParamCaption}) throws Exception}
+
+
+
+사용자 이메일 변경 
+
+주어진 사용자 ID와 새로운 이메일을 기반으로 이메일을 변경합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 사용자 ID \\
+\hline
+{\em new\+Email} & 새로운 이메일 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em Exception} & 이메일이 중복되거나 업데이트에 실패한 경우 예외 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_ad7dd992e3bff188ae0e4890ddf7102ed}{org.\+zerock.\+service.\+User\+Service\+Impl}}에서 구현되었습니다.
+
+\Hypertarget{interfaceorg_1_1zerock_1_1service_1_1_user_service_a56e0ac5f7f967a71d62f469cafdca6ac}\index{org.zerock.service.UserService@{org.zerock.service.UserService}!updatePassword@{updatePassword}}
+\index{updatePassword@{updatePassword}!org.zerock.service.UserService@{org.zerock.service.UserService}}
+\doxysubsubsection{\texorpdfstring{updatePassword()}{updatePassword()}}
+{\footnotesize\ttfamily \label{interfaceorg_1_1zerock_1_1service_1_1_user_service_a56e0ac5f7f967a71d62f469cafdca6ac} 
+void org.\+zerock.\+service.\+User\+Service.\+update\+Password (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{, }\item[{String}]{new\+Password}{}\end{DoxyParamCaption}) throws Exception}
+
+
+
+사용자 비밀번호 변경 
+
+주어진 사용자 ID와 새로운 비밀번호를 기반으로 비밀번호를 변경합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 사용자 ID \\
+\hline
+{\em new\+Password} & 새로운 비밀번호 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em Exception} & 사용자 정보가 없거나 업데이트에 실패한 경우 예외 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_service_impl_a7e17bdf216c74f17971a9597c523f613}{org.\+zerock.\+service.\+User\+Service\+Impl}}에서 구현되었습니다.
+
+
+
+이 인터페이스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/service/\mbox{\hyperlink{_user_service_8java}{User\+Service.\+java}}\end{DoxyCompactItemize}

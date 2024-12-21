@@ -5,7 +5,13 @@
     
 <mapper namespace="org.zerock.mapper.UserChallengeMapper">
 
-	<insert id="insertUserChallenge" parameterType="org.zerock.domain.UserChallenge">
+    <!--
+        @brief 사용자 챌린지 삽입
+        @details 
+        USERCHALLENGE 테이블에 새로운 사용자 챌린지 정보를 추가합니다.
+        @param 사용자 챌린지 데이터 (org.zerock.domain.UserChallenge)
+    -->
+    <insert id="insertUserChallenge" parameterType="org.zerock.domain.UserChallenge">
         INSERT INTO USERCHALLENGE (
             user_id,
             challenge_id,
@@ -25,97 +31,151 @@
             #{endDate},
             #{duration}
         )
-	</insert>
+    </insert>
 
+    <!--
+        @brief 사용자와 챌린지 ID로 사용자 챌린지 조회
+        @details 
+        주어진 사용자 ID와 챌린지 ID를 기반으로 사용자 챌린지 정보를 조회합니다.
+        @param userId 사용자 ID
+        @param challengeId 챌린지 ID
+        @return 사용자 챌린지 정보 (org.zerock.domain.UserChallenge)
+    -->
     <select id="findByUserAndChallenge" parameterType="map" resultType="org.zerock.domain.UserChallenge">
-        SELECT user_id AS userId, challenge_id AS challengeId, progress, status, start_date AS startDate, end_date AS endDate
-        FROM USERCHALLENGE
-        WHERE user_id = #{userId} AND challenge_id = #{challengeId}
-    </select>
-
-    <select id="findByUser" parameterType="string" resultType="org.zerock.domain.UserChallenge">
         SELECT 
-            user_id AS userId,
-            challenge_id AS challengeId,
-            progress,
-            status,
-            start_date AS startDate,
+            user_id AS userId, 
+            challenge_id AS challengeId, 
+            progress, 
+            status, 
+            start_date AS startDate, 
             end_date AS endDate
         FROM USERCHALLENGE
         WHERE user_id = #{userId} AND challenge_id = #{challengeId}
     </select>
-    
+
+    <!--
+        @brief 특정 사용자 챌린지 조회
+        @details 
+        주어진 사용자 ID를 기반으로 모든 사용자 챌린지 정보를 조회합니다.
+        @param userId 사용자 ID (String 타입)
+        @return 사용자 챌린지 리스트 (org.zerock.domain.UserChallenge)
+    -->
+    <select id="findByUser" parameterType="string" resultType="org.zerock.domain.UserChallenge">
+        SELECT 
+            user_challenge_id AS userChallengeId,
+            user_id AS userId,
+            challenge_id AS challengeId,
+            task_id AS taskId,
+            progress,
+            status,
+            start_date AS startDate,
+            end_date AS endDate,
+            duration
+        FROM USERCHALLENGE
+        WHERE user_id = #{userId}
+    </select>
+
+    <!--
+        @brief 진행 중인 챌린지 조회
+        @details 
+        주어진 사용자 ID로 진행 중인 챌린지 상태("in_progress")를 조회합니다.
+        @param userId 사용자 ID (String 타입)
+        @return 진행 중인 챌린지 정보 (org.zerock.domain.UserChallenge)
+    -->
     <select id="findOngoingChallenge" parameterType="string" resultType="org.zerock.domain.UserChallenge">
-	    SELECT 
-	        uc.user_challenge_id AS userChallengeId,
-	        uc.user_id AS userId,
-	        uc.challenge_id AS challengeId,
-	        uc.progress,
-	        uc.status,
-	        uc.start_date AS startDate,
-	        uc.end_date AS endDate,
-	        c.title AS challengeTitle,
-	        c.duration,
-	        ct.task
-	    FROM UserChallenge uc
-	    JOIN Challenges c ON uc.challenge_id = c.challenge_id
-	    LEFT JOIN Challenge_Tasks ct ON c.challenge_id = ct.challenge_id
-	    WHERE uc.user_id = #{userId} 
-	    AND uc.status = 'in_progress'
-	</select>
-	
-	<select id="findOngoingChallengeByUserId" parameterType="string" resultType="org.zerock.domain.UserChallenge">
-	    SELECT 
-	        uc.user_challenge_id AS userChallengeId,
-	        uc.user_id AS userId,
-	        uc.challenge_id AS challengeId,
-	        uc.task_id AS taskId,
-	        uc.progress,
-	        uc.status,
-	        uc.start_date AS startDate,
-	        uc.end_date AS endDate,
-	        uc.duration,
-	        c.title AS challengeTitle,
-	        ct.task AS task
-	    FROM userchallenge uc
-	    LEFT JOIN challenges c ON uc.challenge_id = c.challenge_id
-	    LEFT JOIN challenge_tasks ct ON uc.task_id = ct.task_id
-	    WHERE uc.user_id = #{userId} 
-	    AND uc.status = 'in_progress'
-	</select>
-	
-	<select id="findById" parameterType="long" resultType="org.zerock.domain.UserChallenge">
-	    SELECT 
-	        user_challenge_id AS userChallengeId,
-	        user_id AS userId,
-	        challenge_id AS challengeId,
-	        task_id AS taskId,
-	        duration,
-	        progress,
-	        status,
-	        start_date AS startDate,
-	        end_date AS endDate
-	    FROM userchallenge
-	    WHERE user_challenge_id = #{userChallengeId}
-	</select>
-	
-	<select id="getUserChallengeDetails" parameterType="long" resultType="map">
-	    SELECT 
-	        uc.user_challenge_id AS userChallengeId,
-	        uc.user_id AS userId,
-	        uc.challenge_id AS challengeId,
-	        ch.title AS challengeTitle,
-	        ct.task AS task,
-	        uc.progress,
-	        uc.status,
-	        uc.start_date AS startDate,
-	        uc.end_date AS endDate,
-	        uc.duration
-	    FROM USERCHALLENGE uc
-	    LEFT JOIN CHALLENGES ch ON uc.challenge_id = ch.challenge_id
-	    LEFT JOIN CHALLENGE_TASKS ct ON uc.task_id = ct.task_id
-	    WHERE uc.user_challenge_id = #{userChallengeId}
-	</select>
-	
+        SELECT 
+            uc.user_challenge_id AS userChallengeId,
+            uc.user_id AS userId,
+            uc.challenge_id AS challengeId,
+            uc.progress,
+            uc.status,
+            uc.start_date AS startDate,
+            uc.end_date AS endDate,
+            c.title AS challengeTitle,
+            c.duration,
+            ct.task
+        FROM UserChallenge uc
+        JOIN Challenges c ON uc.challenge_id = c.challenge_id
+        LEFT JOIN Challenge_Tasks ct ON c.challenge_id = ct.challenge_id
+        WHERE uc.user_id = #{userId} 
+        AND uc.status = 'in_progress'
+    </select>
+
+    <!--
+        @brief 사용자 ID로 진행 중인 챌린지 상세 조회
+        @details 
+        주어진 사용자 ID를 기반으로 USERCHALLENGE, CHALLENGES, CHALLENGE_TASKS 테이블을 조인하여 
+        진행 중인 챌린지 정보를 상세히 조회합니다.
+        @param userId 사용자 ID (String 타입)
+        @return 진행 중인 챌린지 상세 정보 (org.zerock.domain.UserChallenge)
+    -->
+    <select id="findOngoingChallengeByUserId" parameterType="string" resultType="org.zerock.domain.UserChallenge">
+        SELECT 
+            uc.user_challenge_id AS userChallengeId,
+            uc.user_id AS userId,
+            uc.challenge_id AS challengeId,
+            uc.task_id AS taskId,
+            uc.progress,
+            uc.status,
+            uc.start_date AS startDate,
+            uc.end_date AS endDate,
+            uc.duration,
+            c.title AS challengeTitle,
+            ct.task AS task
+        FROM userchallenge uc
+        LEFT JOIN challenges c ON uc.challenge_id = c.challenge_id
+        LEFT JOIN challenge_tasks ct ON uc.task_id = ct.task_id
+        WHERE uc.user_id = #{userId} 
+        AND uc.status = 'in_progress'
+    </select>
+
+    <!--
+        @brief 사용자 챌린지 ID로 조회
+        @details 
+        주어진 사용자 챌린지 ID를 기반으로 사용자 챌린지 정보를 조회합니다.
+        @param userChallengeId 사용자 챌린지 ID (long 타입)
+        @return 사용자 챌린지 정보 (org.zerock.domain.UserChallenge)
+    -->
+    <select id="findById" parameterType="long" resultType="org.zerock.domain.UserChallenge">
+        SELECT 
+            user_challenge_id AS userChallengeId,
+            user_id AS userId,
+            challenge_id AS challengeId,
+            task_id AS taskId,
+            duration,
+            progress,
+            status,
+            start_date AS startDate,
+            end_date AS endDate
+        FROM userchallenge
+        WHERE user_challenge_id = #{userChallengeId}
+    </select>
+
+    <!--
+        @brief 사용자 챌린지 상세 정보 조회
+        @details 
+        USERCHALLENGE 테이블과 CHALLENGES, CHALLENGE_TASKS 테이블을 조인하여 
+        사용자 챌린지의 상세 정보를 조회합니다.
+        @param userChallengeId 사용자 챌린지 ID (long 타입)
+        @return 사용자 챌린지 상세 정보 (Map 형태)
+    -->
+    <select id="getUserChallengeDetails" parameterType="long" resultType="map">
+        SELECT 
+            uc.user_challenge_id AS userChallengeId,
+            uc.user_id AS userId,
+            uc.challenge_id AS challengeId,
+            ch.title AS challengeTitle,
+            ct.task AS task,
+            uc.task_id AS taskId,
+            uc.progress,
+            uc.status,
+            uc.start_date AS startDate,
+            uc.end_date AS endDate,
+            uc.duration
+        FROM USERCHALLENGE uc
+        LEFT JOIN CHALLENGES ch ON uc.challenge_id = ch.challenge_id
+        LEFT JOIN CHALLENGE_TASKS ct ON uc.task_id = ct.task_id
+        WHERE uc.user_challenge_id = #{userChallengeId}
+    </select>
 
 </mapper>

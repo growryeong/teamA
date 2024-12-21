@@ -1,0 +1,99 @@
+\doxysection{org.\+zerock.\+service.\+Duration\+Service 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1service_1_1_duration_service}{}\label{classorg_1_1zerock_1_1service_1_1_duration_service}\index{org.zerock.service.DurationService@{org.zerock.service.DurationService}}
+
+
+기간 관리를 위한 서비스  
+
+
+
+
+org.\+zerock.\+service.\+Duration\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classorg_1_1zerock_1_1service_1_1_duration_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_duration}{Duration}} $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883}{get\+All\+Durations}} ()
+\begin{DoxyCompactList}\small\item\em 전체 기간 목록 조회 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_duration_mapper}{Duration\+Mapper}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce}{duration\+Mapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+기간 관리를 위한 서비스 
+
+이 서비스는 기간(\+Duration) 데이터를 처리하며, 데이터베이스에서 전체 기간 목록을 조회합니다. 
+
+\mbox{\hyperlink{_duration_service_8java_source}{Duration\+Service.\+java}} 파일의 \mbox{\hyperlink{_duration_service_8java_source_l00019}{19}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883}\index{org.zerock.service.DurationService@{org.zerock.service.DurationService}!getAllDurations@{getAllDurations}}
+\index{getAllDurations@{getAllDurations}!org.zerock.service.DurationService@{org.zerock.service.DurationService}}
+\doxysubsubsection{\texorpdfstring{getAllDurations()}{getAllDurations()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_duration}{Duration}} $>$ org.\+zerock.\+service.\+Duration\+Service.\+get\+All\+Durations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+전체 기간 목록 조회 
+
+데이터베이스에 등록된 모든 기간 정보를 조회합니다.
+
+\begin{DoxyReturn}{반환값}
+전체 기간의 리스트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_duration_service_8java_source}{Duration\+Service.\+java}} 파일의 \mbox{\hyperlink{_duration_service_8java_source_l00031}{31}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce}{durationMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_duration_mapper_a770a59fef2fb6bae3270fba5e64bad19}{findAll}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_duration_service_acdaed9b6827ca93284c070fcab958883_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce}\index{org.zerock.service.DurationService@{org.zerock.service.DurationService}!durationMapper@{durationMapper}}
+\index{durationMapper@{durationMapper}!org.zerock.service.DurationService@{org.zerock.service.DurationService}}
+\doxysubsubsection{\texorpdfstring{durationMapper}{durationMapper}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_duration_service_a2bd92706d1662f4176246328493bf9ce} 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_duration_mapper}{Duration\+Mapper}} org.\+zerock.\+service.\+Duration\+Service.\+duration\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+기간 데이터를 관리하는 Mapper 
+
+\mbox{\hyperlink{_duration_service_8java_source}{Duration\+Service.\+java}} 파일의 \mbox{\hyperlink{_duration_service_8java_source_l00022}{22}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/service/\mbox{\hyperlink{_duration_service_8java}{Duration\+Service.\+java}}\end{DoxyCompactItemize}

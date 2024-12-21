@@ -1,0 +1,9 @@
+<map id="org.zerock.controller.NoticeController" name="org.zerock.controller.NoticeController">
+<area shape="rect" id="Node000001" title="공지사항 관리를 위한 REST 컨트롤러" alt="" coords="5,389,176,496"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="30,227,80,296"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,295,79,372,74,373,59,296"/>
+<area shape="rect" id="Node000003" href="$classorg_1_1zerock_1_1service_1_1_notice_service.html" title="공지사항 관리를 위한 서비스" alt="" coords="104,197,264,325"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,326,128,376,123,373,149,324"/>
+<area shape="rect" id="Node000004" href="$interfaceorg_1_1zerock_1_1mapper_1_1_notice_mapper.html" title="공지사항 관리를 위한 Mapper 인터페이스" alt="" coords="104,5,264,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="187,133,187,180,181,180,181,133"/>
+</map>

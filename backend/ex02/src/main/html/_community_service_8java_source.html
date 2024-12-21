@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project1: java/org/zerock/service/CommunityService.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project1<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_community_service_8java_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CommunityService.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_community_service_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>org.zerock.service;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.springframework.stereotype.Service;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.zerock.domain.Challenge;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.zerock.domain.ChallengeTask;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.zerock.domain.CommunityPost;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.zerock.domain.CommunityPostDTO;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> org.zerock.domain.UserChallenge;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> org.zerock.mapper.ChallengeMapper;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> org.zerock.mapper.CommunityMapper;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">import</span> java.util.HashMap;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>@Service</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>@RequiredArgsConstructor</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>@Slf4j</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html">   27</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classorg_1_1zerock_1_1service_1_1_community_service.html">CommunityService</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">   30</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_interface" href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html">CommunityMapper</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">communityMapper</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a57f2916cf1d1f6bf241c85e5d88a9703">   33</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_interface" href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">ChallengeMapper</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a57f2916cf1d1f6bf241c85e5d88a9703">challengeMapper</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a59116e0d60f0626e5008b6b24847e573">   43</a></span>    <span class="keyword">public</span> List&lt;CommunityPost&gt; <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a59116e0d60f0626e5008b6b24847e573">getAllPosts</a>() {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">communityMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a3bda467a188175088889af3f65f04137">getCommunityPosts</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        } <span class="keywordflow">catch</span> (Exception e) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            log.error(<span class="stringliteral">&quot;게시글 목록 조회 중 오류 발생: &quot;</span>, e);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;게시글 목록을 가져오는데 실패했습니다.&quot;</span>, e);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a91e202c9a924b9e60896f2985c6273a8">   60</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_community_post_d_t_o.html">CommunityPostDTO</a> <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a91e202c9a924b9e60896f2985c6273a8">getPostWithChallengeDTO</a>(Long postId) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">communityMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#ae58272a81d0be86062c80f19a85c500b">getPostById</a>(postId); <span class="comment">// Mapper에서 DTO 반환</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a535b6eb18aad31a0fee49c67d769bdff">   72</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a535b6eb18aad31a0fee49c67d769bdff">createPost</a>(<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_community_post.html">CommunityPost</a> post) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">communityMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a0462b4363aff5f97ecf12687c37f4520">insertPost</a>(post);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        } <span class="keywordflow">catch</span> (Exception e) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;게시글 저장 중 오류 발생: &quot;</span> + e.getMessage(), e);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a3f94ad2047005e82f3abf95129321e34">   89</a></span>    <span class="keyword">public</span> Map&lt;String, Object&gt; <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a3f94ad2047005e82f3abf95129321e34">getPostWithChallenge</a>(Long postId) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        Map&lt;String, Object&gt; postDetails = <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">communityMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a38ce769a3f2440c287034bdbe8d15f13">getPostWithDetails</a>(postId);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span> (postDetails == <span class="keyword">null</span>) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;해당 게시글을 찾을 수 없습니다. postId: &quot;</span> + postId);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> postDetails;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a4365e7947ae86573c37fccdb98c3fc2d">  106</a></span>    <span class="keyword">public</span> List&lt;Map&lt;String, Object&gt;&gt; <a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a4365e7947ae86573c37fccdb98c3fc2d">getFilteredCommunity</a>(String challengeType, Integer duration) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">communityMapper</a>.<a class="code hl_function" href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a79e01ff8ba092969f9aee4cb4351c721">fetchFilteredCommunity</a>(challengeType, duration);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+</div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_community_post_d_t_o_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_community_post_d_t_o.html">org.zerock.domain.CommunityPostDTO</a></div><div class="ttdoc">커뮤니티 게시글 상세 정보 DTO 클래스</div><div class="ttdef"><b>Definition</b> <a href="_community_post_d_t_o_8java_source.html#l00011">CommunityPostDTO.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_community_post_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_community_post.html">org.zerock.domain.CommunityPost</a></div><div class="ttdoc">커뮤니티 게시글(CommunityPost) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_community_post_8java_source.html#l00015">CommunityPost.java:15</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html">org.zerock.service.CommunityService</a></div><div class="ttdoc">커뮤니티 게시글 관리를 위한 서비스</div><div class="ttdef"><b>Definition</b> <a href="#l00027">CommunityService.java:27</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a3f94ad2047005e82f3abf95129321e34"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a3f94ad2047005e82f3abf95129321e34">org.zerock.service.CommunityService.getPostWithChallenge</a></div><div class="ttdeci">Map&lt; String, Object &gt; getPostWithChallenge(Long postId)</div><div class="ttdoc">게시글 및 챌린지 상세 정보 조회</div><div class="ttdef"><b>Definition</b> <a href="#l00089">CommunityService.java:89</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a4365e7947ae86573c37fccdb98c3fc2d"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a4365e7947ae86573c37fccdb98c3fc2d">org.zerock.service.CommunityService.getFilteredCommunity</a></div><div class="ttdeci">List&lt; Map&lt; String, Object &gt; &gt; getFilteredCommunity(String challengeType, Integer duration)</div><div class="ttdoc">필터 조건에 따른 게시글 조회</div><div class="ttdef"><b>Definition</b> <a href="#l00106">CommunityService.java:106</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a535b6eb18aad31a0fee49c67d769bdff"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a535b6eb18aad31a0fee49c67d769bdff">org.zerock.service.CommunityService.createPost</a></div><div class="ttdeci">void createPost(CommunityPost post)</div><div class="ttdoc">새로운 게시글 작성</div><div class="ttdef"><b>Definition</b> <a href="#l00072">CommunityService.java:72</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a57f2916cf1d1f6bf241c85e5d88a9703"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a57f2916cf1d1f6bf241c85e5d88a9703">org.zerock.service.CommunityService.challengeMapper</a></div><div class="ttdeci">final ChallengeMapper challengeMapper</div><div class="ttdef"><b>Definition</b> <a href="#l00033">CommunityService.java:33</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a582a493f1fc3526365d32a5ea85180f7"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a582a493f1fc3526365d32a5ea85180f7">org.zerock.service.CommunityService.communityMapper</a></div><div class="ttdeci">final CommunityMapper communityMapper</div><div class="ttdef"><b>Definition</b> <a href="#l00030">CommunityService.java:30</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a59116e0d60f0626e5008b6b24847e573"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a59116e0d60f0626e5008b6b24847e573">org.zerock.service.CommunityService.getAllPosts</a></div><div class="ttdeci">List&lt; CommunityPost &gt; getAllPosts()</div><div class="ttdoc">전체 게시글 조회</div><div class="ttdef"><b>Definition</b> <a href="#l00043">CommunityService.java:43</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_community_service_html_a91e202c9a924b9e60896f2985c6273a8"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_community_service.html#a91e202c9a924b9e60896f2985c6273a8">org.zerock.service.CommunityService.getPostWithChallengeDTO</a></div><div class="ttdeci">CommunityPostDTO getPostWithChallengeDTO(Long postId)</div><div class="ttdoc">게시글 상세 정보 및 관련 챌린지 조회</div><div class="ttdef"><b>Definition</b> <a href="#l00060">CommunityService.java:60</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_html"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html">org.zerock.mapper.ChallengeMapper</a></div><div class="ttdoc">챌린지 데이터를 처리하기 위한 Mapper 인터페이스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_mapper_8java_source.html#l00018">ChallengeMapper.java:18</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_html"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html">org.zerock.mapper.CommunityMapper</a></div><div class="ttdoc">커뮤니티 게시글 관리를 위한 Mapper 인터페이스</div><div class="ttdef"><b>Definition</b> <a href="_community_mapper_8java_source.html#l00018">CommunityMapper.java:18</a></div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_html_a0462b4363aff5f97ecf12687c37f4520"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a0462b4363aff5f97ecf12687c37f4520">org.zerock.mapper.CommunityMapper.insertPost</a></div><div class="ttdeci">void insertPost(CommunityPost post)</div><div class="ttdoc">새로운 게시글 삽입</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_html_a38ce769a3f2440c287034bdbe8d15f13"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a38ce769a3f2440c287034bdbe8d15f13">org.zerock.mapper.CommunityMapper.getPostWithDetails</a></div><div class="ttdeci">Map&lt; String, Object &gt; getPostWithDetails(Long postId)</div><div class="ttdoc">특정 게시글의 상세 정보 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_html_a3bda467a188175088889af3f65f04137"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a3bda467a188175088889af3f65f04137">org.zerock.mapper.CommunityMapper.getCommunityPosts</a></div><div class="ttdeci">List&lt; CommunityPost &gt; getCommunityPosts()</div><div class="ttdoc">전체 게시글 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_html_a79e01ff8ba092969f9aee4cb4351c721"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a79e01ff8ba092969f9aee4cb4351c721">org.zerock.mapper.CommunityMapper.fetchFilteredCommunity</a></div><div class="ttdeci">List&lt; Map&lt; String, Object &gt; &gt; fetchFilteredCommunity( @Param(&quot;challengeType&quot;) String challengeType, @Param(&quot;duration&quot;) Integer duration)</div><div class="ttdoc">필터 조건에 따른 게시글 조회</div></div>
+<div class="ttc" id="ainterfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_html_ae58272a81d0be86062c80f19a85c500b"><div class="ttname"><a href="interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#ae58272a81d0be86062c80f19a85c500b">org.zerock.mapper.CommunityMapper.getPostById</a></div><div class="ttdeci">CommunityPostDTO getPostById(Long postId)</div><div class="ttdoc">특정 게시글 조회</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_dbfded582784846724308f9150bf5e72.html">org</a></li><li class="navelem"><a class="el" href="dir_1d36fa85a4c40021bc41e20ad60b1a86.html">zerock</a></li><li class="navelem"><a class="el" href="dir_2bb85f31ffe2a1cefde0e53f12ee9bbf.html">service</a></li><li class="navelem"><a class="el" href="_community_service_8java.html">CommunityService.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

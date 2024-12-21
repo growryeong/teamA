@@ -3,6 +3,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="org.zerock.mapper.UserMapper">
+
+    <!--
+        @brief 사용자 등록
+        @details 
+        users 테이블에 새로운 사용자 정보를 삽입합니다.
+        @param 사용자 정보 (org.zerock.domain.UserDTO)
+    -->
 	<insert id="insertUser" parameterType="org.zerock.domain.UserDTO">
 	    INSERT INTO users (
 	        user_id,
@@ -18,9 +25,17 @@
 	        0
 	    )
 	</insert>
+
+    <!--
+        @brief 사용자 ID로 사용자 조회
+        @details 
+        주어진 사용자 ID를 기반으로 사용자 정보를 조회합니다.
+        @param userId 조회할 사용자 ID
+        @return 사용자 정보 (org.zerock.domain.UserDTO)
+    -->
 	<select id="getUserByUserId" resultType="org.zerock.domain.UserDTO">
         SELECT 
-            user_id as userId,
+            user_id AS userId,
             email,
             password,
             username
@@ -28,52 +43,90 @@
         WHERE user_id = #{userId}		
 	</select>
     
+    <!--
+        @brief 사용자 ID 중복 확인
+        @details 
+        주어진 사용자 ID가 이미 존재하는지 확인합니다.
+        @param userId 확인할 사용자 ID
+        @return 존재 여부 (0: 없음, 1 이상: 존재)
+    -->
     <select id="checkUserId" parameterType="String" resultType="int">
         SELECT COUNT(*) FROM users WHERE user_id = #{userId}
     </select>
     
+    <!--
+        @brief 이메일 중복 확인
+        @details 
+        주어진 이메일이 이미 존재하는지 확인합니다.
+        @param email 확인할 이메일
+        @return 존재 여부 (0: 없음, 1 이상: 존재)
+    -->
     <select id="checkEmail" parameterType="String" resultType="int">
         SELECT COUNT(*) FROM users WHERE email = #{email}
     </select>
     
-    <!-- 사용자의 진행 중인 챌린지 조회 -->
+    <!--
+        @brief 사용자의 진행 중인 챌린지 조회
+        @details 
+        주어진 사용자 ID를 기반으로 진행 중인 챌린지 정보를 조회합니다.
+        @param userId 조회할 사용자 ID
+        @return 진행 중인 챌린지 리스트 (org.zerock.domain.UserChallengeDTO)
+    -->
     <select id="getUserChallenges" resultType="org.zerock.domain.UserChallengeDTO">
         SELECT 
             c.id,
-            c.title as challengeTitle,
+            c.title AS challengeTitle,
             c.duration,
-            TO_CHAR(uc.start_date, 'YYYY-MM-DD') as startDate
+            TO_CHAR(uc.start_date, 'YYYY-MM-DD') AS startDate
         FROM user_challenges uc
         JOIN challenges c ON uc.challenge_id = c.id
         WHERE uc.user_id = #{userId}
         AND uc.end_date IS NULL
     </select>
     
-    
-    <!-- 비밀번호 업데이트 -->
+    <!--
+        @brief 비밀번호 업데이트
+        @details 
+        주어진 사용자 ID의 비밀번호를 업데이트합니다.
+        @param userId 사용자 ID
+        @param password 새로운 비밀번호
+    -->
     <update id="updatePassword">
         UPDATE users
         SET password = #{password}
         WHERE user_id = #{userId}
     </update>
     
-    <!-- 이메일 업데이트 -->
+    <!--
+        @brief 이메일 업데이트
+        @details 
+        주어진 사용자 ID의 이메일을 업데이트합니다.
+        @param userId 사용자 ID
+        @param email 새로운 이메일
+    -->
     <update id="updateEmail">
         UPDATE users
         SET email = #{email}
         WHERE user_id = #{userId}
     </update>
     
+    <!--
+        @brief 사용자 ID로 사용자 상세 조회
+        @details 
+        주어진 사용자 ID를 기반으로 상세 사용자 정보를 조회합니다.
+        @param userId 조회할 사용자 ID
+        @return 사용자 상세 정보 (org.zerock.domain.User)
+    -->
     <select id="findById" parameterType="string" resultType="org.zerock.domain.User">
-    SELECT user_id AS userId,
-           password,
-           username,
-           created_at AS createdAt,
-           email,
-           is_admin AS isAdmin
-    FROM USERS
-    WHERE user_id = #{userId}
+        SELECT 
+            user_id AS userId,
+            password,
+            username,
+            created_at AS createdAt,
+            email,
+            is_admin AS isAdmin
+        FROM USERS
+        WHERE user_id = #{userId}
     </select>    
-    
-    
+
 </mapper>

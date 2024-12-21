@@ -1,0 +1,7 @@
+<map id="org.zerock.service.UserServiceImpl" name="org.zerock.service.UserServiceImpl">
+<area shape="rect" id="Node000001" title="사용자 관리를 위한 서비스 구현 클래스" alt="" coords="101,288,320,443"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1service_1_1_user_service.html" title="사용자 관련 비즈니스 로직 인터페이스" alt="" coords="5,37,199,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,205,180,287,175,289,139,207"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html" title="사용자 관리를 위한 Mapper 인터페이스" alt="" coords="223,5,416,224"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,225,253,274,248,271,270,223"/>
+</map>

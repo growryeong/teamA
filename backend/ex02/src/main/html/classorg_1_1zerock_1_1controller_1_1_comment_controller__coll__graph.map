@@ -1,0 +1,7 @@
+<map id="org.zerock.controller.CommentController" name="org.zerock.controller.CommentController">
+<area shape="rect" id="Node000001" title="댓글 관리를 위한 REST 컨트롤러" alt="" coords="5,347,195,453"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_comment_service.html" title="댓글 관리를 위한 서비스" alt="" coords="11,176,190,283"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,282,103,329,98,329,98,282"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_comment_mapper.html" title="댓글 관리를 위한 Mapper 인터페이스" alt="" coords="10,5,190,112"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,112,103,159,98,159,98,112"/>
+</map>

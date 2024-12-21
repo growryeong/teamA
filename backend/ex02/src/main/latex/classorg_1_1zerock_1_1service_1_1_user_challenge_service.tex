@@ -1,0 +1,380 @@
+\doxysection{org.\+zerock.\+service.\+User\+Challenge\+Service 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service}{}\label{classorg_1_1zerock_1_1service_1_1_user_challenge_service}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+
+
+사용자 챌린지 관리를 위한 서비스  
+
+
+
+
+org.\+zerock.\+service.\+User\+Challenge\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517}{save\+User\+Challenge}} (String user\+Id, Long challenge\+Id, String challenge\+Type, String challenge\+Title, int duration, String start\+Date, String status, Long task\+Id)
+\begin{DoxyCompactList}\small\item\em 새로운 사용자 챌린지 저장 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a64817f0444a3473ad791b8012755a8db}{duplicate\+User\+Challenge}} (Long original\+User\+Challenge\+Id, String new\+User\+Id)
+\begin{DoxyCompactList}\small\item\em 기존 사용자 챌린지를 복제하여 새로운 사용자로 저장 \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{User\+Challenge}} $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22}{get\+Ongoing\+Challenge}} (String user\+Id)
+\begin{DoxyCompactList}\small\item\em 진행 중인 사용자 챌린지 조회 \end{DoxyCompactList}\item 
+Map$<$ String, Object $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}{get\+User\+Challenge\+Details}} (Long user\+Challenge\+Id)
+\begin{DoxyCompactList}\small\item\em 사용자 챌린지 상세 정보 조회 \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a9bc24ade41b865ec5cfb35dd4ba042bc}{is\+Challenge\+Already\+Participated}} (String user\+Id, Long task\+Id)
+\begin{DoxyCompactList}\small\item\em 사용자 챌린지 참여 중복 여부 확인 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper}{User\+Challenge\+Mapper}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}{user\+Challenge\+Mapper}}
+\item 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{Challenge\+Mapper}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a6573e6547ed4fde87602d20f59a6e456}{challenge\+Mapper}}
+\item 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper}{User\+Mapper}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_ad6dc57e85311c44cb0281dabeb327571}{user\+Mapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+사용자 챌린지 관리를 위한 서비스 
+
+이 서비스는 사용자 챌린지 생성, 중복 확인, 진행 중인 챌린지 조회, 데이터 복제 등의 비즈니스 로직을 처리합니다. 
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a64817f0444a3473ad791b8012755a8db}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!duplicateUserChallenge@{duplicateUserChallenge}}
+\index{duplicateUserChallenge@{duplicateUserChallenge}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{duplicateUserChallenge()}{duplicateUserChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a64817f0444a3473ad791b8012755a8db} 
+void org.\+zerock.\+service.\+User\+Challenge\+Service.\+duplicate\+User\+Challenge (\begin{DoxyParamCaption}\item[{Long}]{original\+User\+Challenge\+Id}{, }\item[{String}]{new\+User\+Id}{}\end{DoxyParamCaption})}
+
+
+
+기존 사용자 챌린지를 복제하여 새로운 사용자로 저장 
+
+기존 챌린지 데이터를 기반으로 새로운 사용자에 대해 복제된 챌린지를 생성합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em original\+User\+Challenge\+Id} & 기존 사용자 챌린지 ID \\
+\hline
+{\em new\+User\+Id} & 새로운 사용자의 ID \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em Runtime\+Exception} & 유효한 챌린지 데이터를 찾을 수 없는 경우 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00097}{97}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ Map<String,\ Object>\ originalChallenge\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}{getUserChallengeDetails}}(originalUserChallengeId);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (originalChallenge\ ==\ \textcolor{keyword}{null}\ ||\ originalChallenge.isEmpty())\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}유효한\ 유저\ 챌린지\ 데이터를\ 찾을\ 수\ 없습니다."{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ Long\ challengeId\ =\ ((Number)\ originalChallenge.get(\textcolor{stringliteral}{"{}CHALLENGEID"{}})).longValue();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ Long\ taskId\ =\ ((Number)\ originalChallenge.get(\textcolor{stringliteral}{"{}TASKID"{}})).longValue();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ duration\ =\ ((Number)\ originalChallenge.get(\textcolor{stringliteral}{"{}DURATION"{}})).intValue();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ String\ challengeTitle\ =\ (String)\ originalChallenge.get(\textcolor{stringliteral}{"{}CHALLENGETITLE"{}});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ UserChallenge\ newChallenge\ =\ \textcolor{keyword}{new}\ UserChallenge();}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ newChallenge.setUserId(newUserId);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ newChallenge.setChallengeId(challengeId);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ newChallenge.setTaskId(taskId);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ newChallenge.setDuration(duration);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ newChallenge.setStartDate(LocalDate.now().toString());}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ newChallenge.setEndDate(LocalDate.now().plusDays(duration).toString());}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ newChallenge.setStatus(\textcolor{stringliteral}{"{}in\_progress"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ newChallenge.setProgress(0.0);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}{userChallengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a647a96376df7b31c09e45141faae2d3f}{insertUserChallenge}}(newChallenge);}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a64817f0444a3473ad791b8012755a8db_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!getOngoingChallenge@{getOngoingChallenge}}
+\index{getOngoingChallenge@{getOngoingChallenge}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{getOngoingChallenge()}{getOngoingChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{User\+Challenge}} $>$ org.\+zerock.\+service.\+User\+Challenge\+Service.\+get\+Ongoing\+Challenge (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+진행 중인 사용자 챌린지 조회 
+
+특정 사용자가 진행 중인 챌린지 목록을 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 조회할 사용자의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+진행 중인 사용자 챌린지 리스트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00129}{129}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}{userChallengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a6c4659d3bb763604b94eb1adf4680414}{findOngoingChallengeByUserId}}(userId);}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!getUserChallengeDetails@{getUserChallengeDetails}}
+\index{getUserChallengeDetails@{getUserChallengeDetails}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{getUserChallengeDetails()}{getUserChallengeDetails()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987} 
+Map$<$ String, Object $>$ org.\+zerock.\+service.\+User\+Challenge\+Service.\+get\+User\+Challenge\+Details (\begin{DoxyParamCaption}\item[{Long}]{user\+Challenge\+Id}{}\end{DoxyParamCaption})}
+
+
+
+사용자 챌린지 상세 정보 조회 
+
+특정 사용자 챌린지 ID를 기반으로 상세 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Challenge\+Id} & 조회할 사용자 챌린지 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+사용자 챌린지 상세 정보를 포함한 Map 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00141}{141}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}{userChallengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a0a59516a89020931684005d0e7ca1927}{getUserChallengeDetails}}(userChallengeId);}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a9bc24ade41b865ec5cfb35dd4ba042bc}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!isChallengeAlreadyParticipated@{isChallengeAlreadyParticipated}}
+\index{isChallengeAlreadyParticipated@{isChallengeAlreadyParticipated}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{isChallengeAlreadyParticipated()}{isChallengeAlreadyParticipated()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a9bc24ade41b865ec5cfb35dd4ba042bc} 
+boolean org.\+zerock.\+service.\+User\+Challenge\+Service.\+is\+Challenge\+Already\+Participated (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{, }\item[{Long}]{task\+Id}{}\end{DoxyParamCaption})}
+
+
+
+사용자 챌린지 참여 중복 여부 확인 
+
+특정 사용자와 과제 ID를 기반으로 이미 참여 중인지 확인합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 사용자 ID \\
+\hline
+{\em task\+Id} & 과제 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+이미 참여 중이면 true, 그렇지 않으면 false 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00154}{154}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ List<UserChallenge>\ userChallenges\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}{userChallengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_aeea43e6b52f52fcef5f7f34d131b5d18}{findByUser}}(userId);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ userChallenges.stream()}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .anyMatch(challenge\ -\/>\ challenge.getTaskId().equals(taskId));}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a9bc24ade41b865ec5cfb35dd4ba042bc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!saveUserChallenge@{saveUserChallenge}}
+\index{saveUserChallenge@{saveUserChallenge}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{saveUserChallenge()}{saveUserChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517} 
+void org.\+zerock.\+service.\+User\+Challenge\+Service.\+save\+User\+Challenge (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{, }\item[{Long}]{challenge\+Id}{, }\item[{String}]{challenge\+Type}{, }\item[{String}]{challenge\+Title}{, }\item[{int}]{duration}{, }\item[{String}]{start\+Date}{, }\item[{String}]{status}{, }\item[{Long}]{task\+Id}{}\end{DoxyParamCaption})}
+
+
+
+새로운 사용자 챌린지 저장 
+
+주어진 데이터를 기반으로 사용자 챌린지를 생성하여 데이터베이스에 저장합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 사용자 ID \\
+\hline
+{\em challenge\+Id} & 챌린지 ID \\
+\hline
+{\em challenge\+Type} & 챌린지 유형 \\
+\hline
+{\em challenge\+Title} & 챌린지 제목 \\
+\hline
+{\em duration} & 챌린지 기간 \\
+\hline
+{\em start\+Date} & 시작 날짜 \\
+\hline
+{\em status} & 챌린지 상태 \\
+\hline
+{\em task\+Id} & 과제 ID \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em Runtime\+Exception} & 사용자 또는 챌린지 데이터가 유효하지 않을 경우 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00054}{54}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ activityTypeId\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (challengeType\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ activityTypeId\ =\ Integer.parseInt(challengeType);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (NumberFormatException\ e)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ log.warn(\textcolor{stringliteral}{"{}유효하지\ 않은\ 챌린지\ 유형:\ \{\},\ 기본값\ 0으로\ 설정"{}},\ challengeType);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ User\ user\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_ad6dc57e85311c44cb0281dabeb327571}{userMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper_a511a9f42cc19fc8f81c3abcd3b1a8a3d}{findById}}(userId);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (user\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}유저를\ 찾을\ 수\ 없습니다.\ userId:\ "{}}\ +\ userId);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ LocalDate\ start\ =\ LocalDate.parse(startDate);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ LocalDate\ end\ =\ start.plusDays(duration);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ UserChallenge\ userChallenge\ =\ \textcolor{keyword}{new}\ UserChallenge();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ userChallenge.setUserId(userId);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ userChallenge.setChallengeId(challengeId);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ userChallenge.setProgress(0.0);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ userChallenge.setStatus(status);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ userChallenge.setStartDate(startDate);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ userChallenge.setEndDate(end.toString());}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ userChallenge.setDuration(duration);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ userChallenge.setTaskId(taskId);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}새로운\ 사용자\ 챌린지\ 저장:\ \{\}"{}},\ userChallenge);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}{userChallengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a647a96376df7b31c09e45141faae2d3f}{insertUserChallenge}}(userChallenge);}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a6573e6547ed4fde87602d20f59a6e456}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!challengeMapper@{challengeMapper}}
+\index{challengeMapper@{challengeMapper}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{challengeMapper}{challengeMapper}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a6573e6547ed4fde87602d20f59a6e456} 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{Challenge\+Mapper}} org.\+zerock.\+service.\+User\+Challenge\+Service.\+challenge\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+챌린지 관리를 위한 Mapper 
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00033}{33}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!userChallengeMapper@{userChallengeMapper}}
+\index{userChallengeMapper@{userChallengeMapper}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{userChallengeMapper}{userChallengeMapper}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a76b42545301f99307d5536e01b93db80} 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper}{User\+Challenge\+Mapper}} org.\+zerock.\+service.\+User\+Challenge\+Service.\+user\+Challenge\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+사용자 챌린지 관리를 위한 Mapper 
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00030}{30}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_user_challenge_service_ad6dc57e85311c44cb0281dabeb327571}\index{org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}!userMapper@{userMapper}}
+\index{userMapper@{userMapper}!org.zerock.service.UserChallengeService@{org.zerock.service.UserChallengeService}}
+\doxysubsubsection{\texorpdfstring{userMapper}{userMapper}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_user_challenge_service_ad6dc57e85311c44cb0281dabeb327571} 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper}{User\+Mapper}} org.\+zerock.\+service.\+User\+Challenge\+Service.\+user\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+사용자 관리를 위한 Mapper 
+
+\mbox{\hyperlink{_user_challenge_service_8java_source}{User\+Challenge\+Service.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_service_8java_source_l00036}{36}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/service/\mbox{\hyperlink{_user_challenge_service_8java}{User\+Challenge\+Service.\+java}}\end{DoxyCompactItemize}

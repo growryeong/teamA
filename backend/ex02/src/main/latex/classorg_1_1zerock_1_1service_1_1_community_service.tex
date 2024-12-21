@@ -1,0 +1,318 @@
+\doxysection{org.\+zerock.\+service.\+Community\+Service 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1service_1_1_community_service}{}\label{classorg_1_1zerock_1_1service_1_1_community_service}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+
+
+커뮤니티 게시글 관리를 위한 서비스  
+
+
+
+
+org.\+zerock.\+service.\+Community\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{Community\+Post}} $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573}{get\+All\+Posts}} ()
+\begin{DoxyCompactList}\small\item\em 전체 게시글 조회 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_d_t_o}{Community\+Post\+DTO}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8}{get\+Post\+With\+Challenge\+DTO}} (Long post\+Id)
+\begin{DoxyCompactList}\small\item\em 게시글 상세 정보 및 관련 챌린지 조회 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff}{create\+Post}} (\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{Community\+Post}} post)
+\begin{DoxyCompactList}\small\item\em 새로운 게시글 작성 \end{DoxyCompactList}\item 
+Map$<$ String, Object $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a3f94ad2047005e82f3abf95129321e34}{get\+Post\+With\+Challenge}} (Long post\+Id)
+\begin{DoxyCompactList}\small\item\em 게시글 및 챌린지 상세 정보 조회 \end{DoxyCompactList}\item 
+List$<$ Map$<$ String, Object $>$ $>$ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a4365e7947ae86573c37fccdb98c3fc2d}{get\+Filtered\+Community}} (String challenge\+Type, Integer duration)
+\begin{DoxyCompactList}\small\item\em 필터 조건에 따른 게시글 조회 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper}{Community\+Mapper}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{community\+Mapper}}
+\item 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{Challenge\+Mapper}} \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a57f2916cf1d1f6bf241c85e5d88a9703}{challenge\+Mapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+커뮤니티 게시글 관리를 위한 서비스 
+
+이 서비스는 커뮤니티 게시글의 CRUD 작업과 관련된 비즈니스 로직을 처리합니다. 
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!createPost@{createPost}}
+\index{createPost@{createPost}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{createPost()}{createPost()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff} 
+void org.\+zerock.\+service.\+Community\+Service.\+create\+Post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{Community\+Post}}}]{post}{}\end{DoxyParamCaption})}
+
+
+
+새로운 게시글 작성 
+
+사용자가 작성한 게시글을 데이터베이스에 저장합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em post} & 저장할 게시글 객체 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em Runtime\+Exception} & 게시글 저장 중 오류 발생 시 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00072}{72}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a0462b4363aff5f97ecf12687c37f4520}{insertPost}}(post);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}게시글\ 저장\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage(),\ e);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a535b6eb18aad31a0fee49c67d769bdff_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!getAllPosts@{getAllPosts}}
+\index{getAllPosts@{getAllPosts}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{getAllPosts()}{getAllPosts()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573} 
+List$<$ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{Community\+Post}} $>$ org.\+zerock.\+service.\+Community\+Service.\+get\+All\+Posts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+전체 게시글 조회 
+
+커뮤니티에 등록된 모든 게시글을 조회합니다.
+
+\begin{DoxyReturn}{반환값}
+모든 게시글 리스트 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{예외}
+{\em Runtime\+Exception} & 게시글 조회 중 오류 발생 시 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00043}{43}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a3bda467a188175088889af3f65f04137}{getCommunityPosts}}();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}게시글\ 목록\ 조회\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}게시글\ 목록을\ 가져오는데\ 실패했습니다."{}},\ e);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a59116e0d60f0626e5008b6b24847e573_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a4365e7947ae86573c37fccdb98c3fc2d}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!getFilteredCommunity@{getFilteredCommunity}}
+\index{getFilteredCommunity@{getFilteredCommunity}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{getFilteredCommunity()}{getFilteredCommunity()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a4365e7947ae86573c37fccdb98c3fc2d} 
+List$<$ Map$<$ String, Object $>$ $>$ org.\+zerock.\+service.\+Community\+Service.\+get\+Filtered\+Community (\begin{DoxyParamCaption}\item[{String}]{challenge\+Type}{, }\item[{Integer}]{duration}{}\end{DoxyParamCaption})}
+
+
+
+필터 조건에 따른 게시글 조회 
+
+챌린지 유형과 기간을 기준으로 필터링된 게시글 목록을 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em challenge\+Type} & 챌린지 유형 \\
+\hline
+{\em duration} & 챌린지 기간 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+필터링된 게시글 목록 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00106}{106}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a79e01ff8ba092969f9aee4cb4351c721}{fetchFilteredCommunity}}(challengeType,\ duration);}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a4365e7947ae86573c37fccdb98c3fc2d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a3f94ad2047005e82f3abf95129321e34}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!getPostWithChallenge@{getPostWithChallenge}}
+\index{getPostWithChallenge@{getPostWithChallenge}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{getPostWithChallenge()}{getPostWithChallenge()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a3f94ad2047005e82f3abf95129321e34} 
+Map$<$ String, Object $>$ org.\+zerock.\+service.\+Community\+Service.\+get\+Post\+With\+Challenge (\begin{DoxyParamCaption}\item[{Long}]{post\+Id}{}\end{DoxyParamCaption})}
+
+
+
+게시글 및 챌린지 상세 정보 조회 
+
+특정 게시글 ID를 기반으로 게시글과 관련된 상세 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 조회할 게시글의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+게시글 및 관련 상세 정보가 포함된 Map 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{예외}
+{\em Runtime\+Exception} & 게시글이 존재하지 않을 경우 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00089}{89}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ Map<String,\ Object>\ postDetails\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a38ce769a3f2440c287034bdbe8d15f13}{getPostWithDetails}}(postId);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (postDetails\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}해당\ 게시글을\ 찾을\ 수\ 없습니다.\ postId:\ "{}}\ +\ postId);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ postDetails;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a3f94ad2047005e82f3abf95129321e34_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!getPostWithChallengeDTO@{getPostWithChallengeDTO}}
+\index{getPostWithChallengeDTO@{getPostWithChallengeDTO}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{getPostWithChallengeDTO()}{getPostWithChallengeDTO()}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8} 
+\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_d_t_o}{Community\+Post\+DTO}} org.\+zerock.\+service.\+Community\+Service.\+get\+Post\+With\+Challenge\+DTO (\begin{DoxyParamCaption}\item[{Long}]{post\+Id}{}\end{DoxyParamCaption})}
+
+
+
+게시글 상세 정보 및 관련 챌린지 조회 
+
+특정 게시글 ID를 기반으로 게시글 및 관련 챌린지 정보를 조회합니다.
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 조회할 게시글의 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+게시글 및 관련 챌린지 정보를 포함한 DTO 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00060}{60}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}{communityMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ae58272a81d0be86062c80f19a85c500b}{getPostById}}(postId);\ \textcolor{comment}{//\ Mapper에서\ DTO\ 반환}}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1zerock_1_1service_1_1_community_service_a91e202c9a924b9e60896f2985c6273a8_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a57f2916cf1d1f6bf241c85e5d88a9703}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!challengeMapper@{challengeMapper}}
+\index{challengeMapper@{challengeMapper}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{challengeMapper}{challengeMapper}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a57f2916cf1d1f6bf241c85e5d88a9703} 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{Challenge\+Mapper}} org.\+zerock.\+service.\+Community\+Service.\+challenge\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+챌린지 관리를 위한 Mapper 
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00033}{33}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7}\index{org.zerock.service.CommunityService@{org.zerock.service.CommunityService}!communityMapper@{communityMapper}}
+\index{communityMapper@{communityMapper}!org.zerock.service.CommunityService@{org.zerock.service.CommunityService}}
+\doxysubsubsection{\texorpdfstring{communityMapper}{communityMapper}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1service_1_1_community_service_a582a493f1fc3526365d32a5ea85180f7} 
+final \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper}{Community\+Mapper}} org.\+zerock.\+service.\+Community\+Service.\+community\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+커뮤니티 게시글 관리를 위한 Mapper 
+
+\mbox{\hyperlink{_community_service_8java_source}{Community\+Service.\+java}} 파일의 \mbox{\hyperlink{_community_service_8java_source_l00030}{30}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/service/\mbox{\hyperlink{_community_service_8java}{Community\+Service.\+java}}\end{DoxyCompactItemize}

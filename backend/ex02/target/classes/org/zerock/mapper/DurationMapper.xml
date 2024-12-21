@@ -3,9 +3,19 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.zerock.mapper.DurationMapper">
+
+    <!--
+        @brief 모든 기간 정보 조회
+        @details 
+        DURATIONS 테이블에서 모든 기간 정보를 조회합니다.
+        각 결과는 `org.zerock.domain.Duration` 클래스와 매핑됩니다.
+        @return 기간 정보 리스트 (org.zerock.domain.Duration)
+    -->
     <select id="findAll" resultType="org.zerock.domain.Duration">
-        SELECT duration_id AS durationId,
-               value
+        SELECT 
+            duration_id AS durationId,
+            value
         FROM DURATIONS
     </select>
+
 </mapper>

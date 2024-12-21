@@ -1,0 +1,68 @@
+\doxysection{Challenge\+Service.\+java}
+\hypertarget{_challenge_service_8java_source}{}\label{_challenge_service_8java_source}\index{java/org/zerock/service/ChallengeService.java@{java/org/zerock/service/ChallengeService.java}}
+\mbox{\hyperlink{_challenge_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00001}\mbox{\hyperlink{namespaceorg_1_1zerock_1_1service}{00001}}\ \textcolor{keyword}{package\ }org.zerock.service;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.transaction.annotation.Transactional;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.zerock.domain.Challenge;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.zerock.domain.ChallengeTask;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.zerock.domain.ChallengeType;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.zerock.mapper.ChallengeMapper;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.zerock.mapper.ChallengeTaskMapper;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.zerock.mapper.ChallengeTypeMapper;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00014}00014\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00022}00022\ @Service}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00023}00023\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00024}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service}{00024}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service}{ChallengeService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00027}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afbfc1319b196e6c8881de9c67e6d9f7c}{00027}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper}{ChallengeMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afbfc1319b196e6c8881de9c67e6d9f7c}{challengeMapper}};}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00029}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aac4828f0b6b35101bf7276cc121ee677}{00029}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper}{ChallengeTaskMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aac4828f0b6b35101bf7276cc121ee677}{challengeTaskMapper}};}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00031}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afa668a9256ffc51d63667f85e82148cf}{00031}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_type_mapper}{ChallengeTypeMapper}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afa668a9256ffc51d63667f85e82148cf}{challengeTypeMapper}};}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00040}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_ae091a5d0f983fea5347ec63e738e20e1}{00040}}\ \ \ \ \ \textcolor{keyword}{public}\ List<Challenge>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_ae091a5d0f983fea5347ec63e738e20e1}{getAllChallenges}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afbfc1319b196e6c8881de9c67e6d9f7c}{challengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_afbb86c96d3cfbe38fbda82e6cf9e6efc}{findAll}}();}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00051}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_a4eccf958e11fd40d3983c7bf146959a8}{00051}}\ \ \ \ \ \textcolor{keyword}{public}\ List<ChallengeTask>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_a4eccf958e11fd40d3983c7bf146959a8}{findAllTasks}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aac4828f0b6b35101bf7276cc121ee677}{challengeTaskMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper_a1bd3a08eafa94e64512064345b1b4d81}{findAllTasks}}();}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00063}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aa518d5a045772b9a32dc68ad5591dde0}{00063}}\ \ \ \ \ \textcolor{keyword}{public}\ List<ChallengeTask>\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aa518d5a045772b9a32dc68ad5591dde0}{getTasksByChallengeId}}(Long\ challengeId)\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aac4828f0b6b35101bf7276cc121ee677}{challengeTaskMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper_a5ea98e8da08bc6100ae9079b4698f30c}{findByChallengeId}}(challengeId);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00081}00081\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00082}\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_a9b9074293210b76930e6e4e2f509ad06}{00082}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_a9b9074293210b76930e6e4e2f509ad06}{createChallenge}}(String\ typeName,\ String\ title,\ String\ description,\ \textcolor{keywordtype}{int}\ duration,\ List<String>\ tasks)\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 챌린지\ 유형\ 조회}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_type}{ChallengeType}}\ type\ =\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afa668a9256ffc51d63667f85e82148cf}{challengeTypeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_type_mapper_a1a9c9c585050921096760a19b007d573}{findByName}}(typeName);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}해당\ 유형을\ 찾을\ 수\ 없습니다:\ "{}}\ +\ typeName);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 새로운\ 챌린지\ 생성\ 및\ 삽입}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}}\ challenge\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}}();}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ challenge.setTitle(title);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ challenge.setDescription(description);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ challenge.setDuration(duration);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ challenge.setActivityTypeId(type.getActivityTypeId());}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_afbfc1319b196e6c8881de9c67e6d9f7c}{challengeMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper_a5f87077f2dc003e81797cc89e07e2412}{insert}}(challenge);\ \textcolor{comment}{//\ Insert\ 후\ challengeId가\ keyProperty에\ 의해\ 매핑됨}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 과제\ 삽입}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ t\ :\ tasks)\ \{}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{ChallengeTask}}\ task\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_task}{ChallengeTask}}();}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ task.setChallengeId(challenge.getChallengeId());}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ task.setTask(t);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_challenge_service_aac4828f0b6b35101bf7276cc121ee677}{challengeTaskMapper}}.\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper_a45b9cbec8de3a973a1fac9a3234a9689}{insert}}(task);}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ challenge;}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_challenge_service_8java_source_l00107}00107\ \}}
+
+\end{DoxyCode}

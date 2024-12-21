@@ -1,0 +1,15 @@
+<map id="org.zerock.controller.ChallengeController" name="org.zerock.controller.ChallengeController">
+<area shape="rect" id="Node000001" title="챌린지 및 기간 관리를 위한 REST 컨트롤러" alt="" coords="407,496,598,667"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_challenge_service.html" title="챌린지 관리 서비스" alt="" coords="314,283,494,432"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="439,431,460,480,456,482,434,433"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_mapper.html" title="챌린지 데이터를 처리하기 위한 Mapper 인터페이스" alt="" coords="5,5,186,219"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="184,217,227,257,300,304,297,309,224,261,180,220"/>
+<area shape="rect" id="Node000004" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_task_mapper.html" title="챌린지 과제를 처리하기 위한 Mapper 인터페이스" alt="" coords="211,48,391,176"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="318,175,330,216,345,258,350,267,345,269,341,260,325,218,312,177"/>
+<area shape="rect" id="Node000005" href="$interfaceorg_1_1zerock_1_1mapper_1_1_challenge_type_mapper.html" title="챌린지 유형 관리를 위한 Mapper 인터페이스" alt="" coords="416,69,597,155"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="506,155,497,206,479,260,475,270,470,267,475,258,492,205,500,154"/>
+<area shape="rect" id="Node000006" href="$classorg_1_1zerock_1_1service_1_1_duration_service.html" title="기간 관리를 위한 서비스" alt="" coords="569,315,740,400"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="628,401,572,483,567,480,624,398"/>
+<area shape="rect" id="Node000007" href="$interfaceorg_1_1zerock_1_1mapper_1_1_duration_mapper.html" title="기간(Duration) 데이터를 처리하기 위한 Mapper 인터페이스" alt="" coords="620,69,792,155"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="700,155,669,299,664,298,695,154"/>
+</map>

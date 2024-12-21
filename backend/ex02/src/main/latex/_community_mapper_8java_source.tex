@@ -1,0 +1,39 @@
+\doxysection{Community\+Mapper.\+java}
+\hypertarget{_community_mapper_8java_source}{}\label{_community_mapper_8java_source}\index{java/org/zerock/mapper/CommunityMapper.java@{java/org/zerock/mapper/CommunityMapper.java}}
+\mbox{\hyperlink{_community_mapper_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.mapper;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00003}00003\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Mapper;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Param;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.zerock.domain.CommunityPost;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.zerock.domain.CommunityPostDTO;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00008}00008\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00009}00009\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00017}00017\ @Mapper}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00018}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper}{00018}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper}{CommunityMapper}}\ \{}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00027}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a3bda467a188175088889af3f65f04137}{00027}}\ \ \ \ \ List<CommunityPost>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a3bda467a188175088889af3f65f04137}{getCommunityPosts}}();}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00037}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ae58272a81d0be86062c80f19a85c500b}{00037}}\ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_d_t_o}{CommunityPostDTO}}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ae58272a81d0be86062c80f19a85c500b}{getPostById}}(Long\ postId);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00046}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a0462b4363aff5f97ecf12687c37f4520}{00046}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a0462b4363aff5f97ecf12687c37f4520}{insertPost}}(\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{CommunityPost}}\ post);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00056}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a38ce769a3f2440c287034bdbe8d15f13}{00056}}\ \ \ \ \ Map<String,\ Object>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a38ce769a3f2440c287034bdbe8d15f13}{getPostWithDetails}}(Long\ postId);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00065}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a898e3e05e2514f7eaa2a74cd78082c35}{00065}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a898e3e05e2514f7eaa2a74cd78082c35}{updateViewCount}}(Long\ postId);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00075}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_af25fc179183b9544add08d8d36cbe38c}{00075}}\ \ \ \ \ Map<String,\ Object>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_af25fc179183b9544add08d8d36cbe38c}{getPostWithChallenge}}(@Param(\textcolor{stringliteral}{"{}postId"{}})\ Long\ postId);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00084}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ab1604e5213e525ce3d41a56b9b88a03d}{00084}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ab1604e5213e525ce3d41a56b9b88a03d}{updatePost}}(\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{CommunityPost}}\ communityPost);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00093}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ad9773d4d63af2e7be342773911fd2224}{00093}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_ad9773d4d63af2e7be342773911fd2224}{deletePost}}(@Param(\textcolor{stringliteral}{"{}postId"{}})\ Long\ postId);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00104}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a79e01ff8ba092969f9aee4cb4351c721}{00104}}\ \ \ \ \ List<Map<String,\ Object>>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper_a79e01ff8ba092969f9aee4cb4351c721}{fetchFilteredCommunity}}(}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ @Param(\textcolor{stringliteral}{"{}challengeType"{}})\ String\ challengeType,}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ @Param(\textcolor{stringliteral}{"{}duration"{}})\ Integer\ duration);}
+\DoxyCodeLine{\Hypertarget{_community_mapper_8java_source_l00107}00107\ \}}
+
+\end{DoxyCode}

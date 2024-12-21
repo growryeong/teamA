@@ -4,81 +4,116 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.zerock.mapper.CommunityMapper">
-    <!-- 전체 게시글 조회 -->
+
+    <!--
+        @brief 전체 게시글 조회
+        @details 
+        COMMUNITY 테이블에서 모든 게시글을 조회합니다.
+        @return 게시글 리스트 (org.zerock.domain.CommunityPost)
+    -->
     <select id="getCommunityPosts" resultType="org.zerock.domain.CommunityPost">
-	        SELECT 
-	            post_id AS postId,
-	            user_id AS userId,
-	            user_challenge_id AS userChallengeId,
-	            title,
-	            content,
-	            view_count AS viewCount,
-	            timestamp
-	        FROM COMMUNITY
-	    </select>
+        SELECT 
+            post_id AS postId,
+            user_id AS userId,
+            user_challenge_id AS userChallengeId,
+            title,
+            content,
+            view_count AS viewCount,
+            timestamp
+        FROM COMMUNITY
+    </select>
 
-    <!-- 특정 게시글 조회 -->
-	    <select id="getPostById" parameterType="long" resultType="org.zerock.domain.CommunityPostDTO">
-		    SELECT 
-		        post_id AS postId,
-		        user_id AS userId,
-		        user_challenge_id AS userChallengeId,
-		        title,
-		        content,
-		        view_count AS viewCount,
-		        TO_CHAR(timestamp, 'YYYY-MM-DD HH24:MI:SS') AS timestamp
-		    FROM COMMUNITY
-		    WHERE post_id = #{postId}
-	    </select>
-	
-	    <!-- 게시글 작성 -->
-		<insert id="insertPost" parameterType="org.zerock.domain.CommunityPost">
-		    INSERT INTO COMMUNITY (
-		        post_id,
-		        user_id,
-		        user_challenge_id,
-		        title,
-		        content,
-		        view_count,
-		        timestamp
-		    ) VALUES (
-		        SEQ_COMMUNITY_POST_ID.NEXTVAL,
-		        #{userId},
-		        #{userChallengeId},
-		        #{title},
-		        #{content},
-		        #{viewCount},
-		        CURRENT_TIMESTAMP
-		    )
-		</insert>
-	
-	    <select id="getPostWithDetails" parameterType="long" resultType="map">
-	        SELECT 
-	            c.post_id AS postId,
-	            c.user_id AS userId,
-	            c.title AS title,
-	            c.content AS content,
-	            c.view_count AS viewCount,
-	            c.timestamp AS timestamp,
-	            uc.challenge_id AS challengeId,
-	            ch.title AS challengeTitle,
-	            ct.task AS task
-	        FROM COMMUNITY c
-	        LEFT JOIN USERCHALLENGE uc ON c.user_challenge_id = uc.user_challenge_id
-	        LEFT JOIN CHALLENGES ch ON uc.challenge_id = ch.challenge_id
-	        LEFT JOIN CHALLENGE_TASKS ct ON uc.task_id = ct.task_id
-	        WHERE c.post_id = #{postId}
-	    </select>
+    <!--
+        @brief 특정 게시글 조회
+        @details 
+        주어진 게시글 ID로 COMMUNITY 테이블에서 게시글 정보를 조회합니다.
+        @param postId 조회할 게시글의 ID (long 타입)
+        @return 게시글 상세 정보 (org.zerock.domain.CommunityPostDTO)
+    -->
+    <select id="getPostById" parameterType="long" resultType="org.zerock.domain.CommunityPostDTO">
+        SELECT 
+            post_id AS postId,
+            user_id AS userId,
+            user_challenge_id AS userChallengeId,
+            title,
+            content,
+            view_count AS viewCount,
+            TO_CHAR(timestamp, 'YYYY-MM-DD HH24:MI:SS') AS timestamp
+        FROM COMMUNITY
+        WHERE post_id = #{postId}
+    </select>
 
+    <!--
+        @brief 게시글 작성
+        @details 
+        COMMUNITY 테이블에 새로운 게시글을 추가합니다.
+        @param 게시글 데이터 (org.zerock.domain.CommunityPost)
+        @return 성공 시 INSERT된 게시글 ID
+    -->
+    <insert id="insertPost" parameterType="org.zerock.domain.CommunityPost">
+        INSERT INTO COMMUNITY (
+            post_id,
+            user_id,
+            user_challenge_id,
+            title,
+            content,
+            view_count,
+            timestamp
+        ) VALUES (
+            SEQ_COMMUNITY_POST_ID.NEXTVAL,
+            #{userId},
+            #{userChallengeId},
+            #{title},
+            #{content},
+            #{viewCount},
+            CURRENT_TIMESTAMP
+        )
+    </insert>
 
-    <!-- 조회수 증가 -->
+    <!--
+        @brief 게시글 및 관련 상세 정보 조회
+        @details 
+        게시글, 사용자 챌린지, 챌린지, 과제와 조인하여 상세 정보를 반환합니다.
+        @param postId 조회할 게시글의 ID
+        @return 게시글 상세 정보와 연관된 데이터 (Map 형태)
+    -->
+    <select id="getPostWithDetails" parameterType="long" resultType="map">
+        SELECT 
+            c.post_id AS postId,
+            c.user_id AS userId,
+            c.title AS title,
+            c.content AS content,
+            c.view_count AS viewCount,
+            c.timestamp AS timestamp,
+            uc.challenge_id AS challengeId,
+            ch.title AS challengeTitle,
+            ct.task AS task
+        FROM COMMUNITY c
+        LEFT JOIN USERCHALLENGE uc ON c.user_challenge_id = uc.user_challenge_id
+        LEFT JOIN CHALLENGES ch ON uc.challenge_id = ch.challenge_id
+        LEFT JOIN CHALLENGE_TASKS ct ON uc.task_id = ct.task_id
+        WHERE c.post_id = #{postId}
+    </select>
+
+    <!--
+        @brief 조회수 증가
+        @details 
+        주어진 게시글 ID로 조회수를 1 증가시킵니다.
+        @param postId 업데이트할 게시글 ID
+    -->
     <update id="updateViewCount">
-        UPDATE community 
+        UPDATE COMMUNITY 
         SET view_count = view_count + 1 
         WHERE post_id = #{postId}
     </update>
-    
-    
+
+    <!--
+        @brief 게시글과 챌린지 정보 함께 조회
+        @details 
+        게시글 ID를 기반으로 게시글 정보와 연관된 챌린지 및 과제 데이터를 조인하여 조회합니다.
+        @param postId 조회할 게시글 ID
+        @return 게시글과 연관된 챌린지 및 과제 데이터 (Map 형태)
+    -->
     <select id="getPostWithChallenge" parameterType="long" resultType="map">
         SELECT 
             c.post_id,
@@ -88,26 +123,60 @@
             c.content,
             c.view_count,
             c.timestamp,
-            ch.title as challenge_title,
+            ch.title AS challenge_title,
             ch.duration,
             ct.task
-        FROM community c
-        JOIN challenges ch ON c.challenge_id = ch.challenge_id
-        LEFT JOIN challenge_tasks ct ON ch.challenge_id = ct.challenge_id
+        FROM COMMUNITY c
+        JOIN CHALLENGES ch ON c.challenge_id = ch.challenge_id
+        LEFT JOIN CHALLENGE_TASKS ct ON ch.challenge_id = ct.challenge_id
         WHERE c.post_id = #{postId}
     </select>
 
-    
+    <!--
+        @brief 게시글 수정
+        @details 
+        COMMUNITY 테이블의 게시글 데이터를 수정합니다.
+        @param 게시글 데이터 (org.zerock.domain.CommunityPost)
+    -->
     <update id="updatePost" parameterType="org.zerock.domain.CommunityPost">
-        UPDATE community
+        UPDATE COMMUNITY
         SET 
             title = #{title},
             content = #{content},
             timestamp = #{timestamp}
         WHERE post_id = #{postId}
     </update>
-    
+
+    <!--
+        @brief 게시글 삭제
+        @details 
+        주어진 게시글 ID로 COMMUNITY 테이블에서 게시글을 삭제합니다.
+        @param postId 삭제할 게시글의 ID
+    -->
     <delete id="deletePost" parameterType="long">
-        DELETE FROM community WHERE post_id = #{postId}
+        DELETE FROM COMMUNITY WHERE post_id = #{postId}
     </delete>
+
+    <!--
+        @brief 필터 조건으로 게시글 조회
+        @details 
+        챌린지 제목과 기간을 기반으로 필터링된 게시글 리스트를 조회합니다.
+        @param challengeType 챌린지 제목 (String)
+        @param duration 챌린지 기간 (Integer)
+        @return 필터링된 게시글 리스트 (Map 형태)
+    -->
+    <select id="fetchFilteredCommunity" parameterType="map" resultType="map">
+        SELECT 
+            c.POST_ID, 
+            c.TITLE, 
+            c.CONTENT, 
+            c.USER_ID, 
+            c.TIMESTAMP
+        FROM COMMUNITY c
+        JOIN USERCHALLENGE uc ON c.USER_CHALLENGE_ID = uc.USER_CHALLENGE_ID
+        JOIN CHALLENGES ch ON uc.CHALLENGE_ID = ch.CHALLENGE_ID
+        WHERE ch.TITLE = #{challengeType}
+          AND uc.DURATION = #{duration}
+    </select>
+
 </mapper>

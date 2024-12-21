@@ -1,0 +1,117 @@
+\doxysection{org.\+zerock.\+domain.\+Challenge 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1domain_1_1_challenge}{}\label{classorg_1_1zerock_1_1domain_1_1_challenge}\index{org.zerock.domain.Challenge@{org.zerock.domain.Challenge}}
+
+
+챌린지 도메인 클래스  
+
+
+
+
+org.\+zerock.\+domain.\+Challenge에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classorg_1_1zerock_1_1domain_1_1_challenge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+Long \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_a21b0d1372698d18752cafac6159804ad}{challenge\+Id}}
+\begin{DoxyCompactList}\small\item\em 챌린지 ID \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_a6ef94fa958dd77ff51c652a93b826115}{title}}
+\begin{DoxyCompactList}\small\item\em 챌린지 제목 \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_a32a5d6731c1bf59d38082f6c1a80bee0}{description}}
+\begin{DoxyCompactList}\small\item\em 챌린지 설명 \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_ae498315d70044bf6e112dc7cb400069e}{duration}}
+\begin{DoxyCompactList}\small\item\em 챌린지 기간 \end{DoxyCompactList}\item 
+Long \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_challenge_a7ea267f355a0fc7d2385eecce7fb6048}{activity\+Type\+Id}}
+\begin{DoxyCompactList}\small\item\em 활동 유형 ID \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+챌린지 도메인 클래스 
+
+이 클래스는 챌린지의 기본 정보를 나타내며, 데이터베이스와 매핑됩니다. 
+
+\mbox{\hyperlink{_challenge_8java_source}{Challenge.\+java}} 파일의 \mbox{\hyperlink{_challenge_8java_source_l00011}{11}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_challenge_a7ea267f355a0fc7d2385eecce7fb6048}\index{org.zerock.domain.Challenge@{org.zerock.domain.Challenge}!activityTypeId@{activityTypeId}}
+\index{activityTypeId@{activityTypeId}!org.zerock.domain.Challenge@{org.zerock.domain.Challenge}}
+\doxysubsubsection{\texorpdfstring{activityTypeId}{activityTypeId}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_challenge_a7ea267f355a0fc7d2385eecce7fb6048} 
+Long org.\+zerock.\+domain.\+Challenge.\+activity\+Type\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+활동 유형 ID 
+
+챌린지의 유형을 나타내는 외래 키(\+FK)로, {\ttfamily \doxylink{classorg_1_1zerock_1_1domain_1_1_challenge_type}{Challenge\+Type}} 테이블을 참조합니다. 
+
+\mbox{\hyperlink{_challenge_8java_source}{Challenge.\+java}} 파일의 \mbox{\hyperlink{_challenge_8java_source_l00046}{46}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_challenge_a21b0d1372698d18752cafac6159804ad}\index{org.zerock.domain.Challenge@{org.zerock.domain.Challenge}!challengeId@{challengeId}}
+\index{challengeId@{challengeId}!org.zerock.domain.Challenge@{org.zerock.domain.Challenge}}
+\doxysubsubsection{\texorpdfstring{challengeId}{challengeId}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_challenge_a21b0d1372698d18752cafac6159804ad} 
+Long org.\+zerock.\+domain.\+Challenge.\+challenge\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+챌린지 ID 
+
+챌린지를 고유하게 식별하기 위한 ID입니다. 
+
+\mbox{\hyperlink{_challenge_8java_source}{Challenge.\+java}} 파일의 \mbox{\hyperlink{_challenge_8java_source_l00018}{18}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_challenge_a32a5d6731c1bf59d38082f6c1a80bee0}\index{org.zerock.domain.Challenge@{org.zerock.domain.Challenge}!description@{description}}
+\index{description@{description}!org.zerock.domain.Challenge@{org.zerock.domain.Challenge}}
+\doxysubsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_challenge_a32a5d6731c1bf59d38082f6c1a80bee0} 
+String org.\+zerock.\+domain.\+Challenge.\+description\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+챌린지 설명 
+
+챌린지에 대한 간략한 설명을 제공합니다. 
+
+\mbox{\hyperlink{_challenge_8java_source}{Challenge.\+java}} 파일의 \mbox{\hyperlink{_challenge_8java_source_l00032}{32}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_challenge_ae498315d70044bf6e112dc7cb400069e}\index{org.zerock.domain.Challenge@{org.zerock.domain.Challenge}!duration@{duration}}
+\index{duration@{duration}!org.zerock.domain.Challenge@{org.zerock.domain.Challenge}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_challenge_ae498315d70044bf6e112dc7cb400069e} 
+Integer org.\+zerock.\+domain.\+Challenge.\+duration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+챌린지 기간 
+
+챌린지가 진행되는 기간(일 단위)을 나타냅니다. 
+
+\mbox{\hyperlink{_challenge_8java_source}{Challenge.\+java}} 파일의 \mbox{\hyperlink{_challenge_8java_source_l00039}{39}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_challenge_a6ef94fa958dd77ff51c652a93b826115}\index{org.zerock.domain.Challenge@{org.zerock.domain.Challenge}!title@{title}}
+\index{title@{title}!org.zerock.domain.Challenge@{org.zerock.domain.Challenge}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_challenge_a6ef94fa958dd77ff51c652a93b826115} 
+String org.\+zerock.\+domain.\+Challenge.\+title\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+챌린지 제목 
+
+챌린지의 제목 또는 이름을 나타냅니다. 
+
+\mbox{\hyperlink{_challenge_8java_source}{Challenge.\+java}} 파일의 \mbox{\hyperlink{_challenge_8java_source_l00025}{25}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/domain/\mbox{\hyperlink{_challenge_8java}{Challenge.\+java}}\end{DoxyCompactItemize}

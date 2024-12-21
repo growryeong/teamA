@@ -1,0 +1,7 @@
+<map id="org.zerock.mapper.CommunityMapper.getCommunityPosts" name="org.zerock.mapper.CommunityMapper.getCommunityPosts">
+<area shape="rect" id="Node000001" title="전체 게시글 조회" alt="" coords="511,5,711,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_community_service.html#a59116e0d60f0626e5008b6b24847e573" title="전체 게시글 조회" alt="" coords="264,5,463,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,29,463,29,463,24,495,24"/>
+<area shape="rect" id="Node000003" href="$classorg_1_1zerock_1_1controller_1_1_community_controller.html#a83d8b1e0f755ac3073534070786e02de" title="모든 게시글 조회" alt="" coords="5,5,216,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,29,216,29,216,24,248,24"/>
+</map>

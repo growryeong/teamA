@@ -1,0 +1,9 @@
+<map id="org.zerock.service.UserChallengeService.getUserChallengeDetails" name="org.zerock.service.UserChallengeService.getUserChallengeDetails">
+<area shape="rect" id="Node000001" title="사용자 챌린지 상세 정보 조회" alt="" coords="297,80,515,123"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_user_challenge_service.html#a64817f0444a3473ad791b8012755a8db" title="기존 사용자 챌린지를 복제하여 새로운 사용자로 저장" alt="" coords="18,5,236,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,78,209,51,210,46,309,73"/>
+<area shape="rect" id="Node000003" href="$classorg_1_1zerock_1_1controller_1_1_user_challenge_controller.html#afe03aa6d65ef99b57db913eef4376ed2" title="특정 사용자 챌린지의 상세 정보 조회" alt="" coords="5,72,249,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="281,104,249,104,249,99,281,99"/>
+<area shape="rect" id="Node000004" href="$classorg_1_1zerock_1_1controller_1_1_user_challenge_controller.html#a348788057d8297cbc2136abb36a1e791" title="사용자 챌린지에 참여" alt="" coords="18,155,236,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="309,130,210,157,209,151,308,125"/>
+</map>

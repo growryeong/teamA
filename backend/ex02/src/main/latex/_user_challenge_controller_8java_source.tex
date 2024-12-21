@@ -1,0 +1,153 @@
+\doxysection{User\+Challenge\+Controller.\+java}
+\hypertarget{_user_challenge_controller_8java_source}{}\label{_user_challenge_controller_8java_source}\index{java/org/zerock/controller/UserChallengeController.java@{java/org/zerock/controller/UserChallengeController.java}}
+\mbox{\hyperlink{_user_challenge_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.controller;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.math.BigDecimal;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.time.LocalDate;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00006}00006\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.springframework.http.HttpStatus;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.http.ResponseEntity;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.CrossOrigin;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.PathVariable;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00013}00013\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00014}00014\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.RequestBody;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00015}00015\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.RequestMapping;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00016}00016\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.RestController;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00017}00017\ \textcolor{keyword}{import}\ org.zerock.domain.UserChallenge;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00018}00018\ \textcolor{keyword}{import}\ org.zerock.service.UserChallengeService;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00020}00020\ \textcolor{keyword}{import}\ lombok.Getter;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00021}00021\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00022}00022\ \textcolor{keyword}{import}\ lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00023}00023\ \textcolor{keyword}{import}\ lombok.ToString;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00024}00024\ \textcolor{keyword}{import}\ lombok.extern.slf4j.Slf4j;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00031}00031\ @Slf4j}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00032}00032\ @RestController}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00033}00033\ @RequestMapping(\textcolor{stringliteral}{"{}/api"{}})}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00034}00034\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00035}00035\ @CrossOrigin(origins\ =\ \textcolor{stringliteral}{"{}http://localhost:3000"{}})\ \textcolor{comment}{//\ CORS\ 허용}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00036}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller}{00036}}\ public\ class\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller}{UserChallengeController}}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00039}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{00039}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service}{UserChallengeService}}\ \mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a61857cc2333f96aeaf40ca9b752df199}{userChallengeService}};}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00049}00049\ \ \ \ \ @PostMapping(\textcolor{stringliteral}{"{}/userChallenges"{}})}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00050}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a92873b0e26b4b4c63c9503febfebd1ad}{00050}}\ \ \ \ \ public\ ResponseEntity<String>\ saveUserChallenge(@RequestBody\ UserChallengeRequest\ request)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}요청\ 데이터:\ \{\}"{}},\ request);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 사용자\ 챌린지\ 저장\ 서비스\ 호출}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ userChallengeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517}{saveUserChallenge}}(}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getUser\_id(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getChallengeId(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getChallengeType(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getChallengeTitle(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getDuration(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getStartDate(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getStatus(),}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.getTask\_id()}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(\textcolor{stringliteral}{"{}챌린지가\ 성공적으로\ 저장되었습니다!"{}});}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}챌린지\ 저장\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 메시지\ 반환}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}챌린지\ 저장\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00084}00084\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/userChallenges/\{userId\}"{}})}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00085}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_ad7ce098c3fa2074870a9ec506d413523}{00085}}\ \ \ \ \ public\ ResponseEntity<List<\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{UserChallenge}}>>\ getOngoingChallenge(@PathVariable\ String\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 진행\ 중인\ 챌린지\ 목록\ 조회}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ List<UserChallenge>\ ongoingChallenges\ =\ userChallengeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a18f64b17f7b97be4f741fc1e910edc22}{getOngoingChallenge}}(userId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ongoingChallenges.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 진행\ 중인\ 챌린지가\ 없을\ 경우\ 404\ 응답}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ return\ ResponseEntity.status(HttpStatus.NOT\_FOUND).build();}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 진행\ 중인\ 챌린지\ 목록\ 반환}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(ongoingChallenges);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00106}00106\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/\{userChallengeId\}"{}})}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00107}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_afe03aa6d65ef99b57db913eef4376ed2}{00107}}\ \ \ \ \ public\ ResponseEntity<Map<String,\ Object>>\ getUserChallengeDetails(@PathVariable\ Long\ userChallengeId)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 사용자\ 챌린지\ 상세\ 정보\ 조회}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ Map<String,\ Object>\ result\ =\ userChallengeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}{getUserChallengeDetails}}(userChallengeId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 상세\ 정보\ 반환}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(result);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00114}00114\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}챌린지\ 상세\ 정보\ 조회\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 발생\ 시\ 500\ 응답}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR).build();}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00119}00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00130}00130\ \ \ \ \ @PostMapping(\textcolor{stringliteral}{"{}/userChallenges/join"{}})}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00131}\mbox{\hyperlink{classorg_1_1zerock_1_1controller_1_1_user_challenge_controller_a348788057d8297cbc2136abb36a1e791}{00131}}\ \ \ \ \ public\ ResponseEntity<String>\ joinChallenge(@RequestBody\ Map<String,\ Object>\ request)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ log.info(\textcolor{stringliteral}{"{}챌린지\ 참여\ 요청\ 데이터:\ \{\}"{}},\ request);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 요청\ 데이터\ 파싱}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ userChallengeId\ =\ ((Number)\ request.get(\textcolor{stringliteral}{"{}userChallengeId"{}})).longValue();}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ String\ newUserId\ =\ (String)\ request.get(\textcolor{stringliteral}{"{}userId"{}});}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 기존\ 챌린지\ 데이터\ 조회}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ Map<String,\ Object>\ originalChallenge\ =\ userChallengeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_a08d37cf340caaaa7ff7faa247a071987}{getUserChallengeDetails}}(userChallengeId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (originalChallenge\ ==\ \textcolor{keyword}{null}\ ||\ originalChallenge.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ log.warn(\textcolor{stringliteral}{"{}유효한\ 챌린지\ 데이터를\ 찾을\ 수\ 없습니다.\ userChallengeId:\ \{\}"{}},\ userChallengeId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.NOT\_FOUND).body(\textcolor{stringliteral}{"{}유효한\ 챌린지\ 데이터를\ 찾을\ 수\ 없습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 데이터\ 추출\ 및\ 변환}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ challengeId\ =\ ((BigDecimal)\ originalChallenge.get(\textcolor{stringliteral}{"{}CHALLENGEID"{}})).longValue();}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ taskId\ =\ ((BigDecimal)\ originalChallenge.get(\textcolor{stringliteral}{"{}TASKID"{}})).longValue();}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ String\ challengeTitle\ =\ (String)\ originalChallenge.get(\textcolor{stringliteral}{"{}CHALLENGETITLE"{}});}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ Integer\ duration\ =\ ((BigDecimal)\ originalChallenge.get(\textcolor{stringliteral}{"{}DURATION"{}})).intValue();}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 새로운\ 사용자\ 챌린지\ 생성}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ userChallengeService.\mbox{\hyperlink{classorg_1_1zerock_1_1service_1_1_user_challenge_service_abbbd50521c8facd21bd83c2919329517}{saveUserChallenge}}(}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newUserId,}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ challengeId,}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{null},\ \textcolor{comment}{//\ 챌린지\ 유형은\ null\ 처리}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ challengeTitle,}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duration,}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LocalDate.now().toString(),\ \textcolor{comment}{//\ 현재\ 날짜를\ 시작\ 날짜로\ 설정}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\_progress"{}},\ \textcolor{comment}{//\ 상태\ 설정}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ taskId}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.ok(\textcolor{stringliteral}{"{}챌린지\ 참여가\ 성공적으로\ 완료되었습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00165}00165\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ log.error(\textcolor{stringliteral}{"{}챌린지\ 참여\ 중\ 오류\ 발생:\ "{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 오류\ 메시지\ 반환}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ResponseEntity.status(HttpStatus.INTERNAL\_SERVER\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .body(\textcolor{stringliteral}{"{}챌린지\ 참여\ 중\ 오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00179}00179\ \ \ \ \ @Getter\ @Setter\ @ToString}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00180}00180\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }UserChallengeRequest\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ String\ user\_id;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ String\ challengeType;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ Long\ challengeId;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ String\ challengeTitle;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ duration;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ String\ startDate;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ String\ status;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ Long\ task\_id;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00197}00197\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_challenge_controller_8java_source_l00198}00198\ \}}
+
+\end{DoxyCode}

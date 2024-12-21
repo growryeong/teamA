@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project1: java/org/zerock/controller/ChallengeController.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project1<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_challenge_controller_8java_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ChallengeController.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_challenge_controller_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceorg_1_1zerock_1_1controller.html">    1</a></span><span class="keyword">package </span>org.zerock.controller;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> org.springframework.http.ResponseEntity;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.springframework.web.bind.annotation.CrossOrigin;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestBody;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> org.zerock.domain.Challenge;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">import</span> org.zerock.domain.ChallengeTask;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">import</span> org.zerock.domain.Duration;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> org.zerock.service.ChallengeService;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">import</span> org.zerock.service.DurationService;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">import</span> lombok.Getter;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">import</span> lombok.Setter;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>@RestController</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>@RequestMapping(<span class="stringliteral">&quot;/api&quot;</span>)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>@RequiredArgsConstructor</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>@CrossOrigin(origins = <span class="stringliteral">&quot;http://localhost:3000&quot;</span>) <span class="comment">// CORS 허용</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html">   33</a></span>public class <a class="code hl_class" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html">ChallengeController</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#ab333076490c926e2e9e448d31704646d">   36</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_class" href="classorg_1_1zerock_1_1service_1_1_challenge_service.html">ChallengeService</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#ab333076490c926e2e9e448d31704646d">challengeService</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a778c69eba03a3f7502db7aa70f00d59b">   38</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_class" href="classorg_1_1zerock_1_1service_1_1_duration_service.html">DurationService</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a778c69eba03a3f7502db7aa70f00d59b">durationService</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    @GetMapping(<span class="stringliteral">&quot;/challenges&quot;</span>)</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a468656d0de4f6a8424cce8507d675795">   46</a></span>    public ResponseEntity&lt;List&lt;<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a>&gt;&gt; getAllChallenges() {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        List&lt;Challenge&gt; challenges = challengeService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#ae091a5d0f983fea5347ec63e738e20e1">getAllChallenges</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">return</span> ResponseEntity.ok(challenges);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    @GetMapping(<span class="stringliteral">&quot;/challenges/{id}/tasks&quot;</span>)</div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#afec8ac834302c30d56e023a6f1093ec0">   58</a></span>    public List&lt;<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge_task.html">ChallengeTask</a>&gt; getTasks(@PathVariable Long <span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> challengeService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#aa518d5a045772b9a32dc68ad5591dde0">getTasksByChallengeId</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    @GetMapping(<span class="stringliteral">&quot;/durations&quot;</span>)</div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a563e2e1a777ea45e391ba85a621ea39b">   68</a></span>    public List&lt;<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_duration.html">Duration</a>&gt; getDurations() {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> durationService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_duration_service.html#acdaed9b6827ca93284c070fcab958883">getAllDurations</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    @PostMapping(<span class="stringliteral">&quot;/challenges&quot;</span>)</div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a8cb338fd76578ce1ccc8db3b8cd91769">   79</a></span>    public <a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge.html">Challenge</a> createChallenge(@RequestBody CreateChallengeRequest request) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> challengeService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#a9b9074293210b76930e6e4e2f509ad06">createChallenge</a>(</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            request.getTypeName(),</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            request.getTitle(),</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            request.getDescription(),</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            request.getDuration(),</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            request.getTasks()</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        );</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    @GetMapping(<span class="stringliteral">&quot;/tasks&quot;</span>)</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a5ac5bf9c18b3638a6e68569f7c4143e1">   95</a></span>    public ResponseEntity&lt;List&lt;<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_challenge_task.html">ChallengeTask</a>&gt;&gt; getAllTasks() {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        List&lt;ChallengeTask&gt; tasks = challengeService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#a4eccf958e11fd40d3983c7bf146959a8">findAllTasks</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> ResponseEntity.ok(tasks);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    @Getter @Setter</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">static</span> <span class="keyword">class </span>CreateChallengeRequest {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">private</span> String typeName;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keyword">private</span> String title;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">private</span> String description;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">private</span> <span class="keywordtype">int</span> duration;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">private</span> List&lt;String&gt; tasks;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+</div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1controller_1_1_challenge_controller_html"><div class="ttname"><a href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html">org.zerock.controller.ChallengeController</a></div><div class="ttdoc">챌린지 및 기간 관리를 위한 REST 컨트롤러</div><div class="ttdef"><b>Definition</b> <a href="#l00033">ChallengeController.java:33</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1controller_1_1_challenge_controller_html_a778c69eba03a3f7502db7aa70f00d59b"><div class="ttname"><a href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#a778c69eba03a3f7502db7aa70f00d59b">org.zerock.controller.ChallengeController.durationService</a></div><div class="ttdeci">final DurationService durationService</div><div class="ttdef"><b>Definition</b> <a href="#l00038">ChallengeController.java:38</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1controller_1_1_challenge_controller_html_ab333076490c926e2e9e448d31704646d"><div class="ttname"><a href="classorg_1_1zerock_1_1controller_1_1_challenge_controller.html#ab333076490c926e2e9e448d31704646d">org.zerock.controller.ChallengeController.challengeService</a></div><div class="ttdeci">final ChallengeService challengeService</div><div class="ttdef"><b>Definition</b> <a href="#l00036">ChallengeController.java:36</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_challenge_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_challenge.html">org.zerock.domain.Challenge</a></div><div class="ttdoc">챌린지 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_8java_source.html#l00011">Challenge.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_challenge_task_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_challenge_task.html">org.zerock.domain.ChallengeTask</a></div><div class="ttdoc">챌린지 과제(ChallengeTask) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_task_8java_source.html#l00011">ChallengeTask.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_duration_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_duration.html">org.zerock.domain.Duration</a></div><div class="ttdoc">챌린지 기간(Duration) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_duration_8java_source.html#l00011">Duration.java:11</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_challenge_service_html"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_challenge_service.html">org.zerock.service.ChallengeService</a></div><div class="ttdoc">챌린지 관리 서비스</div><div class="ttdef"><b>Definition</b> <a href="_challenge_service_8java_source.html#l00024">ChallengeService.java:24</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_challenge_service_html_a4eccf958e11fd40d3983c7bf146959a8"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#a4eccf958e11fd40d3983c7bf146959a8">org.zerock.service.ChallengeService.findAllTasks</a></div><div class="ttdeci">List&lt; ChallengeTask &gt; findAllTasks()</div><div class="ttdoc">전체 과제 목록 조회</div><div class="ttdef"><b>Definition</b> <a href="_challenge_service_8java_source.html#l00051">ChallengeService.java:51</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_challenge_service_html_a9b9074293210b76930e6e4e2f509ad06"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#a9b9074293210b76930e6e4e2f509ad06">org.zerock.service.ChallengeService.createChallenge</a></div><div class="ttdeci">Challenge createChallenge(String typeName, String title, String description, int duration, List&lt; String &gt; tasks)</div><div class="ttdoc">새로운 챌린지 생성</div><div class="ttdef"><b>Definition</b> <a href="_challenge_service_8java_source.html#l00082">ChallengeService.java:82</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_challenge_service_html_aa518d5a045772b9a32dc68ad5591dde0"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#aa518d5a045772b9a32dc68ad5591dde0">org.zerock.service.ChallengeService.getTasksByChallengeId</a></div><div class="ttdeci">List&lt; ChallengeTask &gt; getTasksByChallengeId(Long challengeId)</div><div class="ttdoc">특정 챌린지의 과제 목록 조회</div><div class="ttdef"><b>Definition</b> <a href="_challenge_service_8java_source.html#l00063">ChallengeService.java:63</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_challenge_service_html_ae091a5d0f983fea5347ec63e738e20e1"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_challenge_service.html#ae091a5d0f983fea5347ec63e738e20e1">org.zerock.service.ChallengeService.getAllChallenges</a></div><div class="ttdeci">List&lt; Challenge &gt; getAllChallenges()</div><div class="ttdoc">전체 챌린지 목록 조회</div><div class="ttdef"><b>Definition</b> <a href="_challenge_service_8java_source.html#l00040">ChallengeService.java:40</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_duration_service_html"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_duration_service.html">org.zerock.service.DurationService</a></div><div class="ttdoc">기간 관리를 위한 서비스</div><div class="ttdef"><b>Definition</b> <a href="_duration_service_8java_source.html#l00019">DurationService.java:19</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_duration_service_html_acdaed9b6827ca93284c070fcab958883"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_duration_service.html#acdaed9b6827ca93284c070fcab958883">org.zerock.service.DurationService.getAllDurations</a></div><div class="ttdeci">List&lt; Duration &gt; getAllDurations()</div><div class="ttdoc">전체 기간 목록 조회</div><div class="ttdef"><b>Definition</b> <a href="_duration_service_8java_source.html#l00031">DurationService.java:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_dbfded582784846724308f9150bf5e72.html">org</a></li><li class="navelem"><a class="el" href="dir_1d36fa85a4c40021bc41e20ad60b1a86.html">zerock</a></li><li class="navelem"><a class="el" href="dir_0adada2d9cdf9125b079b3e2ad93cc02.html">controller</a></li><li class="navelem"><a class="el" href="_challenge_controller_8java.html">ChallengeController.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+\doxysection{org.\+zerock.\+domain.\+User\+Challenge\+DTO 클래스 참조}
+\hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o}{}\label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+
+
+사용자 챌린지(\+User\+Challenge) DTO 클래스  
+
+
+
+
+org.\+zerock.\+domain.\+User\+Challenge\+DTO에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_abea3904495aa65da9508c7af31e3b0b0}{user\+Id}}
+\begin{DoxyCompactList}\small\item\em 사용자 ID \end{DoxyCompactList}\item 
+Long \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a4ecdc58cb54945b868e4c08881aa4764}{challenge\+Id}}
+\begin{DoxyCompactList}\small\item\em 챌린지 ID \end{DoxyCompactList}\item 
+Double \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a1c2a9ad253742b2dad6fac5b610f10de}{progress}}
+\begin{DoxyCompactList}\small\item\em 진행률 \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_ac9505e0cd47d43e43694a64591487c8e}{status}}
+\begin{DoxyCompactList}\small\item\em 챌린지 상태 \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a57067a9a56190b769c6faf5bee3c37c1}{start\+Date}}
+\begin{DoxyCompactList}\small\item\em 시작 날짜 \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a02cf4d3b8fa2601e46ed4f5f2ccef722}{end\+Date}}
+\begin{DoxyCompactList}\small\item\em 종료 날짜 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+사용자 챌린지(\+User\+Challenge) DTO 클래스 
+
+이 클래스는 사용자와 챌린지 간의 참여 정보를 클라이언트와 교환하기 위한 DTO(\+Data Transfer Object)입니다. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00012}{12}} 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a4ecdc58cb54945b868e4c08881aa4764}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}!challengeId@{challengeId}}
+\index{challengeId@{challengeId}!org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+\doxysubsubsection{\texorpdfstring{challengeId}{challengeId}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a4ecdc58cb54945b868e4c08881aa4764} 
+Long org.\+zerock.\+domain.\+User\+Challenge\+DTO.\+challenge\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+챌린지 ID 
+
+사용자가 참여 중인 챌린지의 ID로, {\ttfamily \doxylink{classorg_1_1zerock_1_1domain_1_1_challenge}{Challenge}} 테이블을 참조합니다. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00026}{26}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a02cf4d3b8fa2601e46ed4f5f2ccef722}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}!endDate@{endDate}}
+\index{endDate@{endDate}!org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+\doxysubsubsection{\texorpdfstring{endDate}{endDate}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a02cf4d3b8fa2601e46ed4f5f2ccef722} 
+Local\+Date org.\+zerock.\+domain.\+User\+Challenge\+DTO.\+end\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+종료 날짜 
+
+사용자가 챌린지를 완료하거나 종료한 날짜를 나타냅니다. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00055}{55}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a1c2a9ad253742b2dad6fac5b610f10de}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}!progress@{progress}}
+\index{progress@{progress}!org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+\doxysubsubsection{\texorpdfstring{progress}{progress}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a1c2a9ad253742b2dad6fac5b610f10de} 
+Double org.\+zerock.\+domain.\+User\+Challenge\+DTO.\+progress\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+진행률 
+
+사용자의 챌린지 진행 상태를 퍼센트(\%)로 나타냅니다. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00033}{33}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a57067a9a56190b769c6faf5bee3c37c1}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}!startDate@{startDate}}
+\index{startDate@{startDate}!org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+\doxysubsubsection{\texorpdfstring{startDate}{startDate}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_a57067a9a56190b769c6faf5bee3c37c1} 
+Local\+Date org.\+zerock.\+domain.\+User\+Challenge\+DTO.\+start\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+시작 날짜 
+
+사용자가 챌린지를 시작한 날짜를 나타냅니다. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00048}{48}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_ac9505e0cd47d43e43694a64591487c8e}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}!status@{status}}
+\index{status@{status}!org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_ac9505e0cd47d43e43694a64591487c8e} 
+String org.\+zerock.\+domain.\+User\+Challenge\+DTO.\+status\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+챌린지 상태 
+
+챌린지의 상태를 나타냅니다. 예\+: "{}in\+\_\+progress"{}, "{}completed"{}, "{}failed"{}. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00041}{41}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_abea3904495aa65da9508c7af31e3b0b0}\index{org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}!userId@{userId}}
+\index{userId@{userId}!org.zerock.domain.UserChallengeDTO@{org.zerock.domain.UserChallengeDTO}}
+\doxysubsubsection{\texorpdfstring{userId}{userId}}
+{\footnotesize\ttfamily \label{classorg_1_1zerock_1_1domain_1_1_user_challenge_d_t_o_abea3904495aa65da9508c7af31e3b0b0} 
+String org.\+zerock.\+domain.\+User\+Challenge\+DTO.\+user\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+사용자 ID 
+
+챌린지에 참여 중인 사용자의 ID입니다. 
+
+\mbox{\hyperlink{_user_challenge_d_t_o_8java_source}{User\+Challenge\+DTO.\+java}} 파일의 \mbox{\hyperlink{_user_challenge_d_t_o_8java_source_l00019}{19}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/org/zerock/domain/\mbox{\hyperlink{_user_challenge_d_t_o_8java}{User\+Challenge\+DTO.\+java}}\end{DoxyCompactItemize}

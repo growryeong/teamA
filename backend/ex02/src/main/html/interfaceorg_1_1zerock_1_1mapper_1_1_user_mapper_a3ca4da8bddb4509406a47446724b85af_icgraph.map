@@ -1,0 +1,5 @@
+<map id="org.zerock.mapper.UserMapper.updatePassword" name="org.zerock.mapper.UserMapper.updatePassword">
+<area shape="rect" id="Node000001" title="사용자 비밀번호 변경" alt="" coords="258,5,505,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_user_service_impl.html#a7e17bdf216c74f17971a9597c523f613" title="사용자 비밀번호 변경" alt="" coords="5,5,210,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,29,210,29,210,24,242,24"/>
+</map>

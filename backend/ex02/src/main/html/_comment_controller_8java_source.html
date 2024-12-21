@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project1: java/org/zerock/controller/CommentController.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project1<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_comment_controller_8java_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CommentController.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_comment_controller_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>org.zerock.controller;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> lombok.Getter;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> lombok.Setter;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> lombok.ToString;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.springframework.http.HttpStatus;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.springframework.http.ResponseEntity;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> org.zerock.domain.Comment;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> org.zerock.service.CommentService;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>@Slf4j</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>@RestController</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>@RequestMapping(<span class="stringliteral">&quot;/api/comments&quot;</span>)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>@RequiredArgsConstructor</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>@CrossOrigin(origins = <span class="stringliteral">&quot;http://localhost:3000&quot;</span>) <span class="comment">// CORS 허용</span></div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html">   28</a></span>public class <a class="code hl_class" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html">CommentController</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#af1e69be0f677f30d11f8803a7929c0f4">   31</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_class" href="classorg_1_1zerock_1_1service_1_1_comment_service.html">CommentService</a> <a class="code hl_variable" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#af1e69be0f677f30d11f8803a7929c0f4">commentService</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    @PostMapping</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#ac224e24d59843057406207438377b3f9">   42</a></span>    <span class="keyword">public</span> ResponseEntity&lt;String&gt; <a class="code hl_function" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#ac224e24d59843057406207438377b3f9">addComment</a>(@RequestBody Map&lt;String, Object&gt; payload) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="comment">// 요청 데이터에서 필요한 정보 추출</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            Long postId = ((Number) payload.get(<span class="stringliteral">&quot;postId&quot;</span>)).longValue();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            String userId = (String) payload.get(<span class="stringliteral">&quot;userId&quot;</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            String commentText = (String) payload.get(<span class="stringliteral">&quot;commentText&quot;</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="comment">// 댓글 등록 서비스 호출</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            commentService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_comment_service.html#a1e49a7e511c54b882ea4ce429f7d5df8">addComment</a>(postId, userId, commentText);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="comment">// 성공 응답 반환</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">return</span> ResponseEntity.ok(<span class="stringliteral">&quot;댓글이 성공적으로 추가되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        } <span class="keywordflow">catch</span> (Exception e) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            log.error(<span class="stringliteral">&quot;댓글 추가 중 오류 발생: &quot;</span>, e);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="comment">// 오류 응답 반환</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">return</span> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                 .body(<span class="stringliteral">&quot;댓글 추가 중 오류 발생: &quot;</span> + e.getMessage());</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    @GetMapping(<span class="stringliteral">&quot;/{postId}&quot;</span>)</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#a33b301b89fd6d261a4a77e8980fbf403">   72</a></span>    public ResponseEntity&lt;List&lt;<a class="code hl_class" href="classorg_1_1zerock_1_1domain_1_1_comment.html">Comment</a>&gt;&gt; getComments(@PathVariable Long postId) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// 댓글 목록 조회 서비스 호출</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        List&lt;Comment&gt; comments = commentService.<a class="code hl_function" href="classorg_1_1zerock_1_1service_1_1_comment_service.html#a9fdfe0091ff30420f56f6f38ef687dcf">getCommentsByPostId</a>(postId);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="comment">// 조회된 댓글 확인용 로그 출력</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        log.info(<span class="stringliteral">&quot;Fetched Comments: {}&quot;</span>, comments);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="comment">// 조회 결과 반환</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> ResponseEntity.ok(comments);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+</div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1controller_1_1_comment_controller_html"><div class="ttname"><a href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html">org.zerock.controller.CommentController</a></div><div class="ttdoc">댓글 관리를 위한 REST 컨트롤러</div><div class="ttdef"><b>Definition</b> <a href="#l00028">CommentController.java:28</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1controller_1_1_comment_controller_html_ac224e24d59843057406207438377b3f9"><div class="ttname"><a href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#ac224e24d59843057406207438377b3f9">org.zerock.controller.CommentController.addComment</a></div><div class="ttdeci">ResponseEntity&lt; String &gt; addComment(@RequestBody Map&lt; String, Object &gt; payload)</div><div class="ttdoc">댓글 등록</div><div class="ttdef"><b>Definition</b> <a href="#l00042">CommentController.java:42</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1controller_1_1_comment_controller_html_af1e69be0f677f30d11f8803a7929c0f4"><div class="ttname"><a href="classorg_1_1zerock_1_1controller_1_1_comment_controller.html#af1e69be0f677f30d11f8803a7929c0f4">org.zerock.controller.CommentController.commentService</a></div><div class="ttdeci">final CommentService commentService</div><div class="ttdef"><b>Definition</b> <a href="#l00031">CommentController.java:31</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1domain_1_1_comment_html"><div class="ttname"><a href="classorg_1_1zerock_1_1domain_1_1_comment.html">org.zerock.domain.Comment</a></div><div class="ttdoc">댓글(Comment) 도메인 클래스</div><div class="ttdef"><b>Definition</b> <a href="_comment_8java_source.html#l00020">Comment.java:20</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_comment_service_html"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_comment_service.html">org.zerock.service.CommentService</a></div><div class="ttdoc">댓글 관리를 위한 서비스</div><div class="ttdef"><b>Definition</b> <a href="_comment_service_8java_source.html#l00017">CommentService.java:17</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_comment_service_html_a1e49a7e511c54b882ea4ce429f7d5df8"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_comment_service.html#a1e49a7e511c54b882ea4ce429f7d5df8">org.zerock.service.CommentService.addComment</a></div><div class="ttdeci">void addComment(Long postId, String userId, String commentText)</div><div class="ttdoc">댓글 등록</div><div class="ttdef"><b>Definition</b> <a href="_comment_service_8java_source.html#l00031">CommentService.java:31</a></div></div>
+<div class="ttc" id="aclassorg_1_1zerock_1_1service_1_1_comment_service_html_a9fdfe0091ff30420f56f6f38ef687dcf"><div class="ttname"><a href="classorg_1_1zerock_1_1service_1_1_comment_service.html#a9fdfe0091ff30420f56f6f38ef687dcf">org.zerock.service.CommentService.getCommentsByPostId</a></div><div class="ttdeci">List&lt; Comment &gt; getCommentsByPostId(Long postId)</div><div class="ttdoc">게시글 ID를 기반으로 댓글 조회</div><div class="ttdef"><b>Definition</b> <a href="_comment_service_8java_source.html#l00043">CommentService.java:43</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_dbfded582784846724308f9150bf5e72.html">org</a></li><li class="navelem"><a class="el" href="dir_1d36fa85a4c40021bc41e20ad60b1a86.html">zerock</a></li><li class="navelem"><a class="el" href="dir_0adada2d9cdf9125b079b3e2ad93cc02.html">controller</a></li><li class="navelem"><a class="el" href="_comment_controller_8java.html">CommentController.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

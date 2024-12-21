@@ -1,0 +1,36 @@
+\doxysection{Community\+Post.\+java}
+\hypertarget{_community_post_8java_source}{}\label{_community_post_8java_source}\index{java/org/zerock/domain/CommunityPost.java@{java/org/zerock/domain/CommunityPost.java}}
+\mbox{\hyperlink{_community_post_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.domain;}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.time.LocalDateTime;}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.time.format.DateTimeFormatter;}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.fasterxml.jackson.annotation.JsonFormat;}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00007}00007\ \textcolor{keyword}{import}\ lombok.Data;}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00014}00014\ @Data}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00015}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{00015}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post}{CommunityPost}}\ \{}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00022}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a7b10890ef4c67e0953edf7d51b3ff80a}{00022}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a7b10890ef4c67e0953edf7d51b3ff80a}{postId}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00029}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_ad7d13976b3826c4a00f53318d4884ed4}{00029}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_ad7d13976b3826c4a00f53318d4884ed4}{userId}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00036}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a6b133817b8514c2f2bbc21725125a163}{00036}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a6b133817b8514c2f2bbc21725125a163}{userChallengeId}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00043}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_ae1f20b94c1fbc8d613785ac57158842a}{00043}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_ae1f20b94c1fbc8d613785ac57158842a}{title}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00050}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_ae5ce0100152d79e757ad72819c0f8288}{00050}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_ae5ce0100152d79e757ad72819c0f8288}{content}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00057}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_aebac2b05b4a59964070bcce7e2c72d3c}{00057}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_aebac2b05b4a59964070bcce7e2c72d3c}{viewCount}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00065}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a77aede395d7b68597986deca41acf7e6}{00065}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a77aede395d7b68597986deca41acf7e6}{timestamp}};}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00073}\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a4623b829f67aa8ae9a20953e9f0e6db4}{00073}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_community_post_a4623b829f67aa8ae9a20953e9f0e6db4}{setCurrentTimestamp}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ DateTimeFormatter\ formatter\ =\ DateTimeFormatter.ofPattern(\textcolor{stringliteral}{"{}yyyy-\/MM-\/dd\ HH:mm:ss"{}});}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ this.timestamp\ =\ LocalDateTime.now().format(formatter);}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_community_post_8java_source_l00077}00077\ \}}
+
+\end{DoxyCode}

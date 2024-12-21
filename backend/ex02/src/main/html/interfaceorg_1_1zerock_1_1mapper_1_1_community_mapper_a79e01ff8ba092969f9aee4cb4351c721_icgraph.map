@@ -1,0 +1,5 @@
+<map id="org.zerock.mapper.CommunityMapper.fetchFilteredCommunity" name="org.zerock.mapper.CommunityMapper.fetchFilteredCommunity">
+<area shape="rect" id="Node000001" title="필터 조건에 따른 게시글 조회" alt="" coords="253,5,460,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_community_service.html#a4365e7947ae86573c37fccdb98c3fc2d" title="필터 조건에 따른 게시글 조회" alt="" coords="5,5,205,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,29,205,29,205,24,237,24"/>
+</map>

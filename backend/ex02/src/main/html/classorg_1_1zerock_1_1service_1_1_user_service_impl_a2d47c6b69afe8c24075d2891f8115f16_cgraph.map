@@ -1,0 +1,9 @@
+<map id="org.zerock.service.UserServiceImpl.registerUser" name="org.zerock.service.UserServiceImpl.registerUser">
+<area shape="rect" id="Node000001" title="사용자 회원가입" alt="" coords="5,72,210,115"/>
+<area shape="rect" id="Node000002" href="$interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#aba3601e3916014b1440ce8bab6889954" title="이메일 중복 확인" alt="" coords="270,5,514,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,69,282,49,284,55,202,74"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#a03c3bb117c66571db962b2573607357c" title="사용자 ID 중복 확인" alt="" coords="270,72,514,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,91,255,91,255,96,210,96"/>
+<area shape="rect" id="Node000004" href="$interfaceorg_1_1zerock_1_1mapper_1_1_user_mapper.html#afe7785ffdf6ccd781826818a7fb39ed7" title="사용자 회원가입" alt="" coords="258,139,526,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,113,258,124,301,133,300,138,257,129,204,118"/>
+</map>

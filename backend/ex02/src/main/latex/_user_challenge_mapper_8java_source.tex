@@ -1,0 +1,30 @@
+\doxysection{User\+Challenge\+Mapper.\+java}
+\hypertarget{_user_challenge_mapper_8java_source}{}\label{_user_challenge_mapper_8java_source}\index{java/org/zerock/mapper/UserChallengeMapper.java@{java/org/zerock/mapper/UserChallengeMapper.java}}
+\mbox{\hyperlink{_user_challenge_mapper_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00001}00001\ \textcolor{keyword}{package\ }org.zerock.mapper;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Mapper;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Param;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.zerock.domain.UserChallenge;}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00016}00016\ @Mapper}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00017}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper}{00017}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper}{UserChallengeMapper}}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00026}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a647a96376df7b31c09e45141faae2d3f}{00026}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a647a96376df7b31c09e45141faae2d3f}{insertUserChallenge}}(\mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{UserChallenge}}\ userChallenge);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00037}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_ae736826d1a44267d6096d8fea7fd669f}{00037}}\ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{UserChallenge}}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_ae736826d1a44267d6096d8fea7fd669f}{findByUserAndChallenge}}(@Param(\textcolor{stringliteral}{"{}userId"{}})\ String\ userId,\ @Param(\textcolor{stringliteral}{"{}challengeId"{}})\ Long\ challengeId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00047}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_aeea43e6b52f52fcef5f7f34d131b5d18}{00047}}\ \ \ \ \ List<UserChallenge>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_aeea43e6b52f52fcef5f7f34d131b5d18}{findByUser}}(@Param(\textcolor{stringliteral}{"{}userId"{}})\ String\ userId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00057}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_ae8358921b9084f490d4c0dc93d6840e7}{00057}}\ \ \ \ \ \mbox{\hyperlink{classorg_1_1zerock_1_1domain_1_1_user_challenge}{UserChallenge}}\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_ae8358921b9084f490d4c0dc93d6840e7}{findOngoingChallenge}}(String\ userId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00067}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a6c4659d3bb763604b94eb1adf4680414}{00067}}\ \ \ \ \ List<UserChallenge>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a6c4659d3bb763604b94eb1adf4680414}{findOngoingChallengeByUserId}}(@Param(\textcolor{stringliteral}{"{}userId"{}})\ String\ userId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00077}\mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a0a59516a89020931684005d0e7ca1927}{00077}}\ \ \ \ \ Map<String,\ Object>\ \mbox{\hyperlink{interfaceorg_1_1zerock_1_1mapper_1_1_user_challenge_mapper_a0a59516a89020931684005d0e7ca1927}{getUserChallengeDetails}}(@Param(\textcolor{stringliteral}{"{}userChallengeId"{}})\ Long\ userChallengeId);}
+\DoxyCodeLine{\Hypertarget{_user_challenge_mapper_8java_source_l00078}00078\ \}}
+
+\end{DoxyCode}

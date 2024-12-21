@@ -1,0 +1,7 @@
+<map id="org.zerock.controller.CommunityController.createPost" name="org.zerock.controller.CommunityController.createPost">
+<area shape="rect" id="Node000001" title="새로운 게시글 생성" alt="" coords="5,5,216,48"/>
+<area shape="rect" id="Node000002" href="$classorg_1_1zerock_1_1service_1_1_community_service.html#a535b6eb18aad31a0fee49c67d769bdff" title="새로운 게시글 작성" alt="" coords="264,5,463,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,24,248,24,248,29,216,29"/>
+<area shape="rect" id="Node000003" href="$interfaceorg_1_1zerock_1_1mapper_1_1_community_mapper.html#a0462b4363aff5f97ecf12687c37f4520" title="새로운 게시글 삽입" alt="" coords="511,5,711,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="463,24,495,24,495,29,463,29"/>
+</map>
